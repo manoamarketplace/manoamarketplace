@@ -5,9 +5,6 @@
   ],
 
   "defaultData": [
-    { "name": "Basket", "quantity": 3, "owner": "john@foo.com", "condition": "excellent" },
-    { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
-    { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
-    { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
+    { "name": "Salad spinner", "category": "kitchen", "image": "https://assets.epicurious.com/photos/625f218ffc183e33fb1fcc8a/16:9/w_2560%2Cc_limit/oxo-glass-salad-spinner_HERO_041322_7257_VOG_final.jpg", "price": 8.00, "description": "Salad spinner for sale, only used it twice. Great condition.", "owner": "john@foo.com" }
   ]
 }
