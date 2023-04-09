@@ -2,7 +2,7 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Button, Col, Container, Row } from 'react-bootstrap';
-import { Journals, Building, Scooter } from 'react-bootstrap-icons'
+import { Journals, Building, Scooter } from 'react-bootstrap-icons';
 
 /* A simple static component to render some text for the landing page. */
 const Landing = () => {
