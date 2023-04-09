@@ -14,7 +14,7 @@ const Landing = () => {
     <Container id="landing-page" fluid className="py-3">
       <Row className="align-middle">
         <h1>Manoa Marketplace</h1>
-        <h5>The best place to buy and sell second-hand items on Manoa campus. Connect with other students to get all kinds of school-related supplies right on campus!</h5>
+        <h5>The best place to buy and sell second-hand items at UH Manoa. Connect with other students to get all kinds of school-related supplies right on campus!</h5>
       </Row>
       <Row className="align-middle py-4">
         <Col xs={4} className="px-4">
