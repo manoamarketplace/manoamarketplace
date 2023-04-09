@@ -23,14 +23,20 @@ const SignUp = ({ location }) => {
   /* Handle SignUp submission. Create user account and a profile entry, then redirect to the home page. */
   const submit = (doc) => {
     const { email, password } = doc;
-    Accounts.createUser({ email, username: email, password }, (err) => {
-      if (err) {
-        setError(err.reason);
-      } else {
-        setError('');
-        setRedirectToRef(true);
-      }
-    });
+    if (email.indexOf("@hawaii.edu") === -1) {
+      setError('Not a UH email!');
+    } else {
+      'if (check).. and then error message'
+      'for an adv. app: make sure everything is auto lowercased and no whitespaces'
+      Accounts.createUser({ email, username: email, password }, (err) => {
+        if (err) {
+          setError(err.reason);
+        } else {
+          setError('');
+          setRedirectToRef(true);
+        }
+      });
+    }
   };
 
   /* Display the signup form. Redirect to add page after successful registration and login. */
@@ -50,6 +56,7 @@ const SignUp = ({ location }) => {
             <Card>
               <Card.Body>
                 <TextField name="email" placeholder="E-mail address" />
+                <p>Note: E-mail address must end in "@hawaii.edu"</p>
                 <TextField name="password" placeholder="Password" type="password" />
                 <ErrorsField />
                 <SubmitField />
