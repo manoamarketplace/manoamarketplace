@@ -26,3 +26,18 @@ body {
   padding-top: 10px;
   padding-bottom: 20px;
 }
+
+.navbar-nav {
+  font-size: 30px;
+  font-family: "Monospaced";
+}
+
+h2, .card, footer {
+  font-family: Monospaced;
+}
+
+.bg-categories {
+  background-image: url("/images/manoa-categories-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
