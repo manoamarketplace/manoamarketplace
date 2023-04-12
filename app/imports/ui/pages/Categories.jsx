@@ -11,7 +11,7 @@ import { PageIDs } from '../utilities/ids';
 import { Item } from '../../api/item/Item';
 import { Category } from '../../api/item/Category';
 
-const CategoriesPage = ({ }) => (
+const CategoriesPage = () => (
   /* <Nav>
     <Nav.Link><Button variant="dark">School Supplies</Button> </Nav.Link>
     <Nav.Link><Button variant="dark">Bathroom</Button> </Nav.Link>
@@ -24,62 +24,68 @@ const CategoriesPage = ({ }) => (
     <Card.Header>
       <Card.Title className="text-center py-3"><h1 style={{ color: 'white' }}><strong>Categories</strong></h1></Card.Title>
     </Card.Header>
-      <Container>
-        <Row className="justify-content-md-center py+5">
+    <Container>
+      <Row className="justify-content-md-center py+5">
         <Col xs="auto" className="py-3">
           <Col className="text-center">
             <Card>
-              <Link to={`/additem`} style={{ color: 'forestgreen', textDecoration: 'none'}}>
+              <Link to={`/additem`} style={{ color: 'forestgreen', textDecoration: 'none' }}>
                 <Image src="/images/books.jpg" width={300} height={186} />
-                <h2>School Supplies</h2></Link>
+                <h2>School Supplies</h2>
+              </Link>
             </Card>
           </Col>
         </Col>
-          <Col xs="auto" className="py-3">
-            <Col className="text-center">
-              <Card>
-                <Link to={`/additem`} style={{ color: 'forestgreen', textDecoration: 'none'}}>
+        <Col xs="auto" className="py-3">
+          <Col className="text-center">
+            <Card>
+              <Link to={`/additem`} style={{ color: 'forestgreen', textDecoration: 'none' }}>
                 <Image src="/images/bath.png" width={300} height={186} />
-                <h2>Bathroom</h2></Link>
-              </Card>
-            </Col>
+                <h2>Bathroom</h2>
+              </Link>
+            </Card>
           </Col>
-          <Col xs="auto" className="py-3">
-            <Col className="text-center">
-              <Card>
-                <Link to={`/additem`} style={{ color: 'forestgreen', textDecoration: 'none'}}>
+        </Col>
+        <Col xs="auto" className="py-3">
+          <Col className="text-center">
+            <Card>
+              <Link to={`/additem`} style={{ color: 'forestgreen', textDecoration: 'none' }}>
                 <Image src="/images/kitchen.jpg" width={300} height={186} />
-                <h2>Kitchen</h2></Link>
-              </Card>
-            </Col>
+                <h2>Kitchen</h2>
+              </Link>
+            </Card>
           </Col>
-          <Col xs="auto" className="py-3">
-            <Col className="text-center">
-              <Card>
-                <Link to={`/additem`} style={{ color: 'forestgreen', textDecoration: 'none'}}>
+        </Col>
+        <Col xs="auto" className="py-3">
+          <Col className="text-center">
+            <Card>
+              <Link to={`/additem`} style={{ color: 'forestgreen', textDecoration: 'none' }}>
                 <Image src="/images/gym.jpg" width={300} height={186} />
-                <h2>Gym</h2></Link>
-              </Card>
-            </Col>
+                <h2>Gym</h2>
+              </Link>
+            </Card>
           </Col>
-          <Col xs="auto" className="py-3">
-            <Col className="text-center">
-              <Card>
-                <Link to={`/additem`} style={{ color: 'forestgreen', textDecoration: 'none'}}>
+        </Col>
+        <Col xs="auto" className="py-3">
+          <Col className="text-center">
+            <Card>
+              <Link to={`/additem`} style={{ color: 'forestgreen', textDecoration: 'none' }}>
                 <Image src="/images/transportation.jpg" width={300} height={186} />
-                <h2>Transportation</h2></Link>
-              </Card>
-            </Col>
+                <h2>Transportation</h2>
+              </Link>
+            </Card>
           </Col>
-          <Col xs="auto" className="py-3">
-            <Col className="text-center">
-              <Card>
-                <Link to={`/additem`} style={{ color: 'forestgreen', textDecoration: 'none'}}>
-                  <Image src="/images/dorm2.png" width={300} height={186} />
-                  <h2>Dorm Essentials</h2></Link>
-              </Card>
-            </Col>
+        </Col>
+        <Col xs="auto" className="py-3">
+          <Col className="text-center">
+            <Card>
+              <Link to={`/additem`} style={{ color: 'forestgreen', textDecoration: 'none' }}>
+                <Image src="/images/dorm2.png" width={300} height={186} />
+                  <h2>Dorm Essentials</h2>
+              </Link>
+            </Card>
           </Col>
+        </Col>
     </Row>
   </Container>
   </Row>
