@@ -40,3 +40,8 @@ h2, .card, footer {
   font-family: Monospaced;
 }
 
+.bg-categories {
+  background-image: url("/images/categories-bg-6.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}

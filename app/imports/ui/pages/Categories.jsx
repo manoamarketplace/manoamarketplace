@@ -1,7 +1,9 @@
 import React from 'react';
-import { Meteor } from 'meteor/meteor';
-import { Card, Col, Container, Image, Row, Nav, Button } from 'react-bootstrap';
+/*
+import { Meteor } from 'meteor/meteor'; */
+import { Card, Col, Container, Image, Row /* Nav, Button */ } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+/*
 import { useTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
@@ -9,7 +11,7 @@ import LoadingSpinner from '../components/LoadingSpinner';
 import { pageStyle } from './pageStyles';
 import { PageIDs } from '../utilities/ids';
 import { Item } from '../../api/item/Item';
-import { Category } from '../../api/item/Category';
+import { Category } from '../../api/item/Category'; */
 
 const CategoriesPage = () => (
   /* <Nav>
@@ -81,15 +83,15 @@ const CategoriesPage = () => (
             <Card>
               <Link to={`/additem`} style={{ color: 'forestgreen', textDecoration: 'none' }}>
                 <Image src="/images/dorm2.png" width={300} height={186} />
-                  <h2>Dorm Essentials</h2>
+                <h2>Dorm Essentials</h2>
               </Link>
             </Card>
           </Col>
         </Col>
-    </Row>
-  </Container>
+      </Row>
+    </Container>
   </Row>
-    )
+);
 
 /* function getCategoryData(name) {
   const item = _.pluck(Item.collection.find({ category: name }).fetch(), 'item');
@@ -138,8 +140,5 @@ const CategoriesPage = () => {
     </Container>
   ) : <LoadingSpinner />;
 }; */
-
-
-
 
 export default CategoriesPage;
