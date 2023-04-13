@@ -16,6 +16,8 @@ image {
  */
 body {
   --bs-light-rgb: var(--matr-navbar-bg-rgb);
+  background-size: cover;
+  background: fixed center url("images/manoa-background.png");
 }
 
 /* Set the alert background on the signin and signup pages. */
