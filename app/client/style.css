@@ -17,7 +17,7 @@ image {
 body {
   --bs-light-rgb: var(--matr-navbar-bg-rgb);
   background-size: cover;
-  background: fixed center url("images/manoa-background.png");
+  background: fixed center url("/images/manoa-background.png");
 }
 
 /* Set the alert background on the signin and signup pages. */
@@ -40,10 +40,4 @@ body {
 
 h2, .card, footer {
   font-family: Monospaced;
-}
-
-.bg-categories {
-  background-image: url("/images/categories-bg-6.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
 }
