@@ -13,7 +13,7 @@ const NavBar = () => {
   }), []);
 
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="dark" expand="lg">
       <Navbar.Brand as={NavLink} to="/">
         <Image src="/images/manoa-logo.png" height="70" />
       </Navbar.Brand>
