@@ -3,21 +3,19 @@
 
 /* Set up some CSS variables to theme the application. */
 :root {
-  --matr-navbar-bg: #ECECEC;
+  --matr-navbar-bg: #486A3D;
   --matr-navbar-bg-rgb: 236, 236, 236;
-}
-
-image {
-  height: inherit;
 }
 
 /* Change bootstrap variable values.
  See https://getbootstrap.com/docs/5.2/customize/css-variables/
  */
 body {
-  --bs-light-rgb: var(--matr-navbar-bg-rgb);
+  --bs-dark: var(--matr-navbar-bg);
+  --bs-dark-rgb: var(--matr-navbar-bg-rgb);
+  background: fixed center no-repeat url(/images/background2.png);
   background-size: cover;
-  background: fixed center url("/images/manoa-background.png");
+  height: 100px;
 }
 
 /* Set the alert background on the signin and signup pages. */
@@ -25,19 +23,18 @@ body {
   --bs-alert-bg: var(--matr-navbar-bg);
 }
 
-/* Define custom styles */
+ /*Define custom styles */
 .gray-background {
-  background-color: var(--matr-navbar-bg);
+  background-color: var(--bs-dark);
   color: var(--bs-dark);
   padding-top: 10px;
   padding-bottom: 20px;
 }
 
-.navbar-nav {
-  font-size: 30px;
-  font-family: "Monospaced";
-}
+/*.navbar-nav {*/
+/*  font-size: 30px;*/
+/*}*/
 
-h2, .card, footer {
-  font-family: Monospaced;
-}
+/*h2, .card, footer {*/
+/*  font-family: Monospaced;*/
+/*}*/
