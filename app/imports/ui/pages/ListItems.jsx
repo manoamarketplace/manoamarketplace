@@ -3,6 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import { useParams } from 'react-router';
+import { _ } from 'meteor/underscore';
 import { Item } from '../../api/item/Item';
 import LoadingSpinner from '../components/LoadingSpinner';
 import ItemCard from '../components/ItemCard';
@@ -20,8 +21,10 @@ const ListItems = () => {
     const rdy = subscription.ready();
     // Get the Item documents
     const itemItems = Item.collection.find({}).fetch();
+    // filter item list by chosen category
+    const categoryItems = _.filter(itemItems, function (item) { return item.category === category; });
     return {
-      items: itemItems,
+      items: categoryItems,
       ready: rdy,
     };
   }, [category]);
@@ -31,7 +34,7 @@ const ListItems = () => {
       <Row className="justify-content-center">
         <Col>
           <Col className="text-center">
-            <h2>Shop</h2>
+            <h2>Shop {category}</h2>
           </Col>
           <Row xs={1} md={2} lg={3} className="g-4">
             {items.map((item) => (<Col key={item._id}><ItemCard item={item} /></Col>))}

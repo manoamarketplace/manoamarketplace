@@ -7,7 +7,7 @@ const ItemCard = ({ item }) => (
   <Col>
     <Card className="h-100">
       <Card.Header>
-        <Image src={item.image} height={200} />
+        <Image src={item.image} width={375} />
         <Card.Title><h2>{item.name}</h2></Card.Title>
         <Card.Subtitle>${item.price}</Card.Subtitle>
       </Card.Header>

@@ -31,7 +31,7 @@ const CategoriesPage = () => (
         <Col xs="auto" className="py-3">
           <Col className="text-center">
             <Card>
-              <Link to="/additem" style={{ color: 'forestgreen', textDecoration: 'none' }}>
+              <Link to="/list/school" style={{ color: 'forestgreen', textDecoration: 'none' }}>
                 <Image src="/images/books.jpg" width={300} height={186} />
                 <h2>School Supplies</h2>
               </Link>
@@ -41,7 +41,7 @@ const CategoriesPage = () => (
         <Col xs="auto" className="py-3">
           <Col className="text-center">
             <Card>
-              <Link to="/additem" style={{ color: 'forestgreen', textDecoration: 'none' }}>
+              <Link to="/list/bathroom" style={{ color: 'forestgreen', textDecoration: 'none' }}>
                 <Image src="/images/bath.png" width={300} height={186} />
                 <h2>Bathroom</h2>
               </Link>
@@ -51,7 +51,7 @@ const CategoriesPage = () => (
         <Col xs="auto" className="py-3">
           <Col className="text-center">
             <Card>
-              <Link to="/additem" style={{ color: 'forestgreen', textDecoration: 'none' }}>
+              <Link to="/list/kitchen" style={{ color: 'forestgreen', textDecoration: 'none' }}>
                 <Image src="/images/kitchen.jpg" width={300} height={186} />
                 <h2>Kitchen</h2>
               </Link>
@@ -61,7 +61,7 @@ const CategoriesPage = () => (
         <Col xs="auto" className="py-3">
           <Col className="text-center">
             <Card>
-              <Link to="/additem" style={{ color: 'forestgreen', textDecoration: 'none' }}>
+              <Link to="/list/gym" style={{ color: 'forestgreen', textDecoration: 'none' }}>
                 <Image src="/images/gym.jpg" width={300} height={186} />
                 <h2>Gym</h2>
               </Link>
@@ -71,7 +71,7 @@ const CategoriesPage = () => (
         <Col xs="auto" className="py-3">
           <Col className="text-center">
             <Card>
-              <Link to="/additem" style={{ color: 'forestgreen', textDecoration: 'none' }}>
+              <Link to="/list/transportation" style={{ color: 'forestgreen', textDecoration: 'none' }}>
                 <Image src="/images/transportation.jpg" width={300} height={186} />
                 <h2>Transportation</h2>
               </Link>
@@ -81,7 +81,7 @@ const CategoriesPage = () => (
         <Col xs="auto" className="py-3">
           <Col className="text-center">
             <Card>
-              <Link to="/additem" style={{ color: 'forestgreen', textDecoration: 'none' }}>
+              <Link to="/list/dorm" style={{ color: 'forestgreen', textDecoration: 'none' }}>
                 <Image src="/images/dorm2.png" width={300} height={186} />
                 <h2>Dorm Essentials</h2>
               </Link>
