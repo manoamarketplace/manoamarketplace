@@ -3,13 +3,13 @@ import React from 'react';
 import { Card, Col, Image } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
-const Item = ({ item }) => (
+const ItemCard = ({ item }) => (
   <Col>
     <Card className="h-100">
       <Card.Header>
-        <Image src={item.image} width={50} />
-        <Card.Title>{item.name}</Card.Title>
-        <Card.Subtitle>{item.price}</Card.Subtitle>
+        <Image src={item.image} height={200} />
+        <Card.Title><h2>{item.name}</h2></Card.Title>
+        <Card.Subtitle>${item.price}</Card.Subtitle>
       </Card.Header>
       <Card.Body>
         <Card.Text>
@@ -20,7 +20,7 @@ const Item = ({ item }) => (
   </Col>
 );
 
-Item.propTypes = {
+ItemCard.propTypes = {
   item: PropTypes.shape({
     name: PropTypes.string,
     category: PropTypes.string,
@@ -29,4 +29,4 @@ Item.propTypes = {
     description: PropTypes.string,
   }).isRequired,
 };
-export default Item;
+export default ItemCard;

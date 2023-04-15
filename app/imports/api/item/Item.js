@@ -15,7 +15,7 @@ class ItemCollection {
       name: String,
       category: {
         type: String,
-        allowedValues: ['school', 'bathroom', 'kitchen', 'gym'],
+        allowedValues: ['school', 'bathroom', 'kitchen', 'gym', 'transportation', 'dorm'],
         defaultValue: '',
       },
       image: String,

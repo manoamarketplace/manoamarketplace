@@ -5,9 +5,9 @@ import { Sellers } from '../../api/item/Seller';
 /* eslint-disable no-console */
 
 // Initialize the database with a default data document
-const addData = (data) => {
-  console.log(`  Adding: ${data.name} (${data.owner})`);
-  Item.collection.insert(data);
+const addItem = (item) => {
+  console.log(`  Adding: ${item.name} (${item.owner})`);
+  Item.collection.insert(item);
 };
 
 const addSeller = (seller) => {
@@ -17,9 +17,9 @@ const addSeller = (seller) => {
 
 // Initialize the ItemCollection if empty.
 if (Item.collection.find().count() === 0) {
-  if (Meteor.settings.defaultData) {
-    console.log('Creating default data.');
-    Meteor.settings.defaultData.forEach(data => addData(data));
+  if (Meteor.settings.defaultItems) {
+    console.log('Creating default items.');
+    Meteor.settings.defaultItems.forEach(data => addItem(data));
   }
 }
 
