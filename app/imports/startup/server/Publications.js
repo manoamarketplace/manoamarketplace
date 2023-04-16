@@ -8,8 +8,7 @@ import { Sellers } from '../../api/item/Seller';
 
 Meteor.publish(Item.userPublicationName, function () {
   if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).username;
-    return Item.collection.find({ owner: username });
+    return Item.collection.find();
   }
   return this.ready();
 });
