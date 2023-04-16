@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
-import { Button, Col, Container, Row } from 'react-bootstrap';
+import { Button, Col, Container, Row, Image } from 'react-bootstrap';
 import { Journals, Building, Scooter } from 'react-bootstrap-icons';
 
 /* A simple static component to render some text for the landing page. */
@@ -12,10 +12,23 @@ const Landing = () => {
 
   return (
     <Container id="landing-page" className="py-3">
-      <Row className="align-middle">
-        <h1>Manoa Marketplace</h1>
-        <h5>The best place to buy and sell second-hand items at UH Manoa. Connect with other students to get all kinds of school-related supplies right on campus!</h5>
-      </Row>
+      <div className="p-5 mb-4 rounded-3 landing-white-background">
+        <Container className="py-5">
+          <Row>
+            <Col>
+              <h1 className="display-5 fw-bold">Manoa Marketplace</h1>
+              <p className="col-md-8 fs-4">The best place to buy and sell second-hand items at UH Manoa. Connect with other students to get all kinds of school-related supplies right on campus!</p>
+            </Col>
+            <Col><Image src="/images/shopping.jpg" width="500px" className="rounded float-right" /></Col>
+            {currentUser ? ([
+            ]) : ([
+              <Row className="justify-content-center py-3" xs={4}>
+                <Button variant="success" href="/signin" size="large" className="btn-lg">Start Shopping!</Button>
+              </Row>,
+            ])}
+          </Row>
+        </Container>
+      </div>
       <div className="landing-green-background rounded">
         <Container>
           <Row className="align-middle py-4">
@@ -40,9 +53,6 @@ const Landing = () => {
           <p>Nothing to buy yet!</p>
         </Row>,
       ]) : ([
-        <Row className="justify-content-center py-3" xs={6}>
-          <Button variant="success" href="/signin" size="large">Start Shopping!</Button>
-        </Row>,
       ])}
     </Container>
 
