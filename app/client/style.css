@@ -50,3 +50,13 @@ body .navbar {
 .bg-dark a.dropdown-item {
   color: var(--matr-navbar-bg);
 }
+
+.landing-green-background {
+  background-color: var(--matr-navbar-bg);
+  color: var(--matr-navbar-text-color);
+}
+
+.landing-white-background {
+  background-color: var(--matr-navbar-text-color);
+  color: var(--matr-navbar-bg);
+}
