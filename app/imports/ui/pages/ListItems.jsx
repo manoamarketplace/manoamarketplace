@@ -29,19 +29,22 @@ const ListItems = () => {
     };
   }, [category]);
 
+  // eslint-disable-next-line no-nested-ternary
   return (ready ? (
-    <Container className="py-3">
-      <Row className="justify-content-center">
-        <Col>
-          <Col className="text-center">
-            <h2>Shop {category}</h2>
+    (!_.isEmpty(items) ? (
+      <Container className="py-3">
+        <Row className="justify-content-center">
+          <Col>
+            <Col className="text-center">
+              <h2>Shop {category}</h2>
+            </Col>
+            <Row xs={1} md={2} lg={3} className="g-4">
+              {items.map((item) => (<Col key={item._id}><ItemCard item={item} /></Col>))}
+            </Row>
           </Col>
-          <Row xs={1} md={2} lg={3} className="g-4">
-            {items.map((item) => (<Col key={item._id}><ItemCard item={item} /></Col>))}
-          </Row>
-        </Col>
-      </Row>
-    </Container>
+        </Row>
+      </Container>
+    ) : <Row className="justify-content-center text-center"><h4>No items match this category!</h4></Row>)
   ) : <LoadingSpinner />);
 };
 

@@ -16,7 +16,7 @@ const NavBar = () => {
     <Navbar bg="dark" expand="lg">
       <Container>
         <Navbar.Brand as={NavLink} to="/">
-          <span style={{ fontWeight: 600, fontSize: '24px' }}><Image src="/images/manoa-marketplace-logo.png" height="80"/>Manoa Marketplace</span>
+          <span style={{ fontWeight: 600, fontSize: '24px' }}><Image src="/images/manoa-marketplace-logo.png" height="80" />Manoa Marketplace</span>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
