@@ -12,7 +12,7 @@ const formSchema = new SimpleSchema({
   name: String,
   category: {
     type: String,
-    allowedValues: ['school', 'bathroom', 'kitchen', 'gym'],
+    allowedValues: ['textbooks', 'stationary', 'electronics', 'bathroom', 'kitchen', 'gym', 'transportation', 'dorm', 'clothing'],
     defaultValue: 'school',
   },
   image: String,
