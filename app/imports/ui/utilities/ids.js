@@ -46,4 +46,5 @@ export const PageIDs = {
   signOutPage: 'signOutPage',
   signUpPage: 'signUpPage',
   categoriesPage: 'categoriesPage',
+  sellersPage: 'sellersPage',
 };

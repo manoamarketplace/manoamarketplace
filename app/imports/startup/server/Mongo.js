@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Item } from '../../api/item/Item.js';
 import { Sellers } from '../../api/item/Seller';
+import { SellerItemsMap } from '../../api/item/SellerItemsMap';
 
 /* eslint-disable no-console */
 
@@ -15,6 +16,11 @@ const addSeller = (seller) => {
   Sellers.collection.insert(seller);
 };
 
+const addSellerItemsMap = (sellerItemsMap) => {
+  console.log(`  Adding: ${sellerItemsMap.lastName} (${sellerItemsMap.owner})`);
+  SellerItemsMap.collection.insert(sellerItemsMap);
+};
+
 // Initialize the ItemCollection if empty.
 if (Item.collection.find().count() === 0) {
   if (Meteor.settings.defaultData) {
@@ -27,5 +33,12 @@ if (Sellers.collection.find().count() === 0) {
   if (Meteor.settings.defaultSellers) {
     console.log('Creating default sellers.');
     Meteor.settings.defaultSellers.forEach(seller => addSeller(seller));
+  }
+}
+
+if (SellerItemsMap.collection.find().count() === 0) {
+  if (Meteor.settings.defaultSellerItemsMap) {
+    console.log('Creating default sellers items.');
+    Meteor.settings.defaultSellerItemsMap.forEach(sellerItemsMap => addSellerItemsMap(sellerItemsMap));
   }
 }
