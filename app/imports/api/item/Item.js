@@ -21,7 +21,8 @@ class ItemCollection {
       image: String,
       price: Number,
       description: String,
-      owner: String,
+      seller: String,
+      // seller, condition, quantity
     });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);
