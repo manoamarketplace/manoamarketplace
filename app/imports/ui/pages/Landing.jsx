@@ -49,7 +49,7 @@ const Landing = () => {
       </div>
       {currentUser ? ([
         <Row className="py-2">
-          <h1>Top Picks</h1>
+          <h1 className="display-5 fw-bold">Top Picks</h1>
           <p>Nothing to buy yet!</p>
         </Row>,
       ]) : ([
