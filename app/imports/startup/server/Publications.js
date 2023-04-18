@@ -9,7 +9,8 @@ import { SellerItemsMap } from '../../api/item/SellerItemsMap';
 
 Meteor.publish(Item.userPublicationName, function () {
   if (this.userId) {
-    return Item.collection.find();
+    const username = Meteor.users.findOne(this.userId).username;
+    return Item.collection.find({ owner: username });
   }
   return this.ready();
 });
@@ -26,6 +27,15 @@ Meteor.publish(SellerItemsMap.userPublicationName, function () {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
     return SellerItemsMap.collection.find({ owner: username });
+  }
+  return this.ready();
+});
+
+// Buyer-level publication.
+// Allows users to view all published items.
+Meteor.publish(Item.buyerPublicationName, function () {
+  if (this.userId) {
+    return Item.collection.find();
   }
   return this.ready();
 });

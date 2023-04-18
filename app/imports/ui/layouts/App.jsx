@@ -18,6 +18,7 @@ import NotAuthorized from '../pages/NotAuthorized';
 import LoadingSpinner from '../components/LoadingSpinner';
 import Categories from '../pages/Categories';
 import EditItem from '../pages/EditItem';
+import YourListings from '../pages/YourListings';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -38,6 +39,7 @@ const App = () => {
           <Route path="/signout" element={<SignOut />} />
           <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
           <Route path="/categories" element={<ProtectedRoute><Categories /></ProtectedRoute>} />
+          <Route path="/listings" element={<ProtectedRoute><YourListings /></ProtectedRoute>} />
           <Route path="/list/:category" element={<ProtectedRoute><ListItems /></ProtectedRoute>} />
           <Route path="/additem" element={<ProtectedRoute><AddItem /></ProtectedRoute>} />
           <Route path="/edit/:_id" element={<ProtectedRoute><EditItem /></ProtectedRoute>} />
