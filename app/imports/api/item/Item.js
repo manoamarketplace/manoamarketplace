@@ -18,6 +18,11 @@ class ItemCollection {
         allowedValues: ['textbooks', 'stationary', 'electronics', 'bathroom', 'kitchen', 'gym', 'transportation', 'dorm', 'clothing'],
         defaultValue: '',
       },
+      condition: {
+        type: String,
+        allowedValues: ['used', 'slightly used', 'new'],
+        defaultValue: '',
+      },
       image: String,
       price: Number,
       description: String,

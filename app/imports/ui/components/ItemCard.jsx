@@ -12,6 +12,8 @@ const ItemCard = ({ item }) => (
         <Card.Subtitle>${item.price}</Card.Subtitle>
       </Card.Header>
       <Card.Body>
+        <Card.Text>{item.seller}</Card.Text>
+        <Card.Text>{item.condition}</Card.Text>
         <Card.Text>
           {item.description}
         </Card.Text>
@@ -26,6 +28,8 @@ ItemCard.propTypes = {
     category: PropTypes.string,
     image: PropTypes.string,
     price: PropTypes.number,
+    seller: PropTypes.string,
+    condition: PropTypes.string,
     description: PropTypes.string,
   }).isRequired,
 };

@@ -13,6 +13,7 @@ const ItemCard = ({ item }) => (
       </Card.Header>
       <Card.Body>
         <Card.Text>{item.seller}</Card.Text>
+        <Card.Text>{item.condition}</Card.Text>
         <Card.Text>
           {item.description}
         </Card.Text>
@@ -32,6 +33,7 @@ ItemCard.propTypes = {
     image: PropTypes.string,
     price: PropTypes.number,
     description: PropTypes.string,
+    condition: PropTypes.string,
     seller: PropTypes.string,
     reported: PropTypes.bool,
   }).isRequired,
