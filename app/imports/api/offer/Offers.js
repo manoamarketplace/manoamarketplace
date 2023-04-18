@@ -5,10 +5,10 @@ import dateField from 'uniforms-bootstrap5/src/DateField';
 /**
  * The StuffsCollection. It encapsulates state and variable values for stuff.
  */
-class Offers {
+class OffersCollection {
   constructor() {
     // The name of this collection.
-    this.name = 'Offers';
+    this.name = 'OffersCollection';
     // Define the Mongo collection.
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
@@ -30,4 +30,4 @@ class Offers {
  * The singleton instance of the StuffsCollection.
  * @type {StuffsCollection}
  */
-export const Item = new Offers();
+export const Offers = new OffersCollection();
