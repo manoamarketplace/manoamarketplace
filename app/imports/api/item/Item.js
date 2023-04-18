@@ -22,6 +22,7 @@ class ItemCollection {
       price: Number,
       description: String,
       seller: String,
+      reported: Boolean,
       // seller, condition, quantity
     });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
