@@ -13,10 +13,15 @@ const formSchema = new SimpleSchema({
   category: {
     type: String,
     allowedValues: ['textbooks', 'stationary', 'electronics', 'bathroom', 'kitchen', 'gym', 'transportation', 'dorm', 'clothing'],
-    defaultValue: 'school',
+    defaultValue: '',
   },
   image: String,
   price: Number,
+  condition: {
+    type: String,
+    allowedValues: ['used', 'slightly used', 'new'],
+    defaultValue: '',
+  },
   description: String,
 });
 
@@ -27,10 +32,10 @@ const AddItem = () => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
-    const { name, category, image, price, description } = data;
+    const { name, category, image, price, condition, description } = data;
     const owner = Meteor.user().username;
     Item.collection.insert(
-      { name, category, image, price, description, owner },
+      { name, category, image, price, condition, description, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -56,6 +61,7 @@ const AddItem = () => {
                 <SelectField name="category" />
                 <TextField name="image" />
                 <NumField name="price" />
+                <SelectField name="condition" />
                 <LongTextField name="description" />
                 <SubmitField value="Submit" />
                 <ErrorsField />
