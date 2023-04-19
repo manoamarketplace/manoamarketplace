@@ -1,7 +1,7 @@
 import React from 'react';
 import swal from 'sweetalert';
 import { Card, Col, Container, Row } from 'react-bootstrap';
-import { AutoForm, ErrorsField, HiddenField, LongTextField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import { AutoForm, ErrorsField, HiddenField, LongTextField, SelectField, SubmitField, TextField, NumField } from 'uniforms-bootstrap5';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
@@ -32,8 +32,8 @@ const EditItem = () => {
   // console.log('EditStuff', doc, ready);
   // On successful submit, insert the data.
   const submit = (data) => {
-    const { name, category, image, price, description } = data;
-    Item.collection.update(_id, { $set: { name, category, image, price, description } }, (error) => (error ?
+    const { name, category, image, price, condition, description } = data;
+    Item.collection.update(_id, { $set: { name, category, image, price, condition, description } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
   };
@@ -48,12 +48,13 @@ const EditItem = () => {
               <Card.Body>
                 <Row>
                   <Col><TextField name="name" /></Col>
-                  <Col><TextField name="category" /></Col>
+                  <Col><SelectField name="category" /></Col>
                 </Row>
                 <Row>
                   <Col><TextField name="image" /></Col>
-                  <Col><TextField name="price" /></Col>
+                  <Col><NumField name="price" /></Col>
                 </Row>
+                <SelectField name="condition" />
                 <LongTextField name="description" />
                 <SubmitField>Submit</SubmitField>
                 <ErrorsField />
