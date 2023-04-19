@@ -16,17 +16,16 @@ class ItemCollection {
       category: {
         type: String,
         allowedValues: ['textbooks', 'stationary', 'electronics', 'bathroom', 'kitchen', 'gym', 'transportation', 'dorm', 'clothing'],
-        defaultValue: '',
+        defaultValue: 'dorm',
       },
       condition: {
         type: String,
         allowedValues: ['used', 'slightly used', 'new'],
-        defaultValue: '',
+        defaultValue: 'used',
       },
       image: String,
       price: Number,
       description: String,
-      seller: String,
       reported: Boolean,
       // seller, condition, quantity
     });
