@@ -13,14 +13,14 @@ const formSchema = new SimpleSchema({
   category: {
     type: String,
     allowedValues: ['textbooks', 'stationary', 'electronics', 'bathroom', 'kitchen', 'gym', 'transportation', 'dorm', 'clothing'],
-    defaultValue: '',
+    defaultValue: 'dorm',
   },
   image: String,
   price: Number,
   condition: {
     type: String,
     allowedValues: ['used', 'slightly used', 'new'],
-    defaultValue: '',
+    defaultValue: 'used',
   },
   description: String,
 });
@@ -34,8 +34,9 @@ const AddItem = () => {
   const submit = (data, formRef) => {
     const { name, category, image, price, condition, description } = data;
     const owner = Meteor.user().username;
+    const reported = false;
     Item.collection.insert(
-      { name, category, image, price, condition, description, owner },
+      { name, category, image, price, condition, description, owner, reported },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -52,17 +53,23 @@ const AddItem = () => {
   return (
     <Container className="py-3">
       <Row className="justify-content-center">
-        <Col xs={5}>
+        <Col xs={9}>
           <Col className="text-center"><h2>Create an Item</h2></Col>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
               <Card.Body>
-                <TextField name="name" />
-                <SelectField name="category" />
-                <TextField name="image" />
-                <NumField name="price" />
-                <SelectField name="condition" />
-                <LongTextField name="description" />
+                <Row>
+                  <Col><TextField name="name" /></Col>
+                  <Col><TextField name="image" /></Col>
+                </Row>
+                <Row>
+                  <Col><SelectField name="category" /></Col>
+                  <Col><NumField name="price" /></Col>
+                  <Col><SelectField name="condition" /></Col>
+                </Row>
+                <Row>
+                  <LongTextField name="description" />
+                </Row>
                 <SubmitField value="Submit" />
                 <ErrorsField />
               </Card.Body>
