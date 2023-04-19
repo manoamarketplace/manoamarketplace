@@ -33,7 +33,8 @@ const EditItem = () => {
   // On successful submit, insert the data.
   const submit = (data) => {
     const { name, category, image, price, condition, description } = data;
-    Item.collection.update(_id, { $set: { name, category, image, price, condition, description } }, (error) => (error ?
+    const owner = Meteor.user().username;
+    Item.collection.update(_id, { $set: { name, category, image, price, condition, description, owner } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
   };
@@ -41,22 +42,24 @@ const EditItem = () => {
   return ready ? (
     <Container className="py-3">
       <Row className="justify-content-center">
-        <Col xs={5}>
+        <Col xs={9}>
           <Col className="text-center"><h2>Edit Contact</h2></Col>
           <AutoForm schema={bridge} onSubmit={data => submit(data)} model={doc}>
             <Card>
               <Card.Body>
                 <Row>
                   <Col><TextField name="name" /></Col>
-                  <Col><SelectField name="category" /></Col>
+                  <Col><TextField name="image" /></Col>
                 </Row>
                 <Row>
-                  <Col><TextField name="image" /></Col>
+                  <Col><SelectField name="category" /></Col>
                   <Col><NumField name="price" /></Col>
+                  <Col><SelectField name="condition" /></Col>
                 </Row>
-                <SelectField name="condition" />
-                <LongTextField name="description" />
-                <SubmitField>Submit</SubmitField>
+                <Row>
+                  <LongTextField name="description" />
+                </Row>
+                <SubmitField value="Submit" />
                 <ErrorsField />
                 <HiddenField name="owner" />
               </Card.Body>

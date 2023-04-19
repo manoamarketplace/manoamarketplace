@@ -13,7 +13,7 @@ const ItemCard = ({ item }) => (
       </Card.Header>
       <Card.Body>
         <Card.Text>{item.seller}</Card.Text>
-        <Card.Text>{item.condition}</Card.Text>
+        <Card.Text>Condition: {item.condition}</Card.Text>
         <Card.Text>
           {item.description}
         </Card.Text>
