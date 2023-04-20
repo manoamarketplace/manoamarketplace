@@ -1,11 +1,11 @@
 /* Component for layout out a item Card. */
 import React from 'react';
-import { Card, Col, Image, ListGroup } from 'react-bootstrap';
+import { Card, Col, Image } from 'react-bootstrap';
 import PropTypes from 'prop-types';
-import Offer from './Offer';
-import MakeOffer from './MakeOffer';
+// import Offer from './Offer';
+// import MakeOffer from './MakeOffer';
 
-const ItemCard = ({ item, offers }) => (
+const ItemCard = ({ item }) => (
   <Col>
     <Card className="h-100">
       <Card.Header>
@@ -16,12 +16,7 @@ const ItemCard = ({ item, offers }) => (
       <Card.Body>
         <Card.Text>
           {item.description}
-
         </Card.Text>
-        <ListGroup variant="flush">
-          {offers.map((offer, index) => <Offer key={index} offer={offer} />)}
-        </ListGroup>
-        <MakeOffer owner={item.seller} />
       </Card.Body>
     </Card>
   </Col>
@@ -35,11 +30,11 @@ ItemCard.propTypes = {
     price: PropTypes.number,
     description: PropTypes.string,
   }).isRequired,
-  offers: PropTypes.arrayOf(PropTypes.shape({
-    offer: PropTypes.number,
-    seller: PropTypes.string,
-    createdAt: PropTypes.instanceOf(Date),
-    _id: PropTypes.string,
-  })).isRequired,
+  // offers: PropTypes.arrayOf(PropTypes.shape({
+  //   offer: PropTypes.number,
+  //   sellerId: PropTypes.string,
+  //   createdAt: PropTypes.instanceOf(Date),
+  //   _id: PropTypes.string,
+  // })).isRequired,
 };
 export default ItemCard;

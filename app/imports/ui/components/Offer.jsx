@@ -13,8 +13,8 @@ const Offer = ({ offer }) => (
 // Require a document to be passed to this component.
 Offer.propTypes = {
   offer: PropTypes.shape({
-    offer: PropTypes.string,
-    seller: PropTypes.string,
+    offer: PropTypes.number,
+    sellerId: PropTypes.string,
     createdAt: PropTypes.instanceOf(Date),
     _id: PropTypes.string,
   }).isRequired,
