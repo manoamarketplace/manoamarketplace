@@ -58,5 +58,8 @@ body .navbar {
 
 .landing-white-background {
   background-color: var(--matr-navbar-text-color);
+}
+
+.home {
   color: var(--matr-navbar-bg);
 }

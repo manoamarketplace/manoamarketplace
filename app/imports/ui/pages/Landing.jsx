@@ -5,20 +5,20 @@ import { Journals, Building, Scooter } from 'react-bootstrap-icons';
 /* A simple static component to render some text for the landing page. */
 const Landing = () => (
   <Container id="landing-page" className="py-3">
-    <div className="p-5 mb-4 rounded-3 landing-white-background">
-      <Container className="py-5">
+    <div className="p-5 mb-4 rounded-3 home">
+      <div className="py-5">
         <Row>
           <Col>
             <h1 className="display-5 fw-bold">Manoa Marketplace</h1>
             <p className="col-md-8 fs-4">The best place to buy and sell second-hand items at UH Manoa. Connect with other students to get all kinds of school-related supplies right on campus!</p>
           </Col>
-          <Col><Image src="/images/shopping.jpg" width="500px" className="rounded float-right" /></Col>
+          <Col><Image src="/images/shopping-removebg.png" width="500px" className="rounded float-right" /></Col>
         </Row>
-      </Container>
+        <Row className="justify-content-center py-3" xs={4}>
+          <Button variant="success" href="/signin" size="large" className="btn-lg">Start Shopping!</Button>
+        </Row>
+      </div>
     </div>
-    <Row className="justify-content-center py-3" xs={4}>
-      <Button variant="success" href="/signin" size="large" className="btn-lg">Start Shopping!</Button>
-    </Row>,
     <div className="landing-green-background rounded">
       <Container>
         <Row className="align-middle py-4">

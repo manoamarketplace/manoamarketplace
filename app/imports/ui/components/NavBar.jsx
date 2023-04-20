@@ -15,7 +15,7 @@ const NavBar = () => {
   return (
     <Navbar bg="dark" expand="lg">
       <Container>
-        <Navbar.Brand as={NavLink} to="/">
+        <Navbar.Brand as={NavLink} to="/home">
           <span style={{ fontWeight: 600, fontSize: '24px' }}><Image src="/images/manoa-marketplace-logo.png" height="80" />Manoa Marketplace</span>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

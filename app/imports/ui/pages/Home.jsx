@@ -28,23 +28,23 @@ const Landing = () => {
 
   return (
     <Container id="landing-page" className="py-3">
-      <div className="p-5 mb-4 rounded-3 landing-white-background">
+      <div className="p-5 mb-4 rounded-3 home">
         <Container className="py-5">
           <Row>
             <Col>
               <h1 className="display-5 fw-bold">Manoa Marketplace</h1>
               <p className="col-md-8 fs-4">The best place to buy and sell second-hand items at UH Manoa. Connect with other students to get all kinds of school-related supplies right on campus!</p>
             </Col>
-            <Col><Image src="/images/shopping.jpg" width="500px" className="rounded float-right" /></Col>
-          </Row>
-          <Row className="py-2 landing-white-background">
-            <h1 className="display-5 fw-bold">Top Picks</h1>
-          </Row>
-          <Row xs={1} md={2} lg={3} className="g-4">
-            {items.map((item) => (<Col key={item._id}><ItemCard item={item} /></Col>))}
+            <Col><Image src="/images/shopping-removebg.png" width="500px" className="rounded float-right" /></Col>
           </Row>
         </Container>
       </div>
+      <Row className="py-2 home">
+        <h1 className="display-5 fw-bold">Top Picks</h1>
+      </Row>
+      <Row xs={1} md={2} lg={3} className="g-4">
+        {items.map((item) => (<Col key={item._id}><ItemCard item={item} /></Col>))}
+      </Row>
     </Container>
 
   );
