@@ -2,8 +2,6 @@
 import React from 'react';
 import { Card, Col, Image } from 'react-bootstrap';
 import PropTypes from 'prop-types';
-// import Offer from './Offer';
-// import MakeOffer from './MakeOffer';
 
 const ItemCard = ({ item }) => (
   <Col>
@@ -15,10 +13,14 @@ const ItemCard = ({ item }) => (
       </Card.Header>
       <Card.Body>
         <Card.Text>{item.seller}</Card.Text>
-        <Card.Text>Condition: {item.condition}</Card.Text>
+        <Card.Text>{item.condition}</Card.Text>
         <Card.Text>
           {item.description}
         </Card.Text>
+        {item.reported ? ([
+          <p>Item has been reported!</p>,
+        ]) : ([
+        ])}
       </Card.Body>
     </Card>
   </Col>
@@ -30,15 +32,10 @@ ItemCard.propTypes = {
     category: PropTypes.string,
     image: PropTypes.string,
     price: PropTypes.number,
-    seller: PropTypes.string,
-    condition: PropTypes.string,
     description: PropTypes.string,
+    condition: PropTypes.string,
+    seller: PropTypes.string,
+    reported: PropTypes.bool,
   }).isRequired,
-  // offers: PropTypes.arrayOf(PropTypes.shape({
-  //   offer: PropTypes.number,
-  //   sellerId: PropTypes.string,
-  //   createdAt: PropTypes.instanceOf(Date),
-  //   _id: PropTypes.string,
-  // })).isRequired,
 };
 export default ItemCard;

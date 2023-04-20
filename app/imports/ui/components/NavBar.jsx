@@ -15,7 +15,7 @@ const NavBar = () => {
   return (
     <Navbar bg="dark" expand="lg">
       <Container>
-        <Navbar.Brand as={NavLink} to="/">
+        <Navbar.Brand as={NavLink} to="/home">
           <span style={{ fontWeight: 600, fontSize: '24px' }}><Image src="/images/manoa-marketplace-logo.png" height="80" />Manoa Marketplace</span>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -23,7 +23,7 @@ const NavBar = () => {
           <Nav className="me-auto justify-content-start">
             {currentUser ? ([
               <Nav.Link id="add-item-nav" as={NavLink} to="/additem" key="add">Add Item</Nav.Link>,
-              <Nav.Link id="your-listings-nav" as={NavLink} to="#" key="listings">Your Listings</Nav.Link>,
+              <Nav.Link id="your-listings-nav" as={NavLink} to="/listings" key="listings">Your Listings</Nav.Link>,
               <Nav.Link id="categories-nav" as={NavLink} to="/categories" key="categories">Categories</Nav.Link>,
             ]) : ''}
             {Roles.userIsInRole(Meteor.userId(), 'admin') ? (

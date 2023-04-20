@@ -1,7 +1,7 @@
 import React from 'react';
 import swal from 'sweetalert';
 import { Card, Col, Container, Row } from 'react-bootstrap';
-import { AutoForm, ErrorsField, HiddenField, LongTextField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import { AutoForm, ErrorsField, HiddenField, LongTextField, SelectField, SubmitField, TextField, NumField } from 'uniforms-bootstrap5';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
@@ -32,8 +32,9 @@ const EditItem = () => {
   // console.log('EditStuff', doc, ready);
   // On successful submit, insert the data.
   const submit = (data) => {
-    const { name, category, image, price, description } = data;
-    Item.collection.update(_id, { $set: { name, category, image, price, description } }, (error) => (error ?
+    const { name, category, image, price, condition, description } = data;
+    const owner = Meteor.user().username;
+    Item.collection.update(_id, { $set: { name, category, image, price, condition, description, owner } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
   };
@@ -41,21 +42,24 @@ const EditItem = () => {
   return ready ? (
     <Container className="py-3">
       <Row className="justify-content-center">
-        <Col xs={5}>
+        <Col xs={9}>
           <Col className="text-center"><h2>Edit Contact</h2></Col>
           <AutoForm schema={bridge} onSubmit={data => submit(data)} model={doc}>
             <Card>
               <Card.Body>
                 <Row>
                   <Col><TextField name="name" /></Col>
-                  <Col><TextField name="category" /></Col>
+                  <Col><TextField name="image" /></Col>
                 </Row>
                 <Row>
-                  <Col><TextField name="image" /></Col>
-                  <Col><TextField name="price" /></Col>
+                  <Col><SelectField name="category" /></Col>
+                  <Col><NumField name="price" /></Col>
+                  <Col><SelectField name="condition" /></Col>
                 </Row>
-                <LongTextField name="description" />
-                <SubmitField>Submit</SubmitField>
+                <Row>
+                  <LongTextField name="description" />
+                </Row>
+                <SubmitField value="Submit" />
                 <ErrorsField />
                 <HiddenField name="owner" />
               </Card.Body>
