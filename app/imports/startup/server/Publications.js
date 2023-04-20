@@ -3,6 +3,7 @@ import { Roles } from 'meteor/alanning:roles';
 import { Item } from '../../api/item/Item';
 import { Sellers } from '../../api/item/Seller';
 import { SellerItemsMap } from '../../api/item/SellerItemsMap';
+import { Offers } from '../../api/offer/Offers';
 
 // User-level publication.
 // If logged in, then publish items owned by this user. Otherwise publish nothing.
@@ -58,6 +59,21 @@ Meteor.publish(SellerItemsMap.adminPublicationName, function () {
 Meteor.publish(null, function () {
   if (this.userId) {
     return Meteor.roleAssignment.find({ 'user._id': this.userId });
+  }
+  return this.ready();
+});
+
+Meteor.publish(Offers.userPublicationName, function () {
+  if (this.userId) {
+    const username = Meteor.users.findOne(this.userId).username;
+    return Offers.collection.find({ owner: username });
+  }
+  return this.ready();
+});
+
+Meteor.publish(Offers.adminPublicationName, function () {
+  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
+    return Offers.collection.find();
   }
   return this.ready();
 });

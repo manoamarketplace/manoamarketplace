@@ -1,9 +1,9 @@
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
-import dateField from 'uniforms-bootstrap5/src/DateField';
+import { Tracker } from 'meteor/tracker';
 
 /**
- * The StuffsCollection. It encapsulates state and variable values for stuff.
+ * The OffersCollection. It encapsulates state and variable values for stuff.
  */
 class OffersCollection {
   constructor() {
@@ -13,11 +13,10 @@ class OffersCollection {
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
-      amount: Number,
-      _id: String,
-      owner: String,
-      createdAt: dateField,
-    });
+      offer: Number,
+      createdAt: Date,
+      seller: String,
+    }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);
     // Define names for publications and subscriptions
@@ -28,6 +27,6 @@ class OffersCollection {
 
 /**
  * The singleton instance of the StuffsCollection.
- * @type {StuffsCollection}
+ * @type {OffersCollection}
  */
 export const Offers = new OffersCollection();
