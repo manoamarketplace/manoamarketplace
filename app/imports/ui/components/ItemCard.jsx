@@ -16,6 +16,7 @@ const ItemCard = ({ item, offers }) => (
       <Card.Body>
         <Card.Text>
           {item.description}
+
         </Card.Text>
         <ListGroup variant="flush">
           {offers.map((offer, index) => <Offer key={index} offer={offer} />)}
