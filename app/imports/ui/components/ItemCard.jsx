@@ -9,7 +9,7 @@ const ItemCard = ({ item }) => (
   <Col>
     <Card className="h-100">
       <Card.Header>
-        <Image src={item.image} width={325} height={186} />
+        <Image src={item.image} className="img" />
         <Card.Title><h2>{item.name}</h2></Card.Title>
         <Card.Subtitle>${item.price}</Card.Subtitle>
       </Card.Header>
