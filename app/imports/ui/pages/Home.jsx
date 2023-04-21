@@ -5,6 +5,7 @@ import { Col, Container, Row, Image } from 'react-bootstrap';
 import { _ } from 'meteor/underscore';
 import { Item } from '../../api/item/Item';
 import ItemCard from '../components/ItemCard';
+import offer from '../components/Offer';
 
 /* A simple static component to render some text for the landing page. */
 const Landing = () => {
@@ -43,7 +44,7 @@ const Landing = () => {
         <h1 className="display-5 fw-bold">Top Picks</h1>
       </Row>
       <Row xs={1} md={2} lg={3} className="g-4">
-        {items.map((item) => (<Col key={item._id}><ItemCard item={item} /></Col>))}
+        {items.map((item) => (<Col key={item._id}><ItemCard item={item} offers={offer} /></Col>))}
       </Row>
     </Container>
 
