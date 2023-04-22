@@ -59,18 +59,18 @@ const AddItem = () => {
             <Card>
               <Card.Body>
                 <Row>
-                  <Col><TextField name="name" /></Col>
-                  <Col><TextField name="image" /></Col>
+                  <Col><TextField id="add-form-name" name="name" /></Col>
+                  <Col><TextField id="add-form-image" name="image" /></Col>
                 </Row>
                 <Row>
-                  <Col><SelectField name="category" /></Col>
-                  <Col><NumField name="price" /></Col>
-                  <Col><SelectField name="condition" /></Col>
+                  <Col><SelectField id="add-form-category" name="category" /></Col>
+                  <Col><NumField id="add-form-price" name="price" /></Col>
+                  <Col><SelectField id="add-form-condition" name="condition" /></Col>
                 </Row>
                 <Row>
-                  <LongTextField name="description" />
+                  <LongTextField id="add-form-description" name="description" />
                 </Row>
-                <SubmitField value="Submit" />
+                <SubmitField id="add-form-submit" value="Submit" />
                 <ErrorsField />
               </Card.Body>
             </Card>
