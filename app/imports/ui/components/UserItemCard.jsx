@@ -2,34 +2,37 @@
 import React from 'react';
 import { Card, Col, Image } from 'react-bootstrap';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-const ItemCard = ({ item }) => (
+const UserItemCard = ({ userItem }) => (
   <Col>
     <Card className="h-100">
       <Card.Header>
-        <Image src={item.image} width={325} height={186} />
-        <Card.Title><h2>{item.name}</h2></Card.Title>
-        <Card.Subtitle>${item.price}</Card.Subtitle>
+        <Image src={userItem.image} width={325} height={186} />
+        <Card.Title><h2>{userItem.name}</h2></Card.Title>
+        <Card.Subtitle>${userItem.price}</Card.Subtitle>
       </Card.Header>
       <Card.Body>
-        <Card.Text>Condition: {item.condition}</Card.Text>
+        <Card.Text>Condition: {userItem.condition}</Card.Text>
         <Card.Text>
-          {item.description}
+          {userItem.description}
         </Card.Text>
         <Card.Title><h4>Offers</h4></Card.Title>
+        <Link to={`/edit/${userItem.owner}`}>Edit</Link>
       </Card.Body>
     </Card>
   </Col>
 );
 
-ItemCard.propTypes = {
-  item: PropTypes.shape({
+UserItemCard.propTypes = {
+  userItem: PropTypes.shape({
     name: PropTypes.string,
     category: PropTypes.string,
     image: PropTypes.string,
     price: PropTypes.number,
     description: PropTypes.string,
     condition: PropTypes.string,
+    owner: PropTypes.string,
   }).isRequired,
 };
-export default ItemCard;
+export default UserItemCard;

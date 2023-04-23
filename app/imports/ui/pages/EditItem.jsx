@@ -14,7 +14,7 @@ const bridge = new SimpleSchema2Bridge(Item.schema);
 /* Renders the EditStuff page for editing a single document. */
 const EditItem = () => {
   // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
-  const { _id } = useParams();
+  const { seller } = useParams();
   // console.log('EditStuff', _id);
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { doc, ready } = useTracker(() => {
@@ -23,18 +23,18 @@ const EditItem = () => {
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the document
-    const document = Item.collection.findOne(_id);
+    const document = Item.collection.findOne(seller);
     return {
       doc: document,
       ready: rdy,
     };
-  }, [_id]);
+  }, [seller]);
   // console.log('EditStuff', doc, ready);
   // On successful submit, insert the data.
   const submit = (data) => {
     const { name, category, image, price, condition, description } = data;
     const owner = Meteor.user().username;
-    Item.collection.update(_id, { $set: { name, category, image, price, condition, description, owner } }, (error) => (error ?
+    Item.collection.update(seller, { $set: { name, category, image, price, condition, description, owner } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
   };

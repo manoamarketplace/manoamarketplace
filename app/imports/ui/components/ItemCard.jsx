@@ -2,8 +2,7 @@
 import React from 'react';
 import { Card, Col, Image } from 'react-bootstrap';
 import PropTypes from 'prop-types';
-// import Offer from './Offer';
-// import MakeOffer from './MakeOffer';
+import MakeOffer from './MakeOffer';
 
 const ItemCard = ({ item }) => (
   <Col>
@@ -19,6 +18,7 @@ const ItemCard = ({ item }) => (
         <Card.Text>
           {item.description}
         </Card.Text>
+        <MakeOffer owner={item.seller} />
       </Card.Body>
     </Card>
   </Col>
@@ -34,11 +34,5 @@ ItemCard.propTypes = {
     condition: PropTypes.string,
     description: PropTypes.string,
   }).isRequired,
-  // offers: PropTypes.arrayOf(PropTypes.shape({
-  //   offer: PropTypes.number,
-  //   owner: PropTypes.string,
-  //   createdAt: PropTypes.instanceOf(Date),
-  //   _id: PropTypes.string,
-  // })).isRequired,
 };
 export default ItemCard;

@@ -43,7 +43,7 @@ const App = () => {
           <Route path="/listings" element={<ProtectedRoute><YourListings /></ProtectedRoute>} />
           <Route path="/list/:category" element={<ProtectedRoute><ListItems /></ProtectedRoute>} />
           <Route path="/additem" element={<ProtectedRoute><AddItem /></ProtectedRoute>} />
-          <Route path="/edit/:_id" element={<ProtectedRoute><EditItem /></ProtectedRoute>} />
+          <Route path="/edit/:owner" element={<ProtectedRoute><EditItem /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListStuffAdmin /></AdminProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="*" element={<NotFound />} />
