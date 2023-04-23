@@ -17,13 +17,13 @@ const formSchema = new SimpleSchema({
 const bridge = new SimpleSchema2Bridge(formSchema);
 
 /* Renders the AddStuff page for adding a document. */
-const MakeOffer = ({ sellerId }) => {
+const MakeOffer = ({ owner }) => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
     const { offer, createdAt } = data;
     Offers.collection.insert(
-      { offer, sellerId, createdAt },
+      { offer, owner, createdAt },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -48,7 +48,7 @@ const MakeOffer = ({ sellerId }) => {
                 <LongTextField name="offer" />
                 <SubmitField value="Submit" />
                 <ErrorsField />
-                <HiddenField name="sellerId" value={sellerId} />
+                <HiddenField name="owner" value={owner} />
                 <HiddenField name="createdAt" value={new Date()} />
               </Card.Body>
             </Card>
@@ -60,7 +60,7 @@ const MakeOffer = ({ sellerId }) => {
 };
 
 MakeOffer.propTypes = {
-  sellerId: PropTypes.string.isRequired,
+  owner: PropTypes.string.isRequired,
 };
 
 export default MakeOffer;

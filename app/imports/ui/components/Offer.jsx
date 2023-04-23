@@ -14,7 +14,7 @@ const Offer = ({ offer }) => (
 Offer.propTypes = {
   offer: PropTypes.shape({
     offer: PropTypes.number,
-    sellerId: PropTypes.string,
+    owner: PropTypes.string,
     createdAt: PropTypes.instanceOf(Date),
     _id: PropTypes.string,
   }).isRequired,

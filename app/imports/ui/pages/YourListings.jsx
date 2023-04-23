@@ -21,6 +21,10 @@ const YourListings = () => {
     const rdy = subscription.ready() && subscription2.ready();
     // Get the Item documents
     const itemItems = Item.collection.find({}).fetch();
+<<<<<<< Updated upstream
+=======
+    // Get the Item documents
+>>>>>>> Stashed changes
     const offerItems = Offers.collection.find({}).fetch();
     // filter item list by chosen category
     return {
@@ -40,7 +44,11 @@ const YourListings = () => {
               <h2>Your Listings</h2>
             </Col>
             <Row xs={1} md={2} lg={3} className="g-4">
+<<<<<<< Updated upstream
               {items.map((item) => (<Col key={item._id}><UserItemCard item={item} offers={offers.filter(offer => (offer.sellerId === item._id))} /></Col>))}
+=======
+              {items.map((item) => (<Col key={item._id}><UserItemCard item={item} offers={offers.filter(offer => (offer.owner === item.seller))} /></Col>))}
+>>>>>>> Stashed changes
             </Row>
           </Col>
         </Row>

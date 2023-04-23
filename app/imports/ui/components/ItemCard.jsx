@@ -22,7 +22,11 @@ const ItemCard = ({ item, offers }) => (
         <ListGroup variant="flush">
           {offers.map((offer, index) => <Offer key={index} offer={offer} />)}
         </ListGroup>
+<<<<<<< Updated upstream
         <MakeOffer sellerId={item.seller} />
+=======
+        <MakeOffer owner={item.seller} />
+>>>>>>> Stashed changes
       </Card.Body>
     </Card>
   </Col>
@@ -40,7 +44,11 @@ ItemCard.propTypes = {
   }).isRequired,
   offers: PropTypes.arrayOf(PropTypes.shape({
     offer: PropTypes.number,
+<<<<<<< Updated upstream
     sellerId: PropTypes.string,
+=======
+    owner: PropTypes.string,
+>>>>>>> Stashed changes
     createdAt: PropTypes.instanceOf(Date),
     _id: PropTypes.string,
   })).isRequired,
