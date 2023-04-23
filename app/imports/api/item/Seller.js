@@ -15,9 +15,8 @@ class SellersCollection {
       email: { type: String, index: true, unique: true },
       firstName: String,
       lastName: String,
-      campus: String,
-      image: String,
-      description: String,
+      picture: { type: String, optional: true },
+      bio: { type: String, optional: true }
     });
     this.collection.attachSchema(this.schema);
     // Define names for publications and subscriptions
