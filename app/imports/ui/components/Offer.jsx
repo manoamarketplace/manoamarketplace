@@ -16,6 +16,7 @@ Offer.propTypes = {
     offer: PropTypes.number,
     owner: PropTypes.string,
     createdAt: PropTypes.instanceOf(Date),
+    itemId: PropTypes.string,
   }).isRequired,
 };
 

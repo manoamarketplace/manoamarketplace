@@ -2,7 +2,6 @@
 import React from 'react';
 import { Card, Col, Image } from 'react-bootstrap';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 
 const UserItemCard = ({ userItem }) => (
   <Col>
@@ -18,7 +17,6 @@ const UserItemCard = ({ userItem }) => (
           {userItem.description}
         </Card.Text>
         <Card.Title><h4>Offers</h4></Card.Title>
-        <Link to={`/edit/${userItem.owner}`}>Edit</Link>
       </Card.Body>
     </Card>
   </Col>

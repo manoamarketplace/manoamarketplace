@@ -3,22 +3,28 @@ import PropTypes from 'prop-types';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import { AutoForm, ErrorsField, LongTextField, SubmitField, HiddenField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
+import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { Offers } from '../../api/offer/Offers';
 
 // Create a schema to specify the structure of the data to appear in the form.
-const formSchema = Offers.schema;
+const formSchema = new SimpleSchema({
+  offer: Number,
+  createdAt: Date,
+  itemId: String,
+  owner: String,
+});
 
 const bridge = new SimpleSchema2Bridge(formSchema);
 
 /* Renders the MakeOffer page for adding a document. */
-const MakeOffer = ({ owner }) => {
+const MakeOffer = ({ owner, itemId }) => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
     const { offer, createdAt } = data;
     Offers.collection.insert(
-      { offer, owner, createdAt },
+      { offer, owner, createdAt, itemId },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -43,7 +49,8 @@ const MakeOffer = ({ owner }) => {
                 <LongTextField name="offer" />
                 <SubmitField value="Submit" />
                 <ErrorsField />
-                <HiddenField name="owner" />
+                <HiddenField name="owner" value={owner} />
+                <HiddenField name="itemId" value={itemId} />
                 <HiddenField name="createdAt" value={new Date()} />
               </Card.Body>
             </Card>
@@ -55,6 +62,7 @@ const MakeOffer = ({ owner }) => {
 };
 
 MakeOffer.propTypes = {
+  itemId: PropTypes.string.isRequired,
   owner: PropTypes.string.isRequired,
 };
 

@@ -17,7 +17,7 @@ const ItemCard = ({ item }) => (
         <Card.Text>
           {item.description}
         </Card.Text>
-        <MakeOffer owner={item.owner} />
+        <MakeOffer owner={item.owner} itemId={item._id} />
       </Card.Body>
     </Card>
   </Col>
@@ -32,6 +32,7 @@ ItemCard.propTypes = {
     owner: PropTypes.string,
     condition: PropTypes.string,
     description: PropTypes.string,
+    _id: PropTypes.string,
   }).isRequired,
 };
 export default ItemCard;
