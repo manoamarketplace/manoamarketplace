@@ -26,7 +26,7 @@ class OffersCollection {
 }
 
 /**
- * The singleton instance of the StuffsCollection.
+ * The singleton instance of the OffersCollection.
  * @type {OffersCollection}
  */
 export const Offers = new OffersCollection();
