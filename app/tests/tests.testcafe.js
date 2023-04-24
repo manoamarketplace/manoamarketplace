@@ -28,20 +28,23 @@ test('Test that signin and signout work', async (testController) => {
 });
 
 test('Test that your listings page work', async (testController) => {
-  await navBar.gotoYourListingsPage(testController);
+  await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoYourListingsPage(testController);
   await yourlistingspage.isDisplayed(testController);
 });
 
 test('Test that add item page work', async (testController) => {
-  await navBar.gotoAddItemPage(testController);
+  await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
-  await additempage.add(testController, item.name, item.price, item.condition, item.category, item.description, item.image);
+  await navBar.gotoAddItemPage(testController);
+  await additempage.add(testController, item.name, item.image, item.category, item.price, item.condition, item.description);
 });
 
 test('Test that categories page work', async (testController) => {
-  await navBar.gotoCategoriesPage(testController);
+  await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoCategoriesPage(testController);
   await categoriespage.isDisplayed(testController);
   await categoriespage.hasCards(testController);
 });

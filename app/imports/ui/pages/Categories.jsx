@@ -7,7 +7,7 @@ const CategoriesPage = () => (
     <Card.Header>
       <Card.Title className="text-center py-3"><h1 style={{ color: 'white' }}><strong>Categories</strong></h1></Card.Title>
     </Card.Header>
-    <Container>
+    <Container id="categories">
       <Row className="justify-content-md-center py+5">
         <Col xs="auto" className="py-3">
           <Col className="text-center">

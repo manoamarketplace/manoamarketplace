@@ -1,16 +1,14 @@
 import { Selector } from 'testcafe';
-import { navBar } from './navbar.component';
 
 class AdditemPage {
   constructor() {
-    this.pageId = '#additem-page';
+    this.pageId = '#additem';
     this.pageSelector = Selector(this.pageId);
   }
 
   /** Asserts that this page is currently displayed. */
   async isDisplayed(testController) {
-    // This is first test to be run. Wait 10 seconds to avoid timeouts with GitHub Actions.
-    await testController.wait(10000).expect(this.pageSelector.exists).ok();
+    await testController.expect(this.pageSelector.exists).ok();
   }
 
   async add(testController, name, image, category, price, condition, description) {
@@ -22,6 +20,7 @@ class AdditemPage {
     await testController.typeText('#add-form-condition', condition);
     await testController.typeText('#add-form-description', description);
     await testController.click('#add-form-submit input.btn.btn-primary');
+    await testController.click(Selector('.swal-button--confirm'));
   }
 }
 
