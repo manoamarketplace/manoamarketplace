@@ -5,27 +5,22 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { _ } from 'meteor/underscore';
 import { Item } from '../../api/item/Item';
 import LoadingSpinner from '../components/LoadingSpinner';
-import UserItemCard from '../components/UserItemCard';
-import { Offers } from '../../api/offer/Offers';
+import ItemCard from '../components/ItemCard';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 const YourListings = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { ready, items, offers } = useTracker(() => {
+  const { ready, items } = useTracker(() => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
-    // Get access to Item and Offer documents
+    // Get access to Item documents.
     const subscription = Meteor.subscribe(Item.userPublicationName);
-    const subscription2 = Meteor.subscribe(Offers.userPublicationName);
     // Determine if the subscription is ready
-    const rdy = subscription.ready() && subscription2.ready();
+    const rdy = subscription.ready();
     // Get the Item documents
     const itemItems = Item.collection.find({}).fetch();
-    // Get the Item documents
-    const offerItems = Offers.collection.find({}).fetch();
     // filter item list by chosen category
     return {
-      offers: offerItems,
       items: itemItems,
       ready: rdy,
     };
@@ -41,12 +36,12 @@ const YourListings = () => {
               <h2>Your Listings</h2>
             </Col>
             <Row xs={1} md={2} lg={3} className="g-4">
-              {items.map((item) => (<Col key={item._id}><UserItemCard item={item} offers={offers.filter(offer => (offer.owner === item.seller))} /></Col>))}
+              {items.map((item) => (<Col key={item._id}><ItemCard item={item} /></Col>))}
             </Row>
           </Col>
         </Row>
       </Container>
-    ) : <Row className="justify-content-center text-center"><h4>No items match this category!</h4></Row>)
+    ) : <Row className="justify-content-center text-center"><h4>You currently have no listings</h4></Row>)
   ) : <LoadingSpinner />);
 };
 

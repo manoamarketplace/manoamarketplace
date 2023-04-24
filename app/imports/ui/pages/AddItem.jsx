@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
-import { AutoForm, ErrorsField, LongTextField, NumField, SelectField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import { AutoForm, ErrorsField, LongTextField, NumField, SelectField, SubmitField, TextField, HiddenField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
@@ -23,6 +23,7 @@ const formSchema = new SimpleSchema({
     defaultValue: 'used',
   },
   description: String,
+  owner: String,
 });
 
 const bridge = new SimpleSchema2Bridge(formSchema);
@@ -69,6 +70,8 @@ const AddItem = () => {
                 </Row>
                 <Row>
                   <LongTextField id="add-form-description" name="description" />
+                  <LongTextField name="description" />
+                  <HiddenField name="owner" />
                 </Row>
                 <SubmitField id="add-form-submit" value="Submit" />
                 <ErrorsField />

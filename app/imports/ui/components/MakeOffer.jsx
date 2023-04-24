@@ -43,7 +43,7 @@ const MakeOffer = ({ owner }) => {
                 <LongTextField name="offer" />
                 <SubmitField value="Submit" />
                 <ErrorsField />
-                <HiddenField name="owner" value={owner} />
+                <HiddenField name="owner" />
                 <HiddenField name="createdAt" value={new Date()} />
               </Card.Body>
             </Card>
