@@ -1,7 +1,8 @@
 /* Component for layout out a item Card. */
 import React from 'react';
-import { Card, Col, Image } from 'react-bootstrap';
+import { Card, Col, Image, Row } from 'react-bootstrap';
 import PropTypes from 'prop-types';
+import DeleteItem from './DeleteItem';
 
 const ItemCard = ({ item }) => (
   <Col>
@@ -22,6 +23,9 @@ const ItemCard = ({ item }) => (
         ]) : ([
         ])}
       </Card.Body>
+      <Card.Footer>
+        <Row><DeleteItem item={item} /></Row>
+      </Card.Footer>
     </Card>
   </Col>
 );
