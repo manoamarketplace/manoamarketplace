@@ -25,7 +25,7 @@ const SellersPage = () => {
   }, []);
 
   return (ready ? (
-    <Container className="py-3">
+    <Container className="py-3" id="sellers">
       <Row className="justify-content-center">
         <Col>
           <Col className="text-center">
