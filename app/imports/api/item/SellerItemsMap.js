@@ -9,7 +9,7 @@ class SellerItemsMapCollection {
     this.collection = new Mongo.Collection(this.name);
 
     this.schema = new SimpleSchema({
-      email: String,
+      seller: String,
       item: String,
     });
     this.collection.attachSchema(this.schema);
