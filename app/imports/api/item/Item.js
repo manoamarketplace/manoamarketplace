@@ -15,19 +15,26 @@ class ItemCollection {
       name: String,
       category: {
         type: String,
-        allowedValues: ['school', 'bathroom', 'kitchen', 'gym'],
-        defaultValue: '',
+        allowedValues: ['textbooks', 'stationary', 'electronics', 'bathroom', 'kitchen', 'gym', 'transportation', 'dorm', 'clothing'],
+        defaultValue: 'dorm',
+      },
+      condition: {
+        type: String,
+        allowedValues: ['used', 'slightly used', 'new'],
+        defaultValue: 'used',
       },
       image: String,
       price: Number,
       description: String,
-      owner: String,
+      reported: Boolean,
+      // seller, condition, quantity
     });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);
     // Define names for publications and subscriptions
     this.userPublicationName = `${this.name}.publication.user`;
     this.adminPublicationName = `${this.name}.publication.admin`;
+    this.buyerPublicationName = `${this.name}.publication.buyer`;
   }
 }
 

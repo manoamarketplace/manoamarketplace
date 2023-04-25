@@ -1,38 +1,31 @@
 import { Meteor } from 'meteor/meteor';
-import { Stuffs } from '../../api/item/Stuff';
 import { Item } from '../../api/item/Item.js';
 import { Sellers } from '../../api/item/Seller';
+import { SellerItemsMap } from '../../api/item/SellerItemsMap';
 
 /* eslint-disable no-console */
 
-// Initialize the database with a default data document.
-const addStuff = (stuff) => {
-  console.log(`  Adding: ${stuff.name} (${stuff.owner})`);
-  Stuffs.collection.insert(stuff);
-};
-
-const addData = (data) => {
-  console.log(`  Adding: ${data.name} (${data.owner})`);
-  Item.collection.insert(data);
+// Initialize the database with a default data document
+const addItem = (item) => {
+  console.log(`  Adding: ${item.name} (${item.owner})`);
+  Item.collection.insert(item);
 };
 
 const addSeller = (seller) => {
-  console.log(`  Adding: ${seller.lastName} (${seller.owner})`);
+  console.log(`  Adding: ${seller.lastName} (${seller.email})`);
   Sellers.collection.insert(seller);
 };
 
-if (Stuffs.collection.find().count() === 0) {
-  if (Meteor.settings.defaultStuffs) {
-    console.log('Creating default Stuff.');
-    Meteor.settings.defaultStuffs.forEach(stuff => addStuff(stuff));
-  }
-}
+const addSellerItemsMap = (sellerItemsMap) => {
+  console.log(`  Adding: ${sellerItemsMap.lastName} (${sellerItemsMap.owner})`);
+  SellerItemsMap.collection.insert(sellerItemsMap);
+};
 
 // Initialize the ItemCollection if empty.
 if (Item.collection.find().count() === 0) {
-  if (Meteor.settings.defaultData) {
-    console.log('Creating default data.');
-    Meteor.settings.defaultData.forEach(data => addData(data));
+  if (Meteor.settings.defaultItems) {
+    console.log('Creating default items.');
+    Meteor.settings.defaultItems.forEach(data => addItem(data));
   }
 }
 
@@ -40,5 +33,12 @@ if (Sellers.collection.find().count() === 0) {
   if (Meteor.settings.defaultSellers) {
     console.log('Creating default sellers.');
     Meteor.settings.defaultSellers.forEach(seller => addSeller(seller));
+  }
+}
+
+if (SellerItemsMap.collection.find().count() === 0) {
+  if (Meteor.settings.defaultSellerItemsMap) {
+    console.log('Creating default sellers items.');
+    Meteor.settings.defaultSellerItemsMap.forEach(sellerItemsMap => addSellerItemsMap(sellerItemsMap));
   }
 }

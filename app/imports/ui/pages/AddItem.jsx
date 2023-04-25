@@ -12,11 +12,16 @@ const formSchema = new SimpleSchema({
   name: String,
   category: {
     type: String,
-    allowedValues: ['school', 'bathroom', 'kitchen', 'gym'],
-    defaultValue: 'school',
+    allowedValues: ['textbooks', 'stationary', 'electronics', 'bathroom', 'kitchen', 'gym', 'transportation', 'dorm', 'clothing'],
+    defaultValue: 'dorm',
   },
   image: String,
   price: Number,
+  condition: {
+    type: String,
+    allowedValues: ['used', 'slightly used', 'new'],
+    defaultValue: 'used',
+  },
   description: String,
 });
 
@@ -27,10 +32,11 @@ const AddItem = () => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
-    const { name, category, image, price, description } = data;
+    const { name, category, image, price, condition, description } = data;
     const owner = Meteor.user().username;
+    const reported = false;
     Item.collection.insert(
-      { name, category, image, price, description, owner },
+      { name, category, image, price, condition, description, owner, reported },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -45,19 +51,26 @@ const AddItem = () => {
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   let fRef = null;
   return (
-    <Container className="py-3">
+    <Container className="py-3" id="additem">
       <Row className="justify-content-center">
-        <Col xs={5}>
+        <Col xs={9}>
           <Col className="text-center"><h2>Create an Item</h2></Col>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
               <Card.Body>
-                <TextField name="name" />
-                <SelectField name="category" />
-                <TextField name="image" />
-                <NumField name="price" />
-                <LongTextField name="description" />
-                <SubmitField value="Submit" />
+                <Row>
+                  <Col><TextField id="add-form-name" name="name" /></Col>
+                  <Col><TextField id="add-form-image" name="image" /></Col>
+                </Row>
+                <Row>
+                  <Col><SelectField id="add-form-category" name="category" /></Col>
+                  <Col><NumField id="add-form-price" name="price" /></Col>
+                  <Col><SelectField id="add-form-condition" name="condition" /></Col>
+                </Row>
+                <Row>
+                  <LongTextField id="add-form-description" name="description" />
+                </Row>
+                <SubmitField id="add-form-submit" value="Submit" />
                 <ErrorsField />
               </Card.Body>
             </Card>

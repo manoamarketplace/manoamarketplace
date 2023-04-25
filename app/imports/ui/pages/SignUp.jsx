@@ -17,18 +17,18 @@ const SignUp = ({ location }) => {
   const schema = new SimpleSchema({
     email: String,
     password: String,
+    firstName: String,
+    lastName: String,
   });
   const bridge = new SimpleSchema2Bridge(schema);
 
   /* Handle SignUp submission. Create user account and a profile entry, then redirect to the home page. */
   const submit = (doc) => {
-    const { email, password } = doc;
-    if (email.indexOf("@hawaii.edu") === -1) {
+    const { firstName, lastName, email, password } = doc;
+    if (email.indexOf('@hawaii.edu') === -1) {
       setError('Not a UH email!');
     } else {
-      'if (check).. and then error message'
-      'for an adv. app: make sure everything is auto lowercased and no whitespaces'
-      Accounts.createUser({ email, username: email, password }, (err) => {
+      Accounts.createUser({ email, username: email, password, firstName, lastName }, (err) => {
         if (err) {
           setError(err.reason);
         } else {
@@ -40,7 +40,7 @@ const SignUp = ({ location }) => {
   };
 
   /* Display the signup form. Redirect to add page after successful registration and login. */
-  const { from } = location?.state || { from: { pathname: '/add' } };
+  const { from } = location?.state || { from: { pathname: '/home' } };
   // if correct authentication, redirect to from: page instead of signup screen
   if (redirectToReferer) {
     return <Navigate to={from} />;
@@ -48,15 +48,19 @@ const SignUp = ({ location }) => {
   return (
     <Container id="signup-page" className="py-3">
       <Row className="justify-content-center">
-        <Col xs={5}>
+        <Col xs={7}>
           <Col className="text-center">
             <h2>Register your account</h2>
           </Col>
           <AutoForm schema={bridge} onSubmit={data => submit(data)}>
             <Card>
               <Card.Body>
+                <Row>
+                  <Col><TextField name="firstName" placeholder="First name" /></Col>
+                  <Col><TextField name="lastName" placeholder="Last name" /></Col>
+                </Row>
                 <TextField name="email" placeholder="E-mail address" />
-                <p>Note: E-mail address must end in "@hawaii.edu"</p>
+                <p>Note: E-mail address must end in @hawaii.edu</p>
                 <TextField name="password" placeholder="Password" type="password" />
                 <ErrorsField />
                 <SubmitField />
