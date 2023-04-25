@@ -42,7 +42,7 @@ const YourListings = () => {
           </Col>
         </Row>
       </Container>
-    ) : <Row className="justify-content-center text-center"><h4>You currently do not have any listings!</h4></Row>)
+    ) : <Row className="justify-content-center text-center" id="yourlistings"><h4>You currently do not have any listings!</h4></Row>)
   ) : <LoadingSpinner />);
 };
 
