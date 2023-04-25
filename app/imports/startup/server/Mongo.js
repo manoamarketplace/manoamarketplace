@@ -12,7 +12,7 @@ const addItem = (item) => {
 };
 
 const addSeller = (seller) => {
-  console.log(`  Adding: ${seller.lastName} (${seller.owner})`);
+  console.log(`  Adding: ${seller.lastName} (${seller.email})`);
   Sellers.collection.insert(seller);
 };
 

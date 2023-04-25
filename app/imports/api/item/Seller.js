@@ -12,16 +12,17 @@ class SellersCollection {
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
-      email: { type: String, index: true, unique: true },
+      email: String,
       firstName: String,
       lastName: String,
-      picture: { type: String, optional: true },
-      bio: { type: String, optional: true }
+      picture: String,
+      bio: String,
     });
     this.collection.attachSchema(this.schema);
     // Define names for publications and subscriptions
     this.userPublicationName = `${this.name}.publication.user`;
     this.adminPublicationName = `${this.name}.publication.admin`;
+    this.buyerPublicationName = `${this.name}.publication.buyer`;
   }
 }
 

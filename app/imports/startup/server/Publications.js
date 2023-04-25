@@ -41,6 +41,13 @@ Meteor.publish(Item.buyerPublicationName, function () {
   return this.ready();
 });
 
+Meteor.publish(Sellers.buyerPublicationName, function () {
+  if (this.userId) {
+    return Sellers.collection.find();
+  }
+  return this.ready();
+});
+
 // Admin-level publication.
 // If logged in and with admin role, then publish all documents from all users. Otherwise publish nothing.
 Meteor.publish(Item.adminPublicationName, function () {
