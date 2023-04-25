@@ -10,14 +10,14 @@ import { Offers } from '../../api/offer/Offers';
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
   offer: Number,
-  createdAt: Date,
   itemId: String,
+  createdAt: Date,
   owner: String,
 });
 
 const bridge = new SimpleSchema2Bridge(formSchema);
 
-/* Renders the MakeOffer page for adding a document. */
+/* Renders the MakeOffer page for making an offer. */
 const MakeOffer = ({ owner, itemId }) => {
 
   // On submit, insert the data.

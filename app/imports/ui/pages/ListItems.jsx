@@ -7,7 +7,6 @@ import { _ } from 'meteor/underscore';
 import { Item } from '../../api/item/Item';
 import LoadingSpinner from '../components/LoadingSpinner';
 import ItemCard from '../components/ItemCard';
-import offer from '../components/Offer';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 const ListItems = () => {
@@ -40,7 +39,7 @@ const ListItems = () => {
               <h2>Shop {category}</h2>
             </Col>
             <Row xs={1} md={2} lg={3} className="g-4">
-              {items.map((item) => (<Col key={item._id}><ItemCard item={item} offers={offer} /></Col>))}
+              {items.map((item) => (<Col key={item._id}><ItemCard item={item} /></Col>))}
             </Row>
           </Col>
         </Row>
