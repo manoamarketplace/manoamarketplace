@@ -26,6 +26,8 @@ class ItemCollection {
       image: String,
       price: Number,
       description: String,
+      owner: String,
+      seller: String,
       reported: Boolean,
       // seller, condition, quantity
     });
