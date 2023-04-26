@@ -21,7 +21,7 @@ Seller.propTypes = {
   seller: PropTypes.shape({
     email: PropTypes.string.isRequired,
     firstName: PropTypes.string.isRequired,
-    lastName: PropTypes.string.isRequired,
+    lastName: PropTypes.string,
     picture: PropTypes.string.isRequired,
     bio: PropTypes.string.isRequired,
     owner: PropTypes.string,

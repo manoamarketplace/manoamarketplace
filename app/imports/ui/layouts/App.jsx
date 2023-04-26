@@ -7,7 +7,6 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
 import ListItems from '../pages/ListItems';
-import ListStuffAdmin from '../pages/ListStuffAdmin';
 import AddItem from '../pages/AddItem';
 import NotFound from '../pages/NotFound';
 import SignUp from '../pages/SignUp';
@@ -21,6 +20,8 @@ import EditItem from '../pages/EditItem';
 import YourListings from '../pages/YourListings';
 import Home from '../pages/Home';
 import SellersPage from '../pages/ListSellers';
+import AdminListings from '../pages/AdminListings';
+import AdminEditItem from '../pages/AdminEditItem';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -46,7 +47,8 @@ const App = () => {
           <Route path="/list/:category" element={<ProtectedRoute><ListItems /></ProtectedRoute>} />
           <Route path="/additem" element={<ProtectedRoute><AddItem /></ProtectedRoute>} />
           <Route path="/edit/:owner" element={<ProtectedRoute><EditItem /></ProtectedRoute>} />
-          <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListStuffAdmin /></AdminProtectedRoute>} />
+          <Route path="/admin" element={<AdminProtectedRoute ready={ready}><AdminListings /></AdminProtectedRoute>} />
+          <Route path="/adminedit" element={<AdminProtectedRoute ready={ready}><AdminEditItem /></AdminProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
