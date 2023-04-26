@@ -8,11 +8,11 @@ import { Sellers } from '../../api/item/Seller';
 
 const Profile = () => {
   const { ready, seller } = useTracker(() => {
-    const subscription1 = Meteor.subscribe(Sellers.userPublicationName);
-    const rdy = subscription1.ready();
-    const sellerSeller = Sellers.collection.find({}).fetch();
+    const subscription = Meteor.subscribe(Sellers.userPublicationName);
+    const rdy = subscription.ready();
+    const sellerInfo = Sellers.collection.find({}).fetch();
     return {
-      seller: sellerSeller,
+      seller: sellerInfo,
       ready: rdy,
     };
   }, []);
@@ -26,21 +26,21 @@ const Profile = () => {
               <Card className="p-4">
                 <Card.Header>
                   <div className="d-flex justify-content-center">
-                    <Card.Img src={seller.picture} className="img" />
+                    <Card.Img src={seller[0].picture} className="img" />
                   </div>
                 </Card.Header>
                 <div className="d-flex text-black">
                   <div className="flex-grow-1 ms-3">
                     <div className="text-center">
-                      <Card.Title>{seller.firstName} {seller.lastName}</Card.Title>
-                      <Card.Subtitle>Email: {seller.email}</Card.Subtitle>
-                      <Card.Subtitle>Phone: {seller.phone}</Card.Subtitle>
-                      <Card.Subtitle>Year: {seller.year}</Card.Subtitle>
-                      <Card.Subtitle>Major: {seller.major}</Card.Subtitle>
+                      <Card.Title>{seller[0].firstName} {seller[0].lastName}</Card.Title>
+                      <Card.Subtitle>Email: {seller[0].email}</Card.Subtitle>
+                      <Card.Subtitle>Phone: {seller[0].phone}</Card.Subtitle>
+                      <Card.Subtitle>Year: {seller[0].year}</Card.Subtitle>
+                      <Card.Subtitle>Major: {seller[0].major}</Card.Subtitle>
                     </div>
-                    <Card.Body>{seller.bio}</Card.Body>
+                    <Card.Body>{seller[0].bio}</Card.Body>
                     <Card.Footer>
-                      <Link to={`/editProfile/${seller._id}`}>Edit Profile</Link>
+                      <Link to={`/edit-profile/${seller[0]._id}`}>Edit Profile</Link>
                     </Card.Footer>
                   </div>
                 </div>
