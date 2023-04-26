@@ -34,9 +34,10 @@ const AddItem = () => {
   const submit = (data, formRef) => {
     const { name, category, image, price, condition, description } = data;
     const owner = Meteor.user().username;
+    const seller = Meteor.user().username;
     const reported = false;
     Item.collection.insert(
-      { name, category, image, price, condition, description, owner, reported },
+      { name, category, image, price, condition, description, owner, seller, reported },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
