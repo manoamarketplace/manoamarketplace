@@ -22,6 +22,9 @@ import Home from '../pages/Home';
 import SellersPage from '../pages/ListSellers';
 import AdminListings from '../pages/AdminListings';
 import AdminEditItem from '../pages/AdminEditItem';
+import AddProfile from '../pages/AddProfile';
+import Profile from '../pages/Profile';
+import EditProfile from '../pages/EditProfile';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -41,6 +44,9 @@ const App = () => {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signout" element={<SignOut />} />
           <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+          <Route path="/add-profile" element={<ProtectedRoute><AddProfile /></ProtectedRoute>} />
+          <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+          <Route path="/edit-profile/:_id" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />
           <Route path="/categories" element={<ProtectedRoute><Categories /></ProtectedRoute>} />
           <Route path="/listings" element={<ProtectedRoute><YourListings /></ProtectedRoute>} />
           <Route path="/sellers" element={<ProtectedRoute><SellersPage /></ProtectedRoute>} />
