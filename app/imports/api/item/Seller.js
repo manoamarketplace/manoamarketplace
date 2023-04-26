@@ -14,7 +14,10 @@ class SellersCollection {
     this.schema = new SimpleSchema({
       email: String,
       firstName: String,
-      lastName: String,
+      lastName: {
+        type: String,
+        required: false,
+      },
       picture: String,
       bio: String,
     });
