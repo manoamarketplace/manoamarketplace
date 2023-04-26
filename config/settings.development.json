@@ -2,7 +2,7 @@
   "defaultAccounts": [
     { "email": "admin@hawaii.edu", "password": "changeme", "role": "admin" },
     { "email": "john@hawaii.edu", "password": "changeme" },
-    { "email":  "lorj@hawaii.edu", "password":  "hi" }
+    { "email": "lorj@hawaii.edu", "password":  "hi" }
   ],
 
   "defaultItems": [
