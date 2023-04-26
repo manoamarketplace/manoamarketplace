@@ -59,8 +59,8 @@
   ],
 
   "defaultSellers": [
-    { "email": "john@hawaii.edu", "firstName": "John", "lastName": "Doe", "picture":  "https://m.media-amazon.com/images/M/MV5BNzk0MDQ5OTUxMV5BMl5BanBnXkFtZTcwMDM5ODk5Mg@@._V1_FMjpg_UX1000_.jpg", "bio": "Computer Science Undergrad", "owner": "john@hawaii.edu" },
-    { "email": "lorj@hawaii.edu", "firstName": "Jazmin", "lastName": "Lor", "picture":  "/default-items/JLor.jpg", "bio": "Computer Science Undergrad", "owner": "lorj@hawaii.edu" },
-    { "email": "admin@hawaii.edu", "firstName": "Administrator", "lastName": "", "picture":  "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Ruth_Bader_Ginsburg_official_SCOTUS_portrait_%28headshot%29.jpg/474px-Ruth_Bader_Ginsburg_official_SCOTUS_portrait_%28headshot%29.jpg", "bio": "Student Relations Coordinator", "owner": "admin@hawaii.edu" }
+    { "email": "john@hawaii.edu", "firstName": "John", "lastName": "Doe", "picture":  "https://m.media-amazon.com/images/M/MV5BNzk0MDQ5OTUxMV5BMl5BanBnXkFtZTcwMDM5ODk5Mg@@._V1_FMjpg_UX1000_.jpg", "phone": "808-808-1234", "year": "Sophomore", "major": "Mathematics", "bio": "My name is John and I like to sleep.", "owner": "john@hawaii.edu", "_id": "DG4wo4JG26kHQhou4" },
+    { "email": "lorj@hawaii.edu", "firstName": "Jazmin", "lastName": "Lor", "picture":  "/default-items/JLor.jpg", "phone": "808-808-8008", "year": "Junior", "major": "Computer Science", "bio": "I am a Computer Science Undergrad. I like dogs.", "owner": "lorj@hawaii.edu", "_id": "AX3gKjFrSABgA22yx" },
+    { "email": "admin@hawaii.edu", "firstName": "Administrator", "lastName": "", "picture":  "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Ruth_Bader_Ginsburg_official_SCOTUS_portrait_%28headshot%29.jpg/474px-Ruth_Bader_Ginsburg_official_SCOTUS_portrait_%28headshot%29.jpg", "phone": "808-123-7789", "year": "Prefer Not To Say", "major": "Undeclared", "bio": "I am the Student Relations Coordinator.", "owner": "admin@hawaii.edu", "_id": "Cs7ch7HPhkvtkSpph" }
   ]
 }

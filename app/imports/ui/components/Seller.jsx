@@ -12,6 +12,9 @@ const Seller = ({ seller }) => (
     <Card.Body>
       <Card.Title className="text-center">{seller.firstName} {seller.lastName}</Card.Title>
       <Card.Subtitle>Email: {seller.email}</Card.Subtitle>
+      <Card.Subtitle>Phone: {seller.phone}</Card.Subtitle>
+      <Card.Subtitle>Year: {seller.year}</Card.Subtitle>
+      <Card.Subtitle>Major: {seller.major}</Card.Subtitle>
       <Card.Subtitle>Bio: {seller.bio}</Card.Subtitle>
     </Card.Body>
   </Card>
@@ -24,6 +27,9 @@ Seller.propTypes = {
     lastName: PropTypes.string,
     picture: PropTypes.string.isRequired,
     bio: PropTypes.string.isRequired,
+    phone: PropTypes.string.isRequired,
+    year: PropTypes.string.isRequired,
+    major: PropTypes.string.isRequired,
     owner: PropTypes.string,
     _id: PropTypes.string.isRequired,
   }).isRequired,
