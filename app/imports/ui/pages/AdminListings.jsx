@@ -2,12 +2,11 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
-import { _ } from 'meteor/underscore';
 import { Item } from '../../api/item/Item';
 import LoadingSpinner from '../components/LoadingSpinner';
+// import UserItemCard from '../components/UserItemCard';
 import AdminItemCard from '../components/AdminItemCard';
 
-/* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 const AdminListings = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { ready, items } = useTracker(() => {
@@ -29,20 +28,18 @@ const AdminListings = () => {
 
   // eslint-disable-next-line no-nested-ternary
   return (ready ? (
-    (!_.isEmpty(items) ? (
-      <Container className="py-3" id="yourlistings">
-        <Row className="justify-content-center">
-          <Col>
-            <Col className="text-center">
-              <h2>All Listings</h2>
-            </Col>
-            <Row xs={1} md={2} lg={3} className="g-4">
-              {items.map((item) => (<Col key={item._id}><AdminItemCard adminItem={item} /></Col>))}
-            </Row>
+    <Container className="py-3" id="adminlistings">
+      <Row className="justify-content-center">
+        <Col>
+          <Col className="text-center">
+            <h2>All Listings</h2>
           </Col>
-        </Row>
-      </Container>
-    ) : <Row className="justify-content-center text-center" id="yourlistings"><h4>There are no listings yet.</h4></Row>)
+          <Row xs={1} md={2} lg={3} className="g-4">
+            {items.map((item) => (<Col key={item._id}><AdminItemCard item={item} collection={Item.collection} /></Col>))}
+          </Row>
+        </Col>
+      </Row>
+    </Container>
   ) : <LoadingSpinner />);
 };
 
