@@ -5,7 +5,8 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { _ } from 'meteor/underscore';
 import { Item } from '../../api/item/Item';
 import LoadingSpinner from '../components/LoadingSpinner';
-import UserItemCard from '../components/UserItemCard';
+import AdminItemCard from '../components/AdminItemCard';
+// import AdminItemCard from '../components/AdminItemCard';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 const YourListings = () => {
@@ -37,7 +38,7 @@ const YourListings = () => {
               <h2>Your Listings</h2>
             </Col>
             <Row xs={1} md={2} lg={3} className="g-4">
-              {items.map((item) => (<Col key={item._id}><UserItemCard userItem={item} /></Col>))}
+              {items.map((item) => (<Col key={item._id}><AdminItemCard item={item} collection={Item.collection} /></Col>))}
             </Row>
           </Col>
         </Row>
