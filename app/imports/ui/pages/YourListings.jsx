@@ -38,7 +38,7 @@ const YourListings = () => {
               <h2>Your Listings</h2>
             </Col>
             <Row xs={1} md={2} lg={3} className="g-4">
-              {/*{items.map((item) => (<Col key={item._id}><UserItemCard userItem={item} /></Col>))}*/}
+              {/* {items.map((item) => (<Col key={item._id}><UserItemCard userItem={item} /></Col>))} */}
               {items.map((item) => (<Col key={item._id}><AdminItemCard item={item} collection={Item.collection} /></Col>))}
             </Row>
           </Col>

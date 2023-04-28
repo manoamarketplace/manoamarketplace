@@ -10,7 +10,7 @@ import { sellersPage } from './sellers.page';
 /* global fixture:false, test:false */
 
 /** Credentials for one of the sample users defined in settings.development.json. */
-const credentials = { username: 'john@foo.com', password: 'changeme' };
+const credentials = { username: 'john@hawaii.edu', password: 'changeme' };
 const item = { name: 'Fan', image: 'https://i.insider.com/62d6e475bc4c770018b76d6c?width=1200&format=jpeg', category: 'dorm', price: '20', condition: 'used', description: 'Used for two years, still works, perfect for the hot weather' };
 
 fixture('meteor-application-template-react localhost test with default db')
