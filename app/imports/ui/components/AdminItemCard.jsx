@@ -26,7 +26,7 @@ const AdminItemCard = ({ item, collection }) => {
         </Card.Header>
         <Card.Body>
           <Card.Text>{item.seller}</Card.Text>
-          <Card.Text>{item.condition}</Card.Text>
+          <Card.Text>Condition: {item.condition}</Card.Text>
           <Card.Text>
             {item.description}
           </Card.Text>
@@ -34,6 +34,7 @@ const AdminItemCard = ({ item, collection }) => {
             <p>Item has been reported!</p>,
           ]) : ([
           ])}
+          <Card.Title><h4>Offers</h4></Card.Title>
         </Card.Body>
       </Card>
     </Col>
