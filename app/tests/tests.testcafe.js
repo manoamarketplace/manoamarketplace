@@ -6,11 +6,13 @@ import { yourlistingspage } from './yourlistings.page';
 import { categoriespage } from './categories.page';
 import { additempage } from './additem.page';
 import { sellersPage } from './sellers.page';
+import { allListings } from './listingsall.page';
 
 /* global fixture:false, test:false */
 
 /** Credentials for one of the sample users defined in settings.development.json. */
 const credentials = { username: 'john@hawaii.edu', password: 'changeme' };
+const admin = { username: 'admin@hawaii.edu', password: 'changeme' };
 const item = { name: 'Fan', image: 'https://i.insider.com/62d6e475bc4c770018b76d6c?width=1200&format=jpeg', category: 'dorm', price: '20', condition: 'used', description: 'Used for two years, still works, perfect for the hot weather' };
 
 fixture('meteor-application-template-react localhost test with default db')
@@ -55,4 +57,11 @@ test('Test that categories page work', async (testController) => {
   await navBar.gotoCategoriesPage(testController);
   await categoriespage.isDisplayed(testController);
   await categoriespage.hasCards(testController);
+});
+
+test('Test that admin all listings page work', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, admin.username, admin.password);
+  await navBar.gotoAllListingsPage(testController);
+  await allListings.isDisplayed(testController);
 });

@@ -28,7 +28,7 @@ const AdminListings = () => {
 
   // eslint-disable-next-line no-nested-ternary
   return (ready ? (
-    <Container className="py-3" id="adminlistings">
+    <Container className="py-3" id="all-listings">
       <Row className="justify-content-center">
         <Col>
           <Col className="text-center">
