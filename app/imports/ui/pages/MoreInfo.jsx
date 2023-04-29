@@ -7,24 +7,29 @@ import { _ } from 'meteor/underscore';
 import { Item } from '../../api/item/Item';
 import LoadingSpinner from '../components/LoadingSpinner';
 import MakeOffer from '../components/MakeOffer';
+import { Sellers } from '../../api/item/Seller';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 const MoreInfo = () => {
   const { _id } = useParams();
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { ready, item } = useTracker(() => {
+  const { ready, item, seller } = useTracker(() => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
     // Get access to Item documents.
     const subscription = Meteor.subscribe(Item.buyerPublicationName);
+    const subscription2 = Meteor.subscribe(Sellers.buyerPublicationName);
     // Determine if the subscription is ready
-    const rdy = subscription.ready();
+    const rdy = subscription.ready() && subscription2.ready();
     // Get the Item document
     const itemItems = Item.collection.find({ _id: _id }).fetch();
     const thisItem = itemItems[0];
     // Get the Seller
+    const sellerItem = Sellers.collection.find({ email: thisItem.owner }).fetch();
+    const thisSeller = sellerItem[0];
     return {
       item: thisItem,
+      seller: thisSeller,
       ready: rdy,
     };
   }, [_id]);
@@ -43,11 +48,13 @@ const MoreInfo = () => {
             <br />
             <p>Condition: {item.condition}</p>
             <p>{item.description}</p>
-            <MakeOffer owner={item.owner} itemId={item._id} />
+            {Meteor.userId() === seller._id ? ([
+              <h1>hello world</h1>,
+            ]) : <MakeOffer owner={item.owner} itemId={item._id} />}
           </Col>
         </Row>
       </Container>
-    ) : <Row className="justify-content-center text-center"><h4>No items match this category!</h4></Row>)
+    ) : <Row className="justify-content-center text-center"><h4>This item does not exist or has been taken down.</h4></Row>)
   ) : <LoadingSpinner />);
 };
 
