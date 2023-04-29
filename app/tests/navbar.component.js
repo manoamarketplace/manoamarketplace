@@ -64,6 +64,10 @@ class NavBar {
   async gotoCategoriesPage(testController) {
     await testController.click('#categories-nav');
   }
+
+  async gotoSellersDirectoryPage(testController) {
+    await testController.click('#sellers-nav');
+  }
 }
 
 export const navBar = new NavBar();

@@ -5,6 +5,7 @@ import { navBar } from './navbar.component';
 import { yourlistingspage } from './yourlistings.page';
 import { categoriespage } from './categories.page';
 import { additempage } from './additem.page';
+import { sellersPage } from './sellers.page';
 
 /* global fixture:false, test:false */
 
@@ -32,6 +33,13 @@ test('Test that your listings page work', async (testController) => {
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.gotoYourListingsPage(testController);
   await yourlistingspage.isDisplayed(testController);
+});
+
+test('Test that sellers directory page work', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoSellersDirectoryPage(testController);
+  await sellersPage.isDisplayed(testController);
 });
 
 test('Test that add item page work', async (testController) => {

@@ -25,11 +25,11 @@ const SellersPage = () => {
   }, []);
 
   return (ready ? (
-    <Container className="py-3">
+    <Container className="py-3" id="sellers">
       <Row className="justify-content-center">
         <Col>
           <Col className="text-center">
-            <h2>List of Sellers</h2>
+            <h2>List of Users</h2>
           </Col>
           <Row xs={1} md={2} lg={3} className="g-4">
             {sellers.map((seller) => (<Col key={seller._id}><Seller seller={seller} /></Col>))}

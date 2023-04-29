@@ -29,7 +29,7 @@ const MakeOffer = ({ owner, itemId }) => {
         if (error) {
           swal('Error', error.message, 'error');
         } else {
-          swal('Success', 'Item added successfully', 'success');
+          swal('Success', 'Offer sent successfully!', 'success');
           formRef.reset();
         }
       },

@@ -5,16 +5,16 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { _ } from 'meteor/underscore';
 import { Item } from '../../api/item/Item';
 import LoadingSpinner from '../components/LoadingSpinner';
-import UserItemCard from '../components/UserItemCard';
+import AdminItemCard from '../components/AdminItemCard';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-const YourListings = () => {
+const AdminListings = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { ready, items } = useTracker(() => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
     // Get access to Item documents.
-    const subscription = Meteor.subscribe(Item.userPublicationName);
+    const subscription = Meteor.subscribe(Item.adminPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the Item documents
@@ -34,16 +34,16 @@ const YourListings = () => {
         <Row className="justify-content-center">
           <Col>
             <Col className="text-center">
-              <h2>Your Listings</h2>
+              <h2>All Listings</h2>
             </Col>
             <Row xs={1} md={2} lg={3} className="g-4">
-              {items.map((item) => (<Col key={item._id}><UserItemCard userItem={item} /></Col>))}
+              {items.map((item) => (<Col key={item._id}><AdminItemCard adminItem={item} /></Col>))}
             </Row>
           </Col>
         </Row>
       </Container>
-    ) : <Row className="justify-content-center text-center" id="yourlistings"><h4>You currently do not have any listings!</h4></Row>)
+    ) : <Row className="justify-content-center text-center" id="yourlistings"><h4>There are no listings yet.</h4></Row>)
   ) : <LoadingSpinner />);
 };
 
-export default YourListings;
+export default AdminListings;
