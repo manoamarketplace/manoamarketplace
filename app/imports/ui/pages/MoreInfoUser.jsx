@@ -5,13 +5,14 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { useParams } from 'react-router';
 import { _ } from 'meteor/underscore';
 import swal from 'sweetalert';
+import { Trash } from 'react-bootstrap-icons';
 import { Item } from '../../api/item/Item';
 import LoadingSpinner from '../components/LoadingSpinner';
 import MakeOffer from '../components/MakeOffer';
 import { Sellers } from '../../api/item/Seller';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-const MoreInfo = () => {
+const MoreInfoUser = () => {
   const { _id } = useParams();
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { ready, item } = useTracker(() => {
@@ -40,6 +41,10 @@ const MoreInfo = () => {
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
   };
+  const removeItem = (docId) => {
+    Item.collection.remove(docId);
+    swal('Success', 'Item deleted successfully', 'error');
+  };
   // eslint-disable-next-line no-nested-ternary
   return (ready ? (
     (!_.isEmpty(item) ? (
@@ -57,9 +62,15 @@ const MoreInfo = () => {
             <MakeOffer owner={item.owner} itemId={item._id} />
           </Col>
         </Row>
-        <Row>
-          <Col>
-            <Button variant="text" style={{ color: 'blue' }} onClick={reportItem}>Report this item</Button>
+        <Row className="py-4">
+          <Col xs="1">
+            <Button variant="text" style={{ color: 'blue' }} onClick={reportItem}>Report</Button>
+          </Col>
+          <Col xs="1">
+            <Button variant="text" style={{ color: 'blue' }} href={`/edit/${item._id}`}>Edit</Button>
+          </Col>
+          <Col xs="1">
+            <Button variant="danger" onClick={() => removeItem(item._id)}><Trash /></Button>
           </Col>
         </Row>
       </Container>
@@ -67,4 +78,4 @@ const MoreInfo = () => {
   ) : <LoadingSpinner />);
 };
 
-export default MoreInfo;
+export default MoreInfoUser;
