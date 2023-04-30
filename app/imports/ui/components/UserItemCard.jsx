@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const UserItemCard = ({ item }) => (
   <Col>
-    <Button href={`/more-info/${item._id}`} variant="text" className="p-0">
+    <Button href={`/more-info-owner/${item._id}`} variant="text" className="p-0">
       <Card className="h-100">
         <Card.Header>
           <Image src={item.image} className="img" />
