@@ -11,72 +11,75 @@ import PItemCard from '../components/ProfileItemCard';
 
 const Profile = () => {
 
-  const { email } = useParams();
+  const { currentUser } = useTracker(() => ({
+    currentUser: Meteor.user() ? Meteor.user().username
+      : '',
+  }), []);
+
+  const id = useParams();
+  console.log('email', id.id);
 
   const { ready, seller, items } = useTracker(() => {
     const subscription1 = Meteor.subscribe(Sellers.buyerPublicationName);
-    const subscription2 = Meteor.subscribe(Item.userPublicationName)
+    const subscription2 = Meteor.subscribe(Item.buyerPublicationName);
     const rdy = subscription1.ready() && subscription2.ready();
-    const sellerInfo = Sellers.collection.find({ email: email }).fetch();
-    const sellerItems = Item.collection.find({}).fetch();
+    const sellerInfo = Sellers.collection.find({ email: id.id }).fetch();
+    const sellerItems = Item.collection.find({ owner: id.id }).fetch();
     return {
       seller: sellerInfo,
       items: sellerItems,
       ready: rdy,
     };
-  }, [email]);
+  }, []);
 
-  const { currentUser } = useTracker(() => ({
-    currentUser: Meteor.user() ? Meteor.user().username : '',
-  }), []);
-
+  // eslint-disable-next-line no-nested-ternary
   return (ready ? (
     (!_.isEmpty(seller) ? (
       <Container>
-    <Row>
-    <div>
-      <Container id="profile">
-        <Row className="justify-content-center">
-          <Col md="9" lg="7" xl="5" className="mt-5">
-            <Card style={{ borderRadius: '10px' }} className="justify-content-left">
-              <Card className="p-4">
-                <Card.Header>
-                  <div className="d-flex justify-content-center">
-                    <Card.Img src={seller[0].picture} className="img" />
-                  </div>
-                </Card.Header>
-                <div className="d-flex text-black">
-                  <div className="flex-grow-1 ms-3">
-                    <div className="text-center">
-                      <Card.Title>{seller[0].firstName} {seller[0].lastName}</Card.Title>
-                      <p className="cardText text-center">{seller[0].id}</p>
-                      <Card.Subtitle>Email: {seller[0].email}</Card.Subtitle>
-                      <Card.Subtitle>Phone: {seller[0].phone}</Card.Subtitle>
-                      <Card.Subtitle>Year: {seller[0].year}</Card.Subtitle>
-                      <Card.Subtitle>Major: {seller[0].major}</Card.Subtitle>
-                    </div>
-                    <Card.Body>{seller[0].bio}</Card.Body>
-                    { currentUser === seller[0].username && (
-                    <Card.Footer>
-                      <Link to={`/edit-profile/${seller[0]._id}`}>Edit Profile</Link>
-                    </Card.Footer>
-                    ) }
-                  </div>
-                </div>
-              </Card>
-            </Card>
-          </Col>
-            <Col className="text-end p-4" >
-            <h2 style={{ marginRight: '250px' }}>Current Listings</h2>
-              <Row xs={1} md={2} lg={3} className="g-4 py-4">
-              {items.map((item) => (<Col key={item._id}><PItemCard item={item} collection={Item.collection} /></Col>))}
+        <Row>
+          <div>
+            <Container id="profile">
+              <Row className="justify-content-center">
+                <Col md="9" lg="7" xl="5" className="mt-5">
+                  <Card style={{ borderRadius: '10px' }} className="justify-content-left">
+                    <Card className="p-4">
+                      <Card.Header>
+                        <div className="d-flex justify-content-center">
+                          <Card.Img src={seller[0].picture} className="img" />
+                        </div>
+                      </Card.Header>
+                      <div className="d-flex text-black">
+                        <div className="flex-grow-1 ms-3">
+                          <div className="text-center">
+                            <Card.Title>{seller[0].firstName} {seller[0].lastName}</Card.Title>
+                            <p className="cardText text-center">{id.id}</p>
+                            <Card.Subtitle>Email: {seller[0].email}</Card.Subtitle>
+                            <Card.Subtitle>Phone: {seller[0].phone}</Card.Subtitle>
+                            <Card.Subtitle>Year: {seller[0].year}</Card.Subtitle>
+                            <Card.Subtitle>Major: {seller[0].major}</Card.Subtitle>
+                          </div>
+                          <Card.Body>{seller[0].bio}</Card.Body>
+                          { currentUser === id.id && (
+                            <Card.Footer>
+                              <Link to={`/edit-profile/${seller[0]._id}`}>Edit Profile</Link>
+                            </Card.Footer>
+                          ) }
+                        </div>
+                      </div>
+                    </Card>
+                  </Card>
+                </Col>
+                <Col className="text-end p-4">
+                  <h2 style={{ marginRight: '250px' }}>Current Listings</h2>
+                  <Row xs={1} md={2} lg={3} className="g-4 py-4">
+                    {items.map((item) => (<Col key={items._id}><PItemCard item={item} collection={Item.collection} /></Col>))}
+                  </Row>
+                </Col>
               </Row>
-            </Col>
+            </Container>
+          </div>
         </Row>
       </Container>
-</div>
-    </Row>
-    </Container>
     ) : <Row className="justify-content-center text-center"><h4>This user has not set up a Profile page yet!</h4></Row>)
   ) : <LoadingSpinner />);
 };

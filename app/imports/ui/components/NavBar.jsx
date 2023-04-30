@@ -12,6 +12,8 @@ const NavBar = () => {
     currentUser: Meteor.user() ? Meteor.user().username : '',
   }), []);
 
+  const sellerID = currentUser;
+
   return (
     <Navbar bg="dark" expand="lg">
       <Container>
@@ -47,7 +49,7 @@ const NavBar = () => {
               </NavDropdown>
             ) : (
               <NavDropdown id="navbar-current-user" title={currentUser}>
-                <NavDropdown.Item id="navbar-profile" as={NavLink} to="/profile/:email">
+                <NavDropdown.Item id="navbar-profile" as={NavLink} to={`/profile/${sellerID}`}>
                   <PersonCircle />
                   {' '}
                   Profile
