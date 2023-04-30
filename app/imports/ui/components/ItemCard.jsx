@@ -31,10 +31,13 @@ ItemCard.propTypes = {
     image: PropTypes.string,
     price: PropTypes.number,
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     seller: PropTypes.string,
     condition: PropTypes.string,
     description: PropTypes.string,
 =======
+=======
+>>>>>>> Stashed changes
     _id: PropTypes.string,
 >>>>>>> Stashed changes
   }).isRequired,

@@ -5,12 +5,16 @@ import { Card, Col, Image } from 'react-bootstrap';
 =======
 import { Card, Col, Image, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const UserItemCard = ({ item }) => (
   <Col>
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
     <Card className="h-100">
       <Card.Header>
@@ -29,6 +33,9 @@ const UserItemCard = ({ item }) => (
     </Card>
 =======
     <Button href={`/more-info/${item._id}`} variant="text" className="p-0">
+=======
+    <Button href={`/more-info-owner/${item._id}`} variant="text" className="p-0">
+>>>>>>> Stashed changes
       <Card className="h-100">
         <Card.Header>
           <Image src={item.image} className="img" />
@@ -41,6 +48,11 @@ const UserItemCard = ({ item }) => (
           <Card.Text>
             {item.description}
           </Card.Text>
+<<<<<<< Updated upstream
+=======
+          <Card.Title><h4>Offers</h4></Card.Title>
+          <Link to={`/edit/${item._id}`}>Edit Item</Link>
+>>>>>>> Stashed changes
         </Card.Body>
         <Card.Footer className="align-content-right">
           <Link to={`/edit/${item._id}`}>Edit</Link>

@@ -43,7 +43,7 @@ const ItemCard = ({ item }) => (
           {item.reported ? ([
             <p>Item has been reported!</p>,
           ]) : '' }
-          <Card.Title><h4>Offers</h4></Card.Title>
+          <Link to={`/edit/${item._id}`}>Edit Item</Link>
         </Card.Body>
       </Link>
       <Link to={`/edit/${item._id}`}>Edit Item</Link>
