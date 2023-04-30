@@ -43,7 +43,7 @@ const MoreInfoOwner = () => {
   };
   const removeItem = (docId) => {
     Item.collection.remove(docId);
-    swal('Success', 'Item deleted successfully', 'error');
+    swal('Item Deleted', 'Item deleted successfully', 'error');
   };
   // eslint-disable-next-line no-nested-ternary
   return (ready ? (
