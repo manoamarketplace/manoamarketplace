@@ -9,7 +9,6 @@ import { Trash } from 'react-bootstrap-icons';
 import { Item } from '../../api/item/Item';
 import LoadingSpinner from '../components/LoadingSpinner';
 import MakeOffer from '../components/MakeOffer';
-import { Sellers } from '../../api/item/Seller';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 const MoreInfoOwner = () => {
@@ -20,18 +19,13 @@ const MoreInfoOwner = () => {
     // when your component is unmounted or deps change.
     // Get access to Item documents.
     const subscription = Meteor.subscribe(Item.buyerPublicationName);
-    const subscription2 = Meteor.subscribe(Sellers.buyerPublicationName);
     // Determine if the subscription is ready
-    const rdy = subscription.ready() && subscription2.ready();
+    const rdy = subscription.ready();
     // Get the Item document
     const itemItems = Item.collection.find({ _id: _id }).fetch();
     const thisItem = itemItems[0];
-    // Get the Seller
-    const sellerItem = Sellers.collection.find({ email: thisItem.owner }).fetch();
-    const thisSeller = sellerItem[0];
     return {
       item: thisItem,
-      seller: thisSeller,
       ready: rdy,
     };
   }, [_id]);
@@ -42,8 +36,8 @@ const MoreInfoOwner = () => {
       swal('Success', 'Item updated successfully', 'success')));
   };
   const removeItem = (docId) => {
+    swal('Item Deleted', 'Item deleted successfully', 'success');
     Item.collection.remove(docId);
-    swal('Item Deleted', 'Item deleted successfully', 'error');
   };
   // eslint-disable-next-line no-nested-ternary
   return (ready ? (
