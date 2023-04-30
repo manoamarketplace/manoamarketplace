@@ -49,7 +49,7 @@ const App = () => {
           <Route path="/more-info/:_id" element={<ProtectedRoute><MoreInfo /></ProtectedRoute>} />
           <Route path="/more-info-owner/:_id" element={<ProtectedRoute><MoreInfoOwner /></ProtectedRoute>} />
           <Route path="/add-profile" element={<ProtectedRoute><AddProfile /></ProtectedRoute>} />
-          <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+          <Route path="/profile/:id" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
           <Route path="/edit-profile/:_id" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />
           <Route path="/categories" element={<ProtectedRoute><Categories /></ProtectedRoute>} />
           <Route path="/listings" element={<ProtectedRoute><YourListings /></ProtectedRoute>} />

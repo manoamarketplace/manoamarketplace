@@ -69,3 +69,9 @@ body .navbar {
   width: 325px;
   object-fit: scale-down;
 }
+
+.profile-card {
+  height: 100px;
+  width: 150px;
+  object-fit: scale-down;
+}

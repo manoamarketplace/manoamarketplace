@@ -9,7 +9,7 @@ const ItemCard = ({ item }) => (
     <Card className="w-100">
       <Link to={`/more-info/${item._id}`} style={{ color: 'black', textDecoration: 'none' }}>
         <Card.Header>
-          <Image src={item.image} width={325} height={186} />
+          <Image src={item.image} className="img" />
           <Card.Title><h3>{item.name}</h3></Card.Title>
           <Card.Subtitle><h5>${item.price}</h5></Card.Subtitle>
         </Card.Header>

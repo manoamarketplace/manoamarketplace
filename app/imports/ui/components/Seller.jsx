@@ -1,22 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, Image } from 'react-bootstrap';
+import { Card, Image, Button } from 'react-bootstrap';
 
 const Seller = ({ seller }) => (
   <Card className="h-100 mx-auto">
-    <Card.Header>
-      <div className="d-flex justify-content-center">
-        <Image src={seller.picture} className="img" />
+    <Button href={`/profile/${seller.email}`} variant="text" className="p-0">
+      <Card.Header>
+        <div className="d-flex justify-content-center">
+          <Image src={seller.picture} className="img" />
+        </div>
+      </Card.Header>
+      <div className="text-black">
+        <div className="flex-grow-1 ms-3">
+          <div className="text-center">
+            <Card.Title>{seller.firstName} {seller.lastName}</Card.Title>
+            <Card.Subtitle>Email: {seller.email}</Card.Subtitle>
+            <Card.Subtitle>Phone: {seller.phone}</Card.Subtitle>
+            <Card.Subtitle>Year: {seller.year}</Card.Subtitle>
+            <Card.Subtitle>Major: {seller.major}</Card.Subtitle>
+          </div>
+          <Card.Body>{seller.bio}</Card.Body>
+        </div>
       </div>
-    </Card.Header>
-    <Card.Body>
-      <Card.Title className="text-center">{seller.firstName} {seller.lastName}</Card.Title>
-      <Card.Subtitle>Email: {seller.email}</Card.Subtitle>
-      <Card.Subtitle>Phone: {seller.phone}</Card.Subtitle>
-      <Card.Subtitle>Year: {seller.year}</Card.Subtitle>
-      <Card.Subtitle>Major: {seller.major}</Card.Subtitle>
-      <Card.Subtitle>Bio: {seller.bio}</Card.Subtitle>
-    </Card.Body>
+    </Button>
   </Card>
 );
 

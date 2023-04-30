@@ -9,7 +9,7 @@ const AdminItemCard = ({ item }) => (
     <Card className="h-100">
       <Link to={`/more-info-owner/${item._id}`} style={{ color: 'black', textDecoration: 'none' }}>
         <Card.Header>
-          <Image src={item.image} width={325} height={186} />
+          <Image src={item.image} className="img" />
           <Row>
             <Col>
               <Card.Title><h2>{item.name}</h2></Card.Title>
