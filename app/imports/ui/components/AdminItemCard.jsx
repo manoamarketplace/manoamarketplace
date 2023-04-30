@@ -28,6 +28,9 @@ const AdminItemCard = ({ item }) => (
           ]) : '' }
           <Card.Title><h4>Offers</h4></Card.Title>
         </Card.Body>
+        <Card.Footer>
+          <Link to={`/edit/${item._id}`}>Edit Item</Link>
+        </Card.Footer>
       </Link>
     </Card>
   </Col>

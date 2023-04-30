@@ -21,7 +21,7 @@ import YourListings from '../pages/YourListings';
 import Home from '../pages/Home';
 import SellersPage from '../pages/ListSellers';
 import AdminListings from '../pages/AdminListings';
-import AdminEditItem from '../pages/AdminEditItem';
+// import AdminEditItem from '../pages/AdminEditItem';
 import AddProfile from '../pages/AddProfile';
 import Profile from '../pages/Profile';
 import EditProfile from '../pages/EditProfile';
@@ -58,7 +58,7 @@ const App = () => {
           <Route path="/additem" element={<ProtectedRoute><AddItem /></ProtectedRoute>} />
           <Route path="/edit/:owner" element={<ProtectedRoute><EditItem /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminProtectedRoute ready={ready}><AdminListings /></AdminProtectedRoute>} />
-          <Route path="/adminedit" element={<AdminProtectedRoute ready={ready}><AdminEditItem /></AdminProtectedRoute>} />
+          <Route path="/adminedit" element={<AdminProtectedRoute ready={ready}><EditItem /></AdminProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
