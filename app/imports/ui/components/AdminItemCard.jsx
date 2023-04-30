@@ -26,7 +26,6 @@ const AdminItemCard = ({ item }) => (
           {item.reported ? ([
             <p>Item has been reported!</p>,
           ]) : '' }
-          <Card.Title><h4>Offers</h4></Card.Title>
         </Card.Body>
         <Card.Footer>
           <Link to={`/edit/${item._id}`}>Edit Item</Link>

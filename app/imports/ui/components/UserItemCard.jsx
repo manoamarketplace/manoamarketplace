@@ -19,7 +19,6 @@ const UserItemCard = ({ item }) => (
           <Card.Text>
             {item.description}
           </Card.Text>
-          <Card.Title><h4>Offers</h4></Card.Title>
         </Card.Body>
         <Card.Footer>
           <Link to={`/edit/${item._id}`}>Edit Item</Link>

@@ -7,7 +7,6 @@ import { _ } from 'meteor/underscore';
 import swal from 'sweetalert';
 import { Item } from '../../api/item/Item';
 import LoadingSpinner from '../components/LoadingSpinner';
-import MakeOffer from '../components/MakeOffer';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 const MoreInfo = () => {
@@ -50,7 +49,6 @@ const MoreInfo = () => {
             <br />
             <p>Condition: {item.condition}</p>
             <p>{item.description}</p>
-            <MakeOffer owner={item.owner} itemId={item._id} />
           </Col>
         </Row>
         <Row>
