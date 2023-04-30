@@ -30,9 +30,13 @@ ItemCard.propTypes = {
     category: PropTypes.string,
     image: PropTypes.string,
     price: PropTypes.number,
+<<<<<<< Updated upstream
     seller: PropTypes.string,
     condition: PropTypes.string,
     description: PropTypes.string,
+=======
+    _id: PropTypes.string,
+>>>>>>> Stashed changes
   }).isRequired,
 };
 export default ItemCard;

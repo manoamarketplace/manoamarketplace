@@ -1,11 +1,17 @@
 /* Component for layout out a item Card. */
 import React from 'react';
+<<<<<<< Updated upstream
 import { Card, Col, Image } from 'react-bootstrap';
+=======
+import { Card, Col, Image, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+>>>>>>> Stashed changes
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const UserItemCard = ({ userItem }) => (
+const UserItemCard = ({ item }) => (
   <Col>
+<<<<<<< Updated upstream
     <Card className="h-100">
       <Card.Header>
         <Image src={userItem.image} width={325} height={186} />
@@ -21,17 +27,43 @@ const UserItemCard = ({ userItem }) => (
         <Link to={`/edit/${userItem.owner}`}>Edit</Link>
       </Card.Body>
     </Card>
+=======
+    <Button href={`/more-info/${item._id}`} variant="text" className="p-0">
+      <Card className="h-100">
+        <Card.Header>
+          <Image src={item.image} className="img" />
+          <Card.Title><h2>{item.name}</h2></Card.Title>
+          <Card.Subtitle>${item.price}</Card.Subtitle>
+        </Card.Header>
+        <Card.Body>
+          <Card.Text>{item.seller}</Card.Text>
+          <Card.Text>Condition: {item.condition}</Card.Text>
+          <Card.Text>
+            {item.description}
+          </Card.Text>
+        </Card.Body>
+        <Card.Footer className="align-content-right">
+          <Link to={`/edit/${item._id}`}>Edit</Link>
+        </Card.Footer>
+      </Card>
+    </Button>
+>>>>>>> Stashed changes
   </Col>
 );
 
 UserItemCard.propTypes = {
-  userItem: PropTypes.shape({
+  item: PropTypes.shape({
     name: PropTypes.string,
     category: PropTypes.string,
     image: PropTypes.string,
     price: PropTypes.number,
     description: PropTypes.string,
     condition: PropTypes.string,
+<<<<<<< Updated upstream
+=======
+    seller: PropTypes.string,
+    _id: PropTypes.string,
+>>>>>>> Stashed changes
     owner: PropTypes.string,
   }).isRequired,
 };
