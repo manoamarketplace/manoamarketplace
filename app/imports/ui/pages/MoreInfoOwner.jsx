@@ -12,7 +12,7 @@ import MakeOffer from '../components/MakeOffer';
 import { Sellers } from '../../api/item/Seller';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-const MoreInfoUser = () => {
+const MoreInfoOwner = () => {
   const { _id } = useParams();
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { ready, item } = useTracker(() => {
@@ -78,4 +78,4 @@ const MoreInfoUser = () => {
   ) : <LoadingSpinner />);
 };
 
-export default MoreInfoUser;
+export default MoreInfoOwner;

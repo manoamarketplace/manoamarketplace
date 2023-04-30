@@ -26,7 +26,7 @@ import AddProfile from '../pages/AddProfile';
 import Profile from '../pages/Profile';
 import EditProfile from '../pages/EditProfile';
 import MoreInfo from '../pages/MoreInfo';
-import MoreInfoUser from '../pages/MoreInfoUser';
+import MoreInfoOwner from '../pages/MoreInfoOwner';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -47,7 +47,7 @@ const App = () => {
           <Route path="/signout" element={<SignOut />} />
           <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
           <Route path="/more-info/:_id" element={<ProtectedRoute><MoreInfo /></ProtectedRoute>} />
-          <Route path="/more-info-user/:_id" element={<ProtectedRoute><MoreInfoUser /></ProtectedRoute>} />
+          <Route path="/more-info-owner/:_id" element={<ProtectedRoute><MoreInfoOwner /></ProtectedRoute>} />
           <Route path="/add-profile" element={<ProtectedRoute><AddProfile /></ProtectedRoute>} />
           <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
           <Route path="/edit-profile/:_id" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />

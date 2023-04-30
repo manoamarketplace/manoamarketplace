@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 const AdminItemCard = ({ item }) => (
   <Col>
     <Card className="h-100">
-      <Link to={`/more-info-user/${item._id}`} style={{ color: 'black', textDecoration: 'none' }}>
+      <Link to={`/more-info-owner/${item._id}`} style={{ color: 'black', textDecoration: 'none' }}>
         <Card.Header>
           <Image src={item.image} width={325} height={186} />
           <Row>
