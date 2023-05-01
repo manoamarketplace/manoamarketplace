@@ -47,8 +47,8 @@ const EditProfile = () => {
                   <Col><TextField name="picture" label="Profile Picture" /></Col>
                 </Row>
                 <Row>
-                <Col><SelectField id="addprofile-form-year" name="year" /></Col>
-                <Col><SelectField id="addprofile-form-major" name="major" /></Col>
+                  <Col><SelectField id="addprofile-form-year" name="year" /></Col>
+                  <Col><SelectField id="addprofile-form-major" name="major" /></Col>
                 </Row>
                 <Row>
                   <Col><LongTextField name="bio" label="Your Bio" /></Col>

@@ -3,8 +3,7 @@ import { Card, Col, Image, Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 const POwnerItemCard = ({ item }) => (
-
-
+  
   <Col xs="auto">
     <Button href={`/more-info-owner/${item._id}`} variant="text" className="p-0">
       <Card>

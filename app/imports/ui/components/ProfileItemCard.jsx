@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 const PItemCard = ({ item }) => (
 
-
   <Col xs="auto">
     <Button href={`/more-info/${item._id}`} variant="text" className="p-0">
       <Card>

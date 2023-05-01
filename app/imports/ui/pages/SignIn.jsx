@@ -58,7 +58,7 @@ const SignIn = () => {
             </Card>
           </AutoForm>
           <Alert variant="light" style={{ color: 'white' }}>
-            Don't have an account? Sign up
+            Don&#39;t have an account? Sign up
             {' '}
             <Link to="/signup" style={{ color: 'blue' }}>here</Link>
           </Alert>
