@@ -12,8 +12,8 @@ const UserItemCard = ({ item }) => (
       <Link to={`/more-info-owner/${item._id}`} style={{ color: 'black', textDecoration: 'none' }}>
         <Card.Header>
           <Image src={item.image} className="img" />
-          <Card.Title><h2>{item.name}<Link to={`/edit/${item._id}`}><Pencil /></Link></h2></Card.Title>
-          <Card.Subtitle>Listed Price: ${item.price}</Card.Subtitle>
+          <Card.Title><h2>{item.name}</h2></Card.Title>
+          <Card.Subtitle>Listed Price: ${item.price} <Link to={`/edit/${item._id}`}><Pencil /></Link></Card.Subtitle>
         </Card.Header>
         <Card.Body>
           <Card.Text>{item.seller}</Card.Text>
