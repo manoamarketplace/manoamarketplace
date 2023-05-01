@@ -35,6 +35,7 @@ class SellersCollection {
       },
       bio: String,
       owner: String,
+      _id: String,
     });
 
     this.collection.attachSchema(this.schema);

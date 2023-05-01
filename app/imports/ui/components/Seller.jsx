@@ -37,6 +37,7 @@ Seller.propTypes = {
     year: PropTypes.string.isRequired,
     major: PropTypes.string.isRequired,
     owner: PropTypes.string,
+    _id: PropTypes.string.isRequired,
   }).isRequired,
 };
 
