@@ -31,7 +31,7 @@ const SellersPage = () => {
           <Col className="text-center">
             <h2>List of Users</h2>
           </Col>
-          <Row xs={1} md={2} lg={3} className="g-4">
+          <Row xs={1} md={2} lg={3} className="g-4 py-2">
             {sellers.map((seller) => (<Col key={seller._id}><Seller seller={seller} /></Col>))}
           </Row>
         </Col>

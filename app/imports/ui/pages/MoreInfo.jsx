@@ -53,11 +53,13 @@ const MoreInfo = () => {
             <ToggleButton value="1" variant="success">I'm Interested!</ToggleButton>
           </Col>
         </Row>
-        <Row>
-          <Col>
-            <Button variant="text" style={{ color: 'blue' }} onClick={reportItem}>Report this item</Button>
-          </Col>
-        </Row>
+        <Container className="py-5">
+          <Row>
+            <Col>
+              <Button variant="warning" style={{ color: 'blue' }} onClick={reportItem}>Report this item</Button>
+            </Col>
+          </Row>
+        </Container>
       </Container>
     ) : <Row className="justify-content-center text-center"><h4>This item does not exist or has been taken down.</h4></Row>)
   ) : <LoadingSpinner />);

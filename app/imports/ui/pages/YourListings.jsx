@@ -35,7 +35,7 @@ const YourListings = () => {
             <Col className="text-center">
               <h2>Your Listings</h2>
             </Col>
-            <Row xs={1} md={2} lg={3} className="g-4">
+            <Row xs={1} md={2} lg={3} className="g-4 h-100 mx-auto py-2">
               {items.map((item) => (
                 <Col key={item._id}><UserItemCard item={item} collection={Item.collection} /></Col>
               ))}

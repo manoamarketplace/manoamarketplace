@@ -64,7 +64,7 @@ const MoreInfoOwner = () => {
         </Row>
         <Row className="py-4">
           <Col xs="1">
-            <Button variant="text" style={{ color: 'blue' }} onClick={reportItem}>Report</Button>
+            <Button variant="warning" style={{ color: 'blue' }} onClick={reportItem}>Report</Button>
           </Col>
           <Col xs="1">
             <Button variant="text" style={{ color: 'blue' }} href={`/edit/${item._id}`}>Edit</Button>

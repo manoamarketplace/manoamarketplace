@@ -51,9 +51,8 @@ const Profile = () => {
                       </Card.Header>
                       <div className="d-flex text-black">
                         <div className="flex-grow-1 ms-3">
-                          <div className="text-center">
+                          <div className="text-center py-2">
                             <Card.Title>{seller[0].firstName} {seller[0].lastName}</Card.Title>
-                            <p className="cardText text-center">{id.id}</p>
                             <Card.Subtitle>Email: {seller[0].email}</Card.Subtitle>
                             <Card.Subtitle>Phone: {seller[0].phone}</Card.Subtitle>
                             <Card.Subtitle>Year: {seller[0].year}</Card.Subtitle>
@@ -79,8 +78,8 @@ const Profile = () => {
                   ) }
                   { currentUser !== id.id && (
                     <Row xs={1} md={2} lg={3} className="g-4 py-4">
-                    {items.map((item) => (<Col key={items._id}><PItemCard item={item} collection={Item.collection} /></Col>))}
-                  </Row>
+                      {items.map((item) => (<Col key={items._id}><PItemCard item={item} collection={Item.collection} /></Col>))}
+                    </Row>
                   ) }
                 </Col>
               </Row>

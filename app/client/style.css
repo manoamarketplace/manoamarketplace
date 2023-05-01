@@ -72,7 +72,7 @@ body .navbar {
 }
 
 /* for item images via the user's profile */
-.profile-card {
+.profile-card-img {
   height: 100px;
   width: 150px;
   object-fit: scale-down;
@@ -87,4 +87,8 @@ body .navbar {
 
 .sign-in-card {
   border-radius: 20px;
+}
+
+.profile-card {
+  object-fit: scale-down;
 }
