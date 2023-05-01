@@ -17,6 +17,7 @@ const SignOut = () => {
   return (
     <Col id="signout-page" className="text-center py-3">
       <h2>You are signed out.</h2>
+      <h5>You will be redirected soon.</h5>
       {redirect && <Navigate to="/" />}
     </Col>
   );
