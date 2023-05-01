@@ -4,7 +4,6 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Item } from '../../api/item/Item';
 import LoadingSpinner from '../components/LoadingSpinner';
-// import UserItemCard from '../components/UserItemCard';
 import AdminItemCard from '../components/AdminItemCard';
 
 const AdminListings = () => {

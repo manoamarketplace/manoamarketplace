@@ -7,7 +7,7 @@ const Offer = ({ offer }) => (
   <Card className="my-3">
     <Container>
       <p className="fw-lighter">{offer.createdAt.toLocaleDateString('en-US')}</p>
-      <p>${offer.offer}</p>
+      <p>{offer.email}</p>
     </Container>
   </Card>
 );
@@ -15,7 +15,7 @@ const Offer = ({ offer }) => (
 // Require a document to be passed to this component.
 Offer.propTypes = {
   offer: PropTypes.shape({
-    offer: PropTypes.number,
+    email: PropTypes.string,
     owner: PropTypes.string,
     createdAt: PropTypes.instanceOf(Date),
     itemId: PropTypes.string,

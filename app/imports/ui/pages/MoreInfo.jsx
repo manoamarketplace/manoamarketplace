@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Col, Container, Row, Image, Button, ToggleButton } from 'react-bootstrap';
+import { Col, Container, Row, Image, Button } from 'react-bootstrap';
 import { Flag } from 'react-bootstrap-icons';
 import { useTracker } from 'meteor/react-meteor-data';
 import { useParams } from 'react-router';
@@ -8,7 +8,7 @@ import { _ } from 'meteor/underscore';
 import swal from 'sweetalert';
 import { Item } from '../../api/item/Item';
 import LoadingSpinner from '../components/LoadingSpinner';
-// import Prospective from './Prospective';
+import MakeOffer from '../components/MakeOffer';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 const MoreInfo = () => {
@@ -51,11 +51,7 @@ const MoreInfo = () => {
             <p>Condition: {item.condition}</p>
             <p>{item.description}</p>
             {/* eslint-disable-next-line react/no-unescaped-entities */}
-            <Row>
-              <Col>
-                <ToggleButton value="1" variant="success">I&#39;m Interested!</ToggleButton>
-              </Col>
-            </Row>
+            <MakeOffer owner={item.owner} itemId={item._id} />
             <br />
             <Row>
               <Col>

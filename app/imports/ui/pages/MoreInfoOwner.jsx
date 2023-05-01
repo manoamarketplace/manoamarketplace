@@ -68,7 +68,7 @@ const MoreInfoOwner = () => {
             <br />
             <p>Condition: {item.condition}</p>
             <p>{item.description}</p>
-            <h2>Offers</h2>
+            <h3>Prospective Buyers</h3>
             { offers.map((offer) => (<Col key={offer._id}><Offer offer={offer} /></Col>)) }
           </Col>
         </Row>

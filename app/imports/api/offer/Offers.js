@@ -12,7 +12,7 @@ class OffersCollection {
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
-      offer: Number,
+      email: String,
       createdAt: Date,
       owner: String,
       itemId: String,
