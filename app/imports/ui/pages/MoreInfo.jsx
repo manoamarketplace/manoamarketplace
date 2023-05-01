@@ -1,12 +1,13 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Col, Container, Row, Image, Button } from 'react-bootstrap';
+import { Col, Container, Row, Image, Button, ToggleButton } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import { useParams } from 'react-router';
 import { _ } from 'meteor/underscore';
 import swal from 'sweetalert';
 import { Item } from '../../api/item/Item';
 import LoadingSpinner from '../components/LoadingSpinner';
+// import Prospective from './Prospective';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 const MoreInfo = () => {
@@ -49,6 +50,8 @@ const MoreInfo = () => {
             <br />
             <p>Condition: {item.condition}</p>
             <p>{item.description}</p>
+            {/* eslint-disable-next-line react/no-unescaped-entities */}
+            <ToggleButton value="1" variant="success">I'm Interested!</ToggleButton>
           </Col>
         </Row>
         <Row>
