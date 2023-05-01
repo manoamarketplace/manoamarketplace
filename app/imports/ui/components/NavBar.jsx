@@ -4,7 +4,7 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { NavLink } from 'react-router-dom';
 import { Roles } from 'meteor/alanning:roles';
 import { Container, Image, Nav, Navbar, NavDropdown } from 'react-bootstrap';
-import { BoxArrowRight, PersonFill, PersonPlusFill, PersonCircle } from 'react-bootstrap-icons';
+import { BoxArrowRight, PersonFill, PersonPlusFill, PersonCircle, PlusCircle, Database } from 'react-bootstrap-icons';
 
 const NavBar = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
@@ -24,9 +24,7 @@ const NavBar = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto justify-content-start">
             {currentUser ? ([
-              <Nav.Link id="add-item-nav" as={NavLink} to="/additem" key="add">Add Item</Nav.Link>,
-              <Nav.Link id="your-listings-nav" as={NavLink} to="/listings" key="listings">Your Listings</Nav.Link>,
-              <Nav.Link id="categories-nav" as={NavLink} to="/categories" key="categories">Categories</Nav.Link>,
+              <Nav.Link id="categories-nav" as={NavLink} to="/categories" key="categories">Search Categories</Nav.Link>,
               <Nav.Link id="sellers-nav" as={NavLink} to="/sellers" key="sellers">User Directory</Nav.Link>,
             ]) : ''}
             {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
@@ -58,6 +56,18 @@ const NavBar = () => {
                   <PersonCircle />
                   {' '}
                   Profile
+                </NavDropdown.Item>
+                <NavDropdown.Item id="add-item-nav" as={NavLink} to="/additem" key="add">
+                  <PlusCircle />
+                  {' '}
+                  Add
+                  item
+                </NavDropdown.Item>
+                <NavDropdown.Item id="your-listings-nav" as={NavLink} to="/listings" key="listings">
+                  <Database />
+                  {' '}
+                  Your
+                  listings
                 </NavDropdown.Item>
                 <NavDropdown.Item id="navbar-sign-out" as={NavLink} to="/signout">
                   <BoxArrowRight />
