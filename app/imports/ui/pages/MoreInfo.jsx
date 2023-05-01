@@ -31,10 +31,9 @@ const MoreInfo = () => {
     };
   }, [_id]);
   const reportItem = () => {
-    item.reported = true;
-    Item.collection.update(_id, item, (error) => (error ?
+    Item.collection.update(_id, { $set: { reported: true } }, (error) => (error ?
       swal('Error', error.message, 'error') :
-      swal('Success', 'Item updated successfully', 'success')));
+      swal('Success', 'Item reported!', 'success')));
   };
   // eslint-disable-next-line no-nested-ternary
   return (ready ? (
