@@ -5,13 +5,12 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { useParams } from 'react-router';
 import { _ } from 'meteor/underscore';
 import swal from 'sweetalert';
-import { Trash } from 'react-bootstrap-icons';
+import { Trash, Flag, Pencil } from 'react-bootstrap-icons';
 import { Item } from '../../api/item/Item';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Offers } from '../../api/offer/Offers';
 import Offer from '../components/Offer';
 
-/* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 const MoreInfoOwner = () => {
   const { _id } = useParams();
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
@@ -51,6 +50,17 @@ const MoreInfoOwner = () => {
         <Row>
           <Col className="justify-content-start" xs={6}>
             <Image src={item.image} alt={item.name} className="more-info-img" />
+            <Row className="justify-content-center text-center">
+              <Col>
+                <Button variant="outline-danger" onClick={() => removeItem(item._id)}>Delete <Trash /></Button>
+              </Col>
+              <Col>
+                <Button variant="outline-warning" onClick={reportItem}>Report <Flag /></Button>
+              </Col>
+              <Col>
+                <Button variant="outline-success" href={`/edit/${item._id}`}>Edit <Pencil /></Button>
+              </Col>
+            </Row>
           </Col>
           <Col xs={6}>
             <h1>{item.name}</h1>
@@ -60,17 +70,6 @@ const MoreInfoOwner = () => {
             <p>{item.description}</p>
             <h2>Offers</h2>
             { offers.map((offer) => (<Col key={offer._id}><Offer offer={offer} /></Col>)) }
-          </Col>
-        </Row>
-        <Row className="py-4">
-          <Col xs="1">
-            <Button variant="text" style={{ color: 'blue' }} onClick={reportItem}>Report</Button>
-          </Col>
-          <Col xs="1">
-            <Button variant="text" style={{ color: 'blue' }} href={`/edit/${item._id}`}>Edit</Button>
-          </Col>
-          <Col xs="1">
-            <Button variant="danger" onClick={() => removeItem(item._id)}><Trash /></Button>
           </Col>
         </Row>
       </Container>
