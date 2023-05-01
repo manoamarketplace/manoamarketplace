@@ -5,10 +5,11 @@ import { Link } from 'react-router-dom';
 const CategoriesPage = () => (
   <Row className="bg-categories">
     <Card.Header>
-      <Card.Title className="text-center py-3"><h2 style={{ color: 'forestgreen' }}>Categories</h2></Card.Title>
+      <Card.Title className="text-center py-4"><h2 style={{ color: 'forestgreen' }}>Categories</h2></Card.Title>
     </Card.Header>
     <Container id="categories">
-      <Row className="justify-content-md-center py+5">
+      <Row className="justify-content-md-center">
+        <Row className="justify-content-md-center">
         <Col xs="auto" className="py-3">
           <Col className="text-center">
             <Card>
@@ -39,6 +40,8 @@ const CategoriesPage = () => (
             </Card>
           </Col>
         </Col>
+        </Row>
+        <Row className="justify-content-md-center">
         <Col xs="auto" className="py-3">
           <Col className="text-center">
             <Card>
@@ -69,6 +72,8 @@ const CategoriesPage = () => (
             </Card>
           </Col>
         </Col>
+        </Row>
+        <Row className="justify-content-md-center">
         <Col xs="auto" className="py-3">
           <Col className="text-center">
             <Card>
@@ -99,6 +104,7 @@ const CategoriesPage = () => (
             </Card>
           </Col>
         </Col>
+        </Row>
       </Row>
     </Container>
   </Row>
