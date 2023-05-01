@@ -54,10 +54,12 @@ class NavBar {
   }
 
   async gotoAddItemPage(testController) {
+    await testController.click('#navbar-current-user');
     await testController.click('#add-item-nav');
   }
 
   async gotoYourListingsPage(testController) {
+    await testController.click('#navbar-current-user');
     await testController.click('#your-listings-nav');
   }
 
@@ -71,6 +73,15 @@ class NavBar {
 
   async gotoAllListingsPage(testController) {
     await testController.click('#all-listings-nav');
+  }
+
+  async gotoReportedPage(testController) {
+    await testController.click('#reported-nav');
+  }
+
+  async gotoProfilePage(testController) {
+    await testController.click('#navbar-current-user');
+    await testController.click('#profile-nav');
   }
 }
 

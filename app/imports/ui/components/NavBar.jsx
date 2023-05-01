@@ -52,7 +52,7 @@ const NavBar = () => {
               </NavDropdown>
             ) : (
               <NavDropdown id="navbar-current-user" title={currentUser}>
-                <NavDropdown.Item id="navbar-profile" as={NavLink} to={`/profile/${sellerID}`}>
+                <NavDropdown.Item id="profile-nav" as={NavLink} to={`/profile/${sellerID}`}>
                   <PersonCircle />
                   {' '}
                   Profile

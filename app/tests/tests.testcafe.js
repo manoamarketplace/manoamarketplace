@@ -7,6 +7,8 @@ import { categoriespage } from './categories.page';
 import { additempage } from './additem.page';
 import { sellersPage } from './sellers.page';
 import { allListings } from './listingsall.page';
+import { reportedPage } from './reported.page';
+import { profilePage } from './profile.page';
 
 /* global fixture:false, test:false */
 
@@ -64,4 +66,18 @@ test('Test that admin all listings page work', async (testController) => {
   await signinPage.signin(testController, admin.username, admin.password);
   await navBar.gotoAllListingsPage(testController);
   await allListings.isDisplayed(testController);
+});
+
+test('Test that admin reported item page work', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, admin.username, admin.password);
+  await navBar.gotoReportedPage(testController);
+  await reportedPage.isDisplayed(testController);
+});
+
+test('Test that profile page work', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, admin.username, admin.password);
+  await navBar.gotoProfilePage(testController);
+  await profilePage.isDisplayed(testController);
 });
