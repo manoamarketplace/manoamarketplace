@@ -41,7 +41,7 @@ const MoreInfo = () => {
       <Container className="py-3">
         <Row>
           <Col className="justify-content-start" xs={6}>
-            <Image src={item.image} alt={item.name} width="90%" />
+            <Image src={item.image} alt={item.name} className="more-info-img" />
           </Col>
           <Col xs={6}>
             <h1>{item.name}</h1>

@@ -48,7 +48,7 @@ const SignIn = () => {
             <h2>Login to your account</h2>
           </Col>
           <AutoForm schema={bridge} onSubmit={data => submit(data)}>
-            <Card>
+            <Card className="sign-in-card">
               <Card.Body>
                 <TextField id="signin-form-email" name="email" placeholder="E-mail address" />
                 <TextField id="signin-form-password" name="password" placeholder="Password" type="password" />
@@ -57,8 +57,10 @@ const SignIn = () => {
               </Card.Body>
             </Card>
           </AutoForm>
-          <Alert variant="light">
-            <Link to="/signup">Click here to Register</Link>
+          <Alert variant="light" style={{ color: 'white' }}>
+            Don't have an account? Sign up
+            {' '}
+            <Link to="/signup" style={{ color: 'blue' }}>here</Link>
           </Alert>
           {error === '' ? (
             ''
