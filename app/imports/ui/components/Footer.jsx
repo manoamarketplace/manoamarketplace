@@ -7,7 +7,7 @@ const Footer = () => (
     <Container className="w-50">
       <Row>
         <Col className="text-center">
-          Manoa Marketplace
+          <strong>Manoa Marketplace</strong>
           {' '}
           <br />
           University of Hawaii
@@ -20,7 +20,7 @@ const Footer = () => (
           </a>
         </Col>
         <Col className="text-center">
-          Questions or Concerns?
+          <strong>Questions or Concerns?</strong>
           {' '}
           <br />
           Contact Us!
