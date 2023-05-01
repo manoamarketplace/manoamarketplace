@@ -8,6 +8,7 @@ import LoadingSpinner from '../components/LoadingSpinner';
 import { Sellers } from '../../api/item/Seller';
 import { Item } from '../../api/item/Item';
 import PItemCard from '../components/ProfileItemCard';
+import POwnerItemCard from '../components/ProfileOwnerItemCard';
 
 const Profile = () => {
 
@@ -61,7 +62,7 @@ const Profile = () => {
                           <Card.Body>{seller[0].bio}</Card.Body>
                           { currentUser === id.id && (
                             <Card.Footer>
-                              <Link to={`/edit-profile/${seller[0]._id}`}>Edit Profile</Link>
+                              <Link to={`/edit-profile/${seller[0]._id}`} style={{ color: 'forestgreen', textDecoration: 'none' }}>Edit Profile</Link>
                             </Card.Footer>
                           ) }
                         </div>
@@ -71,6 +72,11 @@ const Profile = () => {
                 </Col>
                 <Col className="text-end p-4">
                   <h2 style={{ marginRight: '250px' }}>Current Listings</h2>
+                  { currentUser === id.id && (
+                    <Row xs={1} md={2} lg={3} className="g-4 py-4">
+                      {items.map((item) => (<Col key={items._id}><POwnerItemCard item={item} collection={Item.collection} /></Col>))}
+                    </Row>
+                  ) }
                   <Row xs={1} md={2} lg={3} className="g-4 py-4">
                     {items.map((item) => (<Col key={items._id}><PItemCard item={item} collection={Item.collection} /></Col>))}
                   </Row>

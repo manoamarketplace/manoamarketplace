@@ -2,10 +2,10 @@ import React from 'react';
 import { Card, Col, Image, Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
-const PItemCard = ({ item }) => (
-
+const POwnerItemCard = ({ item }) => (
+  
   <Col xs="auto">
-    <Button href={`/more-info/${item._id}`} variant="text" className="p-0">
+    <Button href={`/more-info-owner/${item._id}`} variant="text" className="p-0">
       <Card>
         <Card.Header>
           <Image src={item.image} className="profile-card" />
@@ -16,11 +16,11 @@ const PItemCard = ({ item }) => (
   </Col>
 );
 
-PItemCard.propTypes = {
+POwnerItemCard.propTypes = {
   item: PropTypes.shape({
     name: PropTypes.string,
     image: PropTypes.string,
     _id: PropTypes.string,
   }).isRequired,
 };
-export default PItemCard;
+export default POwnerItemCard;

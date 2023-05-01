@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, Col, Container, Row } from 'react-bootstrap';
-import { AutoForm, ErrorsField, LongTextField, SubmitField, HiddenField } from 'uniforms-bootstrap5';
+import { AutoForm, ErrorsField, TextField, SubmitField, HiddenField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
 import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
@@ -41,12 +41,12 @@ const MakeOffer = ({ owner, itemId }) => {
   return (
     <Container className="py-3">
       <Row className="justify-content-center">
-        <Col xs={10}>
+        <Col xs={7}>
           <Col className="text-center"><h2>Make an Offer: </h2></Col>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
               <Card.Body>
-                <LongTextField name="offer" />
+                <TextField name="offer" />
                 <SubmitField value="Submit" />
                 <ErrorsField />
                 <HiddenField name="owner" value={owner} />

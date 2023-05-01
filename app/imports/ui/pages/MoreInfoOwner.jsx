@@ -8,23 +8,30 @@ import swal from 'sweetalert';
 import { Trash } from 'react-bootstrap-icons';
 import { Item } from '../../api/item/Item';
 import LoadingSpinner from '../components/LoadingSpinner';
+import { Offers } from '../../api/offer/Offers';
+import Offer from '../components/Offer';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 const MoreInfoOwner = () => {
   const { _id } = useParams();
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { ready, item } = useTracker(() => {
+  const { ready, item, offers } = useTracker(() => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
     // Get access to Item documents.
     const subscription = Meteor.subscribe(Item.buyerPublicationName);
+    const subscription2 = Meteor.subscribe(Offers.userPublicationName);
     // Determine if the subscription is ready
-    const rdy = subscription.ready();
+    const rdy = subscription.ready() && subscription2.ready();
     // Get the Item document
     const itemItems = Item.collection.find({ _id: _id }).fetch();
     const thisItem = itemItems[0];
+    // Get Offers
+    const offerItems = Offers.collection.find({ itemId: _id }).fetch();
+
     return {
       item: thisItem,
+      offers: offerItems,
       ready: rdy,
     };
   }, [_id]);
@@ -43,7 +50,7 @@ const MoreInfoOwner = () => {
       <Container className="py-3">
         <Row>
           <Col className="justify-content-start" xs={6}>
-            <Image src={item.image} alt={item.name} width="90%" />
+            <Image src={item.image} alt={item.name} className="more-info-img" />
           </Col>
           <Col xs={6}>
             <h1>{item.name}</h1>
@@ -51,6 +58,8 @@ const MoreInfoOwner = () => {
             <br />
             <p>Condition: {item.condition}</p>
             <p>{item.description}</p>
+            <h2>Offers</h2>
+            { offers.map((offer) => (<Col key={offer._id}><Offer offer={offer} /></Col>)) }
           </Col>
         </Row>
         <Row className="py-4">

@@ -5,7 +5,6 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { _ } from 'meteor/underscore';
 import { Item } from '../../api/item/Item';
 import LoadingSpinner from '../components/LoadingSpinner';
-// import AdminItemCard from '../components/AdminItemCard';
 import UserItemCard from '../components/UserItemCard';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
@@ -17,10 +16,9 @@ const YourListings = () => {
     // Get access to Item documents.
     const subscription = Meteor.subscribe(Item.userPublicationName);
     // Determine if the subscription is ready
-    const rdy = subscription.ready();
+    const rdy = subscription.ready;
     // Get the Item documents
     const itemItems = Item.collection.find({}).fetch();
-    // filter item list by chosen category
     // Get the Offer documents
     return {
       items: itemItems,
@@ -38,7 +36,9 @@ const YourListings = () => {
               <h2>Your Listings</h2>
             </Col>
             <Row xs={1} md={2} lg={3} className="g-4">
-              {items.map((item) => (<Col key={item._id}><UserItemCard item={item} collection={Item.collection} /></Col>))}
+              {items.map((item) => (
+                <Col key={item._id}><UserItemCard item={item} collection={Item.collection} /></Col>
+              ))}
             </Row>
           </Col>
         </Row>

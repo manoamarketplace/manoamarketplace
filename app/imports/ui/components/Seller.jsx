@@ -12,7 +12,7 @@ const Seller = ({ seller }) => (
       </Card.Header>
       <div className="text-black">
         <div className="flex-grow-1 ms-3">
-          <div className="text-center">
+          <div className="text-center py-2">
             <Card.Title>{seller.firstName} {seller.lastName}</Card.Title>
             <Card.Subtitle>Email: {seller.email}</Card.Subtitle>
             <Card.Subtitle>Phone: {seller.phone}</Card.Subtitle>
