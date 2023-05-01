@@ -9,6 +9,7 @@ const CategoriesPage = () => (
     </Card.Header>
     <Container id="categories">
       <Row className="justify-content-md-center">
+        <Row className="justify-content-md-center">
         <Col xs="auto" className="py-3">
           <Col className="text-center">
             <Card>
@@ -39,6 +40,8 @@ const CategoriesPage = () => (
             </Card>
           </Col>
         </Col>
+        </Row>
+        <Row className="justify-content-md-center">
         <Col xs="auto" className="py-3">
           <Col className="text-center">
             <Card>
@@ -69,6 +72,8 @@ const CategoriesPage = () => (
             </Card>
           </Col>
         </Col>
+        </Row>
+        <Row className="justify-content-md-center">
         <Col xs="auto" className="py-3">
           <Col className="text-center">
             <Card>
@@ -99,6 +104,7 @@ const CategoriesPage = () => (
             </Card>
           </Col>
         </Col>
+        </Row>
       </Row>
     </Container>
   </Row>
