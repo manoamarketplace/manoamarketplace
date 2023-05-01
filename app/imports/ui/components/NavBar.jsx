@@ -18,7 +18,7 @@ const NavBar = () => {
     <Navbar bg="dark" expand="lg">
       <Container>
         <Navbar.Brand as={NavLink} to={currentUser ? ('/home') : ('/')}>
-          <span style={{ fontWeight: 600, fontSize: '24px' }}><Image src="/images/manoa-marketplace-logo.png" height="80" />Manoa Marketplace</span>
+          <span style={{ fontWeight: 600, fontSize: '20px' }}><Image src="/images/manoa-marketplace-logo.png" height="80" />Manoa Marketplace</span>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -27,8 +27,11 @@ const NavBar = () => {
               <Nav.Link id="add-item-nav" as={NavLink} to="/additem" key="add">Add Item</Nav.Link>,
               <Nav.Link id="your-listings-nav" as={NavLink} to="/listings" key="listings">Your Listings</Nav.Link>,
               <Nav.Link id="categories-nav" as={NavLink} to="/categories" key="categories">Categories</Nav.Link>,
-              <Nav.Link id="sellers-nav" as={NavLink} to="/sellers" key="sellers">Users Directory</Nav.Link>,
+              <Nav.Link id="sellers-nav" as={NavLink} to="/sellers" key="sellers">User Directory</Nav.Link>,
             ]) : ''}
+            {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
+              <Nav.Link id="reported-nav" as={NavLink} to="/reported" key="reported">Reported Items</Nav.Link>
+            ) : ''}
             {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
               <Nav.Link id="all-listings-nav" as={NavLink} to="/admin" key="admin">All Listings</Nav.Link>
             ) : ''}

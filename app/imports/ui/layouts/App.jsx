@@ -27,6 +27,7 @@ import Profile from '../pages/Profile';
 import EditProfile from '../pages/EditProfile';
 import MoreInfo from '../pages/MoreInfo';
 import MoreInfoOwner from '../pages/MoreInfoOwner';
+import AdminReported from '../pages/AdminReported';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -58,6 +59,7 @@ const App = () => {
           <Route path="/additem" element={<ProtectedRoute><AddItem /></ProtectedRoute>} />
           <Route path="/edit/:owner" element={<ProtectedRoute><EditItem /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminProtectedRoute ready={ready}><AdminListings /></AdminProtectedRoute>} />
+          <Route path="/reported" element={<AdminProtectedRoute ready={ready}><AdminReported /></AdminProtectedRoute>} />
           <Route path="/adminedit" element={<AdminProtectedRoute ready={ready}><EditItem /></AdminProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="*" element={<NotFound />} />
