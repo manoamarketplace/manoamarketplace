@@ -3,8 +3,6 @@ import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Col, ListGroup } from 'react-bootstrap';
-import { useParams } from 'react-router';
-import { Item } from '../../api/item/Item';
 import { Offers } from '../../api/offer/Offers';
 import LoadingSpinner from './LoadingSpinner';
 
