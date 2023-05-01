@@ -55,7 +55,7 @@ const AddItem = () => {
     <Container className="py-3" id="additem">
       <Row className="justify-content-center">
         <Col xs={9}>
-          <Col className="text-center"><h2>Create an Item</h2></Col>
+          <Col className="text-center"><h2 className="title">Create an Item</h2></Col>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
               <Card.Body>

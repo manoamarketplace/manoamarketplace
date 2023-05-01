@@ -36,7 +36,7 @@ const ListItems = () => {
         <Row className="justify-content-center">
           <Col>
             <Col className="text-center">
-              <h2>Shop {category}</h2>
+              <h2 className="title">Shop {category}</h2>
             </Col>
             <Row xs={1} md={2} lg={3} className="g-4">
               {items.map((item) => (<Col key={item._id}><ItemCard item={item} /></Col>))}
