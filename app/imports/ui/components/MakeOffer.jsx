@@ -7,7 +7,17 @@ import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { Offers } from '../../api/offer/Offers';
 
 // Create a schema to specify the structure of the data to appear in the form.
+<<<<<<< Updated upstream
 const formSchema = Offers.schema;
+=======
+const formSchema = new SimpleSchema({
+  offer: Number,
+  itemId: String,
+  createdAt: Date,
+  owner: String,
+  buyer: String,
+});
+>>>>>>> Stashed changes
 
 const bridge = new SimpleSchema2Bridge(formSchema);
 
@@ -16,9 +26,13 @@ const MakeOffer = ({ owner }) => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
-    const { offer, createdAt } = data;
+    const { offer, createdAt, buyer } = data;
     Offers.collection.insert(
+<<<<<<< Updated upstream
       { offer, owner, createdAt },
+=======
+      { offer, owner, createdAt, itemId, buyer },
+>>>>>>> Stashed changes
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -45,6 +59,7 @@ const MakeOffer = ({ owner }) => {
                 <ErrorsField />
                 <HiddenField name="owner" value={owner} />
                 <HiddenField name="createdAt" value={new Date()} />
+                <HiddenField name="buyer" value={buyer} />
               </Card.Body>
             </Card>
           </AutoForm>
@@ -56,6 +71,7 @@ const MakeOffer = ({ owner }) => {
 
 MakeOffer.propTypes = {
   owner: PropTypes.string.isRequired,
+  buyer: PropTypes.string.isRequired,
 };
 
 export default MakeOffer;
