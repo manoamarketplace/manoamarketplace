@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const CategoriesPage = () => (
   <Row className="bg-categories">
     <Card.Header>
-      <Card.Title className="text-center py-3"><h1 style={{ color: 'forestgreen' }}><strong>Categories</strong></h1></Card.Title>
+      <Card.Title className="text-center py-3"><h2>Categories</h2></Card.Title>
     </Card.Header>
     <Container id="categories">
       <Row className="justify-content-md-center py+5">

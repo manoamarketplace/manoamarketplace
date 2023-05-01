@@ -3,6 +3,7 @@ import React from 'react';
 import { Card, Col, Image, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { Pencil } from 'react-bootstrap-icons';
 
 const AdminItemCard = ({ item }) => (
   <Col>
@@ -13,19 +14,16 @@ const AdminItemCard = ({ item }) => (
           <Row>
             <Col>
               <Card.Title><h2>{item.name}</h2></Card.Title>
-              <Card.Subtitle>${item.price}</Card.Subtitle>
+              <Card.Subtitle>${item.price} <Link to={`/edit/${item._id}`}><Pencil /></Link></Card.Subtitle>
             </Col>
           </Row>
         </Card.Header>
         <Card.Body>
-          <Card.Text>{item.seller}</Card.Text>
+          <Card.Text>Seller: {item.seller}</Card.Text>
           {item.reported ? ([
             <p style={{ color: 'red' }}>Item has been reported!</p>,
           ]) : '' }
         </Card.Body>
-        <Card.Footer>
-          <Link to={`/edit/${item._id}`}>Edit Item</Link>
-        </Card.Footer>
       </Link>
     </Card>
   </Col>
