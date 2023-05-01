@@ -1,6 +1,7 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Col, Container, Row, Image, Button, ToggleButton } from 'react-bootstrap';
+import { Flag } from 'react-bootstrap-icons';
 import { useTracker } from 'meteor/react-meteor-data';
 import { useParams } from 'react-router';
 import { _ } from 'meteor/underscore';
@@ -50,16 +51,20 @@ const MoreInfo = () => {
             <p>Condition: {item.condition}</p>
             <p>{item.description}</p>
             {/* eslint-disable-next-line react/no-unescaped-entities */}
-            <ToggleButton value="1" variant="success">I'm Interested!</ToggleButton>
+            <Row>
+              <Col>
+                <ToggleButton value="1" variant="success">I&#39;m Interested!</ToggleButton>
+              </Col>
+            </Row>
+            <br />
+            <Row>
+              <Col>
+                <Button variant="warning" onClick={reportItem}>Report <Flag />
+                </Button>
+              </Col>
+            </Row>
           </Col>
         </Row>
-        <Container className="py-5">
-          <Row>
-            <Col>
-              <Button variant="warning" style={{ color: 'blue' }} onClick={reportItem}>Report this item</Button>
-            </Col>
-          </Row>
-        </Container>
       </Container>
     ) : <Row className="justify-content-center text-center"><h4>This item does not exist or has been taken down.</h4></Row>)
   ) : <LoadingSpinner />);

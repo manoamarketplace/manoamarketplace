@@ -3,6 +3,7 @@ import React from 'react';
 import { Card, Col, Container, Image } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { Pencil } from 'react-bootstrap-icons';
 import CardOffer from './CardOffer';
 
 const UserItemCard = ({ item }) => (
@@ -11,8 +12,8 @@ const UserItemCard = ({ item }) => (
       <Link to={`/more-info-owner/${item._id}`} style={{ color: 'black', textDecoration: 'none' }}>
         <Card.Header>
           <Image src={item.image} className="img" />
-          <Card.Title className="text-center"><h2>{item.name}</h2></Card.Title>
-          <Card.Subtitle className="text-center">Listed Price: ${item.price}</Card.Subtitle>
+          <Card.Title><h2>{item.name}</h2></Card.Title>
+          <Card.Subtitle>Listed Price: ${item.price} <Link to={`/edit/${item._id}`}><Pencil /></Link></Card.Subtitle>
         </Card.Header>
         <Container>
           <Card.Body className="mx-auto">
@@ -25,9 +26,6 @@ const UserItemCard = ({ item }) => (
             <CardOffer itemId={item._id} />
           </Card.Body>
         </Container>
-        <Card.Footer className="mx-auto text-center">
-          <Link to={`/edit/${item._id}`} className="mx-auto">Edit Item</Link>
-        </Card.Footer>
       </Link>
     </Card>
   </Col>
