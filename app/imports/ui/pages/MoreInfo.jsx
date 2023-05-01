@@ -23,8 +23,6 @@ const MoreInfo = () => {
     // Get the Item document
     const itemItems = Item.collection.find({ _id: _id }).fetch();
     const thisItem = itemItems[0];
-    // Get the Seller
-
     return {
       item: thisItem,
       ready: rdy,
@@ -32,7 +30,7 @@ const MoreInfo = () => {
   }, [_id]);
   const reportItem = () => {
     item.reported = true;
-    Item.collection.update(_id, item, (error) => (error ?
+    Item.collection.update(_id, { $set: { reported: true } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
   };

@@ -8,30 +8,36 @@ import swal from 'sweetalert';
 import { Trash } from 'react-bootstrap-icons';
 import { Item } from '../../api/item/Item';
 import LoadingSpinner from '../components/LoadingSpinner';
-import MakeOffer from '../components/MakeOffer';
+import { Offers } from '../../api/offer/Offers';
+import Offer from '../components/Offer';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 const MoreInfoOwner = () => {
   const { _id } = useParams();
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { ready, item } = useTracker(() => {
+  const { ready, item, offers } = useTracker(() => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
     // Get access to Item documents.
     const subscription = Meteor.subscribe(Item.buyerPublicationName);
+    const subscription2 = Meteor.subscribe(Offers.userPublicationName);
     // Determine if the subscription is ready
-    const rdy = subscription.ready();
+    const rdy = subscription.ready() && subscription2.ready();
     // Get the Item document
     const itemItems = Item.collection.find({ _id: _id }).fetch();
     const thisItem = itemItems[0];
+    // Get Offers
+    const offerItems = Offers.collection.find({ itemId: _id }).fetch();
+
     return {
       item: thisItem,
+      offers: offerItems,
       ready: rdy,
     };
   }, [_id]);
   const reportItem = () => {
     item.reported = true;
-    Item.collection.update(_id, item, (error) => (error ?
+    Item.collection.update(_id, { $set: { reported: true } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
   };
@@ -53,7 +59,8 @@ const MoreInfoOwner = () => {
             <br />
             <p>Condition: {item.condition}</p>
             <p>{item.description}</p>
-            <MakeOffer owner={item.owner} itemId={item._id} />
+            <h2>Offers</h2>
+            { offers.map((offer) => (<Col key={offer._id}><Offer offer={offer} /></Col>)) }
           </Col>
         </Row>
         <Row className="py-4">

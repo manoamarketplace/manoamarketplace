@@ -19,14 +19,9 @@ const AdminItemCard = ({ item }) => (
         </Card.Header>
         <Card.Body>
           <Card.Text>{item.seller}</Card.Text>
-          <Card.Text>Condition: {item.condition}</Card.Text>
-          <Card.Text>
-            {item.description}
-          </Card.Text>
           {item.reported ? ([
-            <p>Item has been reported!</p>,
+            <p style={{ color: 'red' }}>Item has been reported!</p>,
           ]) : '' }
-          <Card.Title><h4>Offers</h4></Card.Title>
         </Card.Body>
         <Card.Footer>
           <Link to={`/edit/${item._id}`}>Edit Item</Link>
