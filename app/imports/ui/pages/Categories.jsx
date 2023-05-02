@@ -104,7 +104,7 @@ const CategoriesPage = () => (
               </Card>
             </Col>
           </Col>
-        </Col>
+        </Row>
       </Row>
     </Container>
   </Row>
