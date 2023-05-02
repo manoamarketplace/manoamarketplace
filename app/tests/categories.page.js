@@ -16,6 +16,9 @@ class CategoriesPage {
     await testController.expect(count).gte(9);
   }
 
+  async gotoIndividualCategory(testController) {
+    await testController.click('#individual-category');
+  }
 }
 
 export const categoriespage = new CategoriesPage();

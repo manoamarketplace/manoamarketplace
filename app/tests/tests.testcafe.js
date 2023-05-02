@@ -9,6 +9,7 @@ import { sellersPage } from './sellers.page';
 import { allListings } from './listingsall.page';
 import { reportedPage } from './reported.page';
 import { profilePage } from './profile.page';
+import { moreinfopage } from './moreinfo.page';
 
 /* global fixture:false, test:false */
 
@@ -17,7 +18,7 @@ const credentials = { username: 'john@hawaii.edu', password: 'changeme' };
 const admin = { username: 'admin@hawaii.edu', password: 'changeme' };
 const item = { name: 'Fan', image: 'https://i.insider.com/62d6e475bc4c770018b76d6c?width=1200&format=jpeg', category: 'dorm', price: '20', condition: 'used', description: 'Used for two years, still works, perfect for the hot weather' };
 
-fixture('meteor-application-template-react localhost test with default db')
+fixture('manoa marketplace localhost test with default db')
   .page('http://localhost:3000');
 
 test('Test that landing page shows up', async (testController) => {
@@ -80,4 +81,13 @@ test('Test that profile page work', async (testController) => {
   await signinPage.signin(testController, admin.username, admin.password);
   await navBar.gotoProfilePage(testController);
   await profilePage.isDisplayed(testController);
+});
+
+test('Test that more information page work', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoCategoriesPage(testController);
+  await categoriespage.gotoIndividualCategory(testController);
+  await moreinfopage.gotoIndividualItem(testController);
+  await moreinfopage.isDisplayed(testController);
 });
