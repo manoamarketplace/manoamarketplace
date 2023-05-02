@@ -56,14 +56,14 @@ const SignUp = ({ location }) => {
             <Card>
               <Card.Body>
                 <Row>
-                  <Col><TextField name="firstName" placeholder="First name" /></Col>
-                  <Col><TextField name="lastName" placeholder="Last name" /></Col>
+                  <Col><TextField id="firstname" name="firstName" placeholder="First name" /></Col>
+                  <Col><TextField id="lastname" name="lastName" placeholder="Last name" /></Col>
                 </Row>
-                <TextField name="email" placeholder="E-mail address" />
+                <TextField id="email" name="email" placeholder="E-mail address" />
                 <p>Note: E-mail address must end in @hawaii.edu</p>
-                <TextField name="password" placeholder="Password" type="password" />
+                <TextField id="password" name="password" placeholder="Password" type="password" />
                 <ErrorsField />
-                <SubmitField />
+                <SubmitField id="signup-form-submit" />
               </Card.Body>
             </Card>
           </AutoForm>
