@@ -21,10 +21,13 @@ import YourListings from '../pages/YourListings';
 import Home from '../pages/Home';
 import SellersPage from '../pages/ListSellers';
 import AdminListings from '../pages/AdminListings';
-import AdminEditItem from '../pages/AdminEditItem';
+// import AdminEditItem from '../pages/AdminEditItem';
 import AddProfile from '../pages/AddProfile';
 import Profile from '../pages/Profile';
 import EditProfile from '../pages/EditProfile';
+import MoreInfo from '../pages/MoreInfo';
+import MoreInfoOwner from '../pages/MoreInfoOwner';
+import AdminReported from '../pages/AdminReported';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -44,8 +47,10 @@ const App = () => {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signout" element={<SignOut />} />
           <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+          <Route path="/more-info/:_id" element={<ProtectedRoute><MoreInfo /></ProtectedRoute>} />
+          <Route path="/more-info-owner/:_id" element={<ProtectedRoute><MoreInfoOwner /></ProtectedRoute>} />
           <Route path="/add-profile" element={<ProtectedRoute><AddProfile /></ProtectedRoute>} />
-          <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+          <Route path="/profile/:id" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
           <Route path="/edit-profile/:_id" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />
           <Route path="/categories" element={<ProtectedRoute><Categories /></ProtectedRoute>} />
           <Route path="/listings" element={<ProtectedRoute><YourListings /></ProtectedRoute>} />
@@ -54,7 +59,8 @@ const App = () => {
           <Route path="/additem" element={<ProtectedRoute><AddItem /></ProtectedRoute>} />
           <Route path="/edit/:owner" element={<ProtectedRoute><EditItem /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminProtectedRoute ready={ready}><AdminListings /></AdminProtectedRoute>} />
-          <Route path="/adminedit" element={<AdminProtectedRoute ready={ready}><AdminEditItem /></AdminProtectedRoute>} />
+          <Route path="/reported" element={<AdminProtectedRoute ready={ready}><AdminReported /></AdminProtectedRoute>} />
+          <Route path="/adminedit" element={<AdminProtectedRoute ready={ready}><EditItem /></AdminProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

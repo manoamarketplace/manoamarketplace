@@ -33,7 +33,7 @@ const EditProfile = () => {
     <Container className="py-3" id="add-profile-page">
       <Row className="justify-content-center">
         <Col xs={10}>
-          <Col className="text-center"><h2>Edit your Profile</h2></Col>
+          <Col className="text-center"><h2 className="title">Edit your Profile</h2></Col>
           <AutoForm schema={bridge} onSubmit={data => submit(data)} model={doc}>
             <Card>
               <Card.Body>
@@ -46,8 +46,10 @@ const EditProfile = () => {
                   <Col><TextField name="phone" /></Col>
                   <Col><TextField name="picture" label="Profile Picture" /></Col>
                 </Row>
-                <Col><SelectField id="addprofile-form-year" name="year" /></Col>
-                <Col><SelectField id="addprofile-form-major" name="major" /></Col>
+                <Row>
+                  <Col><SelectField id="addprofile-form-year" name="year" /></Col>
+                  <Col><SelectField id="addprofile-form-major" name="major" /></Col>
+                </Row>
                 <Row>
                   <Col><LongTextField name="bio" label="Your Bio" /></Col>
                 </Row>

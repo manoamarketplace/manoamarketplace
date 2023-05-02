@@ -1,6 +1,5 @@
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
-import { Tracker } from 'meteor/tracker';
 
 /**
  * The OffersCollection. It encapsulates state and variable values for stuff.
@@ -13,11 +12,11 @@ class OffersCollection {
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
-      offer: Number,
+      email: String,
       createdAt: Date,
       owner: String,
       itemId: String,
-    }, { tracker: Tracker });
+    });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);
     // Define names for publications and subscriptions

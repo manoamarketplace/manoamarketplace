@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, Col, Container, Row } from 'react-bootstrap';
-import { AutoForm, ErrorsField, LongTextField, SubmitField, HiddenField } from 'uniforms-bootstrap5';
+import { AutoForm, ErrorsField, TextField, SubmitField, HiddenField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
 import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
@@ -9,7 +9,7 @@ import { Offers } from '../../api/offer/Offers';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
-  offer: Number,
+  email: String,
   itemId: String,
   createdAt: Date,
   owner: String,
@@ -22,14 +22,14 @@ const MakeOffer = ({ owner, itemId }) => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
-    const { offer, createdAt } = data;
+    const { email, createdAt } = data;
     Offers.collection.insert(
-      { offer, owner, createdAt, itemId },
+      { email, owner, createdAt, itemId },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
         } else {
-          swal('Success', 'Offer sent successfully!', 'success');
+          swal('Success', 'The seller has been notified!', 'success');
           formRef.reset();
         }
       },
@@ -41,12 +41,13 @@ const MakeOffer = ({ owner, itemId }) => {
   return (
     <Container className="py-3">
       <Row className="justify-content-center">
-        <Col xs={10}>
-          <Col className="text-center"><h2>Make an Offer: </h2></Col>
+        <Col xs={7}>
+          <Col className="text-start"><h2>Interested?</h2></Col>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
+              <Card.Title className="pt-2 ps-2"><h5>Enter your email address below</h5></Card.Title>
               <Card.Body>
-                <LongTextField name="offer" />
+                <TextField name="email" />
                 <SubmitField value="Submit" />
                 <ErrorsField />
                 <HiddenField name="owner" value={owner} />

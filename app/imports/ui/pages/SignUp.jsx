@@ -50,7 +50,7 @@ const SignUp = ({ location }) => {
       <Row className="justify-content-center">
         <Col xs={7}>
           <Col className="text-center">
-            <h2>Register your account</h2>
+            <h2 className="title">Register your account</h2>
           </Col>
           <AutoForm schema={bridge} onSubmit={data => submit(data)}>
             <Card>
@@ -67,10 +67,10 @@ const SignUp = ({ location }) => {
               </Card.Body>
             </Card>
           </AutoForm>
-          <Alert variant="light">
+          <Alert variant="light" style={{ color: 'white' }}>
             Already have an account? Login
             {' '}
-            <Link to="/signin">here</Link>
+            <Link to="/signin" style={{ color: 'blue' }}>here</Link>
           </Alert>
           {error === '' ? (
             ''

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const CategoriesPage = () => (
   <Row className="bg-categories">
     <Card.Header>
-      <Card.Title className="text-center py-3"><h1 style={{ color: 'white' }}><strong>Categories</strong></h1></Card.Title>
+      <Card.Title className="text-center pt-4"><h2 className="title">Categories</h2></Card.Title>
     </Card.Header>
     <Container id="categories">
       <Row className="justify-content-md-center py+5">
@@ -13,7 +13,7 @@ const CategoriesPage = () => (
           <Col className="text-center">
             <Card>
               <Link to="/list/textbooks" style={{ color: 'forestgreen', textDecoration: 'none' }}>
-                <Image src="/images/books.jpg" width={300} height={186} />
+                <Image src="/images/books.jpg" width={325} height={186} />
                 <h2>Textbooks</h2>
               </Link>
             </Card>
@@ -23,7 +23,7 @@ const CategoriesPage = () => (
           <Col className="text-center">
             <Card>
               <Link to="/list/stationary" style={{ color: 'forestgreen', textDecoration: 'none' }}>
-                <Image src="/images/stationary.jpg" width={300} height={186} />
+                <Image src="/images/stationary.jpg" width={325} height={186} />
                 <h2>Stationary</h2>
               </Link>
             </Card>
@@ -33,7 +33,7 @@ const CategoriesPage = () => (
           <Col className="text-center">
             <Card>
               <Link to="/list/electronics" style={{ color: 'forestgreen', textDecoration: 'none' }}>
-                <Image src="/images/electronics.jpeg" width={300} height={186} />
+                <Image src="/images/electronics.jpeg" width={325} height={186} />
                 <h2>Electronics</h2>
               </Link>
             </Card>
@@ -43,7 +43,7 @@ const CategoriesPage = () => (
           <Col className="text-center">
             <Card>
               <Link to="/list/bathroom" style={{ color: 'forestgreen', textDecoration: 'none' }}>
-                <Image src="/images/bath.png" width={300} height={186} />
+                <Image src="/images/bath.png" width={325} height={186} />
                 <h2>Bathroom</h2>
               </Link>
             </Card>
@@ -53,7 +53,7 @@ const CategoriesPage = () => (
           <Col className="text-center">
             <Card>
               <Link to="/list/kitchen" style={{ color: 'forestgreen', textDecoration: 'none' }}>
-                <Image src="/images/kitchen.jpg" width={300} height={186} />
+                <Image src="/images/kitchen.jpg" width={325} height={186} />
                 <h2>Kitchen</h2>
               </Link>
             </Card>
@@ -63,7 +63,7 @@ const CategoriesPage = () => (
           <Col className="text-center">
             <Card>
               <Link to="/list/gym" style={{ color: 'forestgreen', textDecoration: 'none' }}>
-                <Image src="/images/gym.jpg" width={300} height={186} />
+                <Image src="/images/gym.jpg" width={325} height={186} />
                 <h2>Gym</h2>
               </Link>
             </Card>
@@ -73,7 +73,7 @@ const CategoriesPage = () => (
           <Col className="text-center">
             <Card>
               <Link to="/list/transportation" style={{ color: 'forestgreen', textDecoration: 'none' }}>
-                <Image src="/images/transportation.jpg" width={300} height={186} />
+                <Image src="/images/transportation.jpg" width={325} height={186} />
                 <h2>Transportation</h2>
               </Link>
             </Card>
@@ -83,7 +83,7 @@ const CategoriesPage = () => (
           <Col className="text-center">
             <Card>
               <Link to="/list/dorm" style={{ color: 'forestgreen', textDecoration: 'none' }}>
-                <Image src="/images/dorm2.png" width={300} height={186} />
+                <Image src="/images/dorm2.png" width={325} height={186} />
                 <h2>Dorm Essentials</h2>
               </Link>
             </Card>
@@ -93,7 +93,7 @@ const CategoriesPage = () => (
           <Col className="text-center">
             <Card>
               <Link to="/list/clothing" style={{ color: 'forestgreen', textDecoration: 'none' }}>
-                <Image src="/images/clothes.jpg" width={300} height={186} />
+                <Image src="/images/clothes.jpg" width={325} height={186} />
                 <h2>Clothing</h2>
               </Link>
             </Card>

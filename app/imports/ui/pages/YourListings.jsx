@@ -16,10 +16,9 @@ const YourListings = () => {
     // Get access to Item documents.
     const subscription = Meteor.subscribe(Item.userPublicationName);
     // Determine if the subscription is ready
-    const rdy = subscription.ready();
+    const rdy = subscription.ready;
     // Get the Item documents
     const itemItems = Item.collection.find({}).fetch();
-    // filter item list by chosen category
     // Get the Offer documents
     return {
       items: itemItems,
@@ -34,10 +33,12 @@ const YourListings = () => {
         <Row className="justify-content-center">
           <Col>
             <Col className="text-center">
-              <h2>Your Listings</h2>
+              <h2 className="title">Your Listings</h2>
             </Col>
-            <Row xs={1} md={2} lg={3} className="g-4">
-              {items.map((item) => (<Col key={item._id}><UserItemCard userItem={item} /></Col>))}
+            <Row xs={1} md={2} lg={3} className="g-4 h-100 mx-auto py-2">
+              {items.map((item) => (
+                <Col key={item._id}><UserItemCard item={item} collection={Item.collection} /></Col>
+              ))}
             </Row>
           </Col>
         </Row>
