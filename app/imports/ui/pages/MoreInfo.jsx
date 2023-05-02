@@ -51,13 +51,11 @@ const MoreInfo = () => {
             <p>Condition: {item.condition}</p>
             <p>{item.description}</p>
             {/* eslint-disable-next-line react/no-unescaped-entities */}
-            <Row>
+            <Row className="px-5 py-4">
               <Col>
                 <ToggleButton value="1" variant="success">I&#39;m Interested!</ToggleButton>
               </Col>
-            </Row>
             <br />
-            <Row>
               <Col>
                 <Button variant="warning" onClick={reportItem}>Report <Flag />
                 </Button>
@@ -66,7 +64,7 @@ const MoreInfo = () => {
           </Col>
         </Row>
       </Container>
-    ) : <Row className="justify-content-center text-center"><h4>This item does not exist or has been taken down.</h4></Row>)
+    ) : <Row className="justify-content-center text-center"><h4>This listing does not exist or has been taken down.</h4></Row>)
   ) : <LoadingSpinner />);
 };
 

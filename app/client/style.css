@@ -36,6 +36,11 @@ body {
   color: var(--matr-navbar-highlight-text);
 }
 
+.dropdown-item.active,
+.dropdown-item:active {
+  background-color: yellowgreen !important;
+}
+
 footer, footer a {
   color: var(--matr-navbar-text-color);
 }
