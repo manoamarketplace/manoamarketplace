@@ -5,7 +5,7 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { useParams } from 'react-router';
 import { _ } from 'meteor/underscore';
 import swal from 'sweetalert';
-import { Trash, Flag, Pencil } from 'react-bootstrap-icons';
+import { Trash, Pencil } from 'react-bootstrap-icons';
 import { Item } from '../../api/item/Item';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Offers } from '../../api/offer/Offers';
@@ -34,11 +34,7 @@ const MoreInfoOwner = () => {
       ready: rdy,
     };
   }, [_id]);
-  const reportItem = () => {
-    Item.collection.update(_id, { $set: { reported: true } }, (error) => (error ?
-      swal('Error', error.message, 'error') :
-      swal('Success', 'Item reported!', 'success')));
-  };
+
   const removeItem = (docId) => {
     swal('Item Deleted', 'Item deleted successfully', 'success');
     Item.collection.remove(docId);
@@ -55,10 +51,7 @@ const MoreInfoOwner = () => {
                 <Button variant="outline-danger" onClick={() => removeItem(item._id)}>Delete <Trash /></Button>
               </Col>
               <Col>
-                <Button variant="outline-warning" onClick={reportItem}>Report <Flag /></Button>
-              </Col>
-              <Col>
-                <Button variant="outline-success" href={`/edit/${item._id}`}>Edit <Pencil /></Button>
+                <Button variant="outline-success" href={`/edit/${item._id}`}>{' '}Edit <Pencil /></Button>
               </Col>
             </Row>
           </Col>
@@ -73,7 +66,7 @@ const MoreInfoOwner = () => {
           </Col>
         </Row>
       </Container>
-    ) : <Row className="justify-content-center text-center"><h4>This item does not exist or has been taken down.</h4></Row>)
+    ) : <Row className="justify-content-center text-center"><h4>This listing does not exist or has been taken down.</h4></Row>)
   ) : <LoadingSpinner />);
 };
 

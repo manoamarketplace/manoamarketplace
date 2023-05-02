@@ -58,7 +58,7 @@ const Profile = () => {
                             <Card.Subtitle>Year: {seller[0].year}</Card.Subtitle>
                             <Card.Subtitle>Major: {seller[0].major}</Card.Subtitle>
                           </div>
-                          <Card.Body>{seller[0].bio}</Card.Body>
+                          <Card.Body className="text-center">{seller[0].bio}</Card.Body>
                           { currentUser === id.id && (
                             <Card.Footer>
                               <Link to={`/edit-profile/${seller[0]._id}`} style={{ color: 'forestgreen', textDecoration: 'none' }}>Edit Profile</Link>

@@ -35,14 +35,14 @@ const EditItem = () => {
     const { name, category, image, price, condition, description } = data;
     Item.collection.update(owner, { $set: { name, category, image, price, condition, description } }, (error) => (error ?
       swal('Error', error.message, 'error') :
-      swal('Success', 'Item updated successfully', 'success')));
+      swal('Success', 'Listing updated successfully', 'success')));
   };
 
   return ready ? (
     <Container className="py-3">
       <Row className="justify-content-center">
         <Col xs={9}>
-          <Col className="text-center"><h2 className="title">Edit Item</h2></Col>
+          <Col className="text-center"><h2 className="title">Edit Listing</h2></Col>
           <AutoForm schema={bridge} onSubmit={data => submit(data)} model={doc}>
             <Card>
               <Card.Body>

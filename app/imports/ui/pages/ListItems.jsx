@@ -44,7 +44,7 @@ const ListItems = () => {
           </Col>
         </Row>
       </Container>
-    ) : <Row className="justify-content-center text-center"><h4>No items match this category!</h4></Row>)
+    ) : <Row className="justify-content-center text-center"><h4>No listings match this category!</h4></Row>)
   ) : <LoadingSpinner />);
 };
 
