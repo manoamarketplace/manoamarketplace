@@ -58,7 +58,7 @@ const AddProfile = () => {
     <Container className="py-3" id="add-profile">
       <Row className="justify-content-center">
         <Col xs={10}>
-          <Col className="text-center"><h2>Create your Profile</h2></Col>
+          <Col className="text-center"><h2 className="title">Create your Profile</h2></Col>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
               <Card.Body>
@@ -71,8 +71,10 @@ const AddProfile = () => {
                   <Col><TextField name="phone" id="add-profile-form-phone" /></Col>
                   <Col><TextField name="picture" label="Profile Picture" id="add-profile-form-picture" /></Col>
                 </Row>
-                <Col><SelectField id="add-profile-form-year" name="year" /></Col>
-                <Col><SelectField id="add-profile-form-major" name="major" /></Col>
+                <Row>
+                  <Col><SelectField id="add-profile-form-year" name="year" /></Col>
+                  <Col><SelectField id="add-profile-form-major" name="major" /></Col>
+                </Row>
                 <Row>
                   <Col><LongTextField name="bio" label="Your Bio" id="add-profile-form-bio" /></Col>
                 </Row>

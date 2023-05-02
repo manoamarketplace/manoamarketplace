@@ -31,7 +31,7 @@ const AdminListings = () => {
       <Row className="justify-content-center">
         <Col>
           <Col className="text-center">
-            <h2>All Listings</h2>
+            <h2 className="title">All Listings</h2>
           </Col>
           <Row xs={1} md={2} lg={3} className="g-4">
             {items.map((item) => (<Col key={item._id}><AdminItemCard item={item} collection={Item.collection} /></Col>))}

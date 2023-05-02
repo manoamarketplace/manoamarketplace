@@ -42,7 +42,7 @@ const AdminEditItem = () => {
     <Container className="py-3">
       <Row className="justify-content-center">
         <Col xs={9}>
-          <Col className="text-center"><h2>Edit Item</h2></Col>
+          <Col className="text-center"><h2 className="title">Edit Item</h2></Col>
           <AutoForm schema={bridge} onSubmit={data => submit(data)} model={doc}>
             <Card>
               <Card.Body>

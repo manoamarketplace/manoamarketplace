@@ -70,7 +70,7 @@ const Profile = () => {
                   </Card>
                 </Col>
                 <Col className="text-end p-4">
-                  <h2 style={{ marginRight: '250px' }}>Current Listings</h2>
+                  <h2 style={{ marginRight: '250px' }} className="title">Current Listings</h2>
                   { currentUser === id.id && (
                     <Row xs={1} md={2} lg={3} className="g-4 py-4">
                       {items.map((item) => (<Col key={items._id}><POwnerItemCard item={item} collection={Item.collection} /></Col>))}

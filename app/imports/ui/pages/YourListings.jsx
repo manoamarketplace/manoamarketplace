@@ -33,7 +33,7 @@ const YourListings = () => {
         <Row className="justify-content-center">
           <Col>
             <Col className="text-center">
-              <h2 style={{ color: 'forestgreen' }}>Your Listings</h2>
+              <h2 className="title">Your Listings</h2>
             </Col>
             <Row xs={1} md={2} lg={3} className="g-4 h-100 mx-auto py-2">
               {items.map((item) => (
