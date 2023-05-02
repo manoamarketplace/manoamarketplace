@@ -13,7 +13,7 @@ const UserItemCard = ({ item }) => (
         <Card.Header>
           <Image src={item.image} className="img" />
           <Card.Title><h2>{item.name}</h2></Card.Title>
-          <Card.Subtitle>Listed Price: ${item.price} <Link to={`/edit/${item._id}`}><Pencil /></Link></Card.Subtitle>
+          <Card.Subtitle>Listed Price: ${item.price} <Link to={`/edit/${item._id}`}><Pencil id="edit" /></Link></Card.Subtitle>
         </Card.Header>
         <Container>
           <Card.Body className="mx-auto">

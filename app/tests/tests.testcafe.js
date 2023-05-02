@@ -10,6 +10,8 @@ import { allListings } from './listingsall.page';
 import { reportedPage } from './reported.page';
 import { profilePage } from './profile.page';
 import { moreinfopage } from './moreinfo.page';
+import { edititemPage } from './edititem.page';
+import { editprofilePage } from './editprofile.page';
 
 /* global fixture:false, test:false */
 
@@ -90,4 +92,20 @@ test('Test that more information page work', async (testController) => {
   await categoriespage.gotoIndividualCategory(testController);
   await moreinfopage.gotoIndividualItem(testController);
   await moreinfopage.isDisplayed(testController);
+});
+
+test('Test that edit item page work', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoYourListingsPage(testController);
+  await edititemPage.gotoIndividualItem(testController);
+  await edititemPage.isDisplayed(testController);
+});
+
+test.only('Test that edit profile page work', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, admin.username, admin.password);
+  await navBar.gotoProfilePage(testController);
+  await editprofilePage.gotoIndividualItem(testController);
+  await editprofilePage.isDisplayed(testController);
 });

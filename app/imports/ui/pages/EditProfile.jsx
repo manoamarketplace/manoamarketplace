@@ -30,7 +30,7 @@ const EditProfile = () => {
   };
 
   return ready ? (
-    <Container className="py-3" id="add-profile-page">
+    <Container className="py-3" id="editprofile">
       <Row className="justify-content-center">
         <Col xs={10}>
           <Col className="text-center"><h2 className="title">Edit your Profile</h2></Col>

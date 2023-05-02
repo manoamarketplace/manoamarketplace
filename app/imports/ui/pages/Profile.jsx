@@ -4,6 +4,7 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { Card, Container, Row, Col } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import { _ } from 'meteor/underscore';
+import { Pencil } from 'react-bootstrap-icons';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Sellers } from '../../api/item/Seller';
 import { Item } from '../../api/item/Item';
@@ -16,10 +17,7 @@ const Profile = () => {
     currentUser: Meteor.user() ? Meteor.user().username
       : '',
   }), []);
-
   const id = useParams();
-  console.log('email', id.id);
-
   const { ready, seller, items } = useTracker(() => {
     const subscription1 = Meteor.subscribe(Sellers.buyerPublicationName);
     const subscription2 = Meteor.subscribe(Item.buyerPublicationName);
@@ -52,18 +50,16 @@ const Profile = () => {
                       <div className="d-flex text-black">
                         <div className="flex-grow-1 ms-3">
                           <div className="text-center py-2">
-                            <Card.Title>{seller[0].firstName} {seller[0].lastName}</Card.Title>
+                            <Card.Title>{seller[0].firstName} {seller[0].lastName} { currentUser === id.id && (
+                              <Link to={`/edit-profile/${seller[0]._id}`} style={{ color: 'forestgreen', textDecoration: 'none' }}><Pencil id="edit"/></Link>
+                            ) }
+                            </Card.Title>
                             <Card.Subtitle>Email: {seller[0].email}</Card.Subtitle>
                             <Card.Subtitle>Phone: {seller[0].phone}</Card.Subtitle>
                             <Card.Subtitle>Year: {seller[0].year}</Card.Subtitle>
                             <Card.Subtitle>Major: {seller[0].major}</Card.Subtitle>
                           </div>
                           <Card.Body className="text-center">{seller[0].bio}</Card.Body>
-                          { currentUser === id.id && (
-                            <Card.Footer>
-                              <Link to={`/edit-profile/${seller[0]._id}`} style={{ color: 'forestgreen', textDecoration: 'none' }}>Edit Profile</Link>
-                            </Card.Footer>
-                          ) }
                         </div>
                       </div>
                     </Card>
