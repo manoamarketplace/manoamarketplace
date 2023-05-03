@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { Pencil, Trash } from 'react-bootstrap-icons';
 import swal from 'sweetalert';
 import { Item } from '../../api/item/Item';
+import CardOffer from './CardOffer';
 
 const removeItem = (docId) => {
   swal('Item Deleted', 'Item deleted successfully', 'success');
@@ -30,9 +31,12 @@ const UserItemCard = ({ item }) => (
               </Link>
             </h2>
           </Card.Title>
-          <Card.Subtitle>Listed Price: ${item.price}
-          </Card.Subtitle>
+          <Card.Subtitle>Listed Price: ${item.price}</Card.Subtitle>
         </Card.Header>
+        <Card.Body>
+          <Card.Text><h4>Offers</h4></Card.Text>
+          <CardOffer itemId={item._id} />
+        </Card.Body>
       </Link>
     </Card>
   </Col>
