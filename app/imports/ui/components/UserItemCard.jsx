@@ -21,11 +21,6 @@ const UserItemCard = ({ item }) => (
         </Card.Header>
         <Container>
           <Card.Body className="mx-auto">
-            <Card.Text>{item.seller}</Card.Text>
-            <Card.Text>Condition: {item.condition}</Card.Text>
-            <Card.Text>
-              {item.description}
-            </Card.Text>
             <h5>Offers</h5>
             <CardOffer itemId={item._id} />
           </Card.Body>
