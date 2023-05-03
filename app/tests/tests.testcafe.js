@@ -122,7 +122,7 @@ test('Test that admin edit profile page work', async (testController) => {
   await editprofilePage.isDisplayed(testController);
 });
 
-test.only('Test that add profile and signup page work', async (testController) => {
+test('Test that add profile and signup page work', async (testController) => {
   await navBar.gotoSignUpPage(testController);
   await signupPage.isDisplayed(testController);
   await signupPage.signupUser(testController, profile.email, credentials.password);
