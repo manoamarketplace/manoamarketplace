@@ -8,7 +8,6 @@ import { Item } from '../../api/item/Item';
 import LoadingSpinner from '../components/LoadingSpinner';
 import ItemCard from '../components/ItemCard';
 
-/* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 const ListItems = () => {
   const { category } = useParams();
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker

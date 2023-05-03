@@ -7,7 +7,7 @@ import { Pencil, Trash } from 'react-bootstrap-icons';
 import { Sellers } from '../../api/item/Seller';
 
 const removeUser = (docId) => {
-  swal('User Deleted', 'User deleted successfully', 'success');
+  swal('User Removed', 'User removed successfully', 'success');
   Sellers.collection.remove(docId);
 };
 
@@ -35,7 +35,7 @@ const AdminSellerCard = ({ seller }) => (
             <p style={{ color: 'red' }}>User has been reported!</p>,
           ]) : '' }
           <Col className="text-center py-2">
-            <Button variant="outline-danger" onClick={() => removeUser(seller._id)}>Delete <Trash /></Button>
+            <Button variant="outline-danger" onClick={() => removeUser(seller._id)}>Remove <Trash /></Button>
           </Col>
         </Card.Body>
       </div>

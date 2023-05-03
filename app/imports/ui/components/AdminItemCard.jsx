@@ -39,7 +39,7 @@ const AdminItemCard = ({ item }) => (
             ]) : '' }
           </div>
           <Col className="text-center py-2">
-            <Button variant="outline-danger" onClick={() => removeItem(item._id)}>Delete <Trash /></Button>
+            <Button variant="outline-danger" onClick={() => removeItem(item._id)}>Remove <Trash /></Button>
           </Col>
         </Card.Body>
       </Link>
