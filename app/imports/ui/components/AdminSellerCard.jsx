@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import swal from 'sweetalert';
-import { Card, Image, Button, Col } from 'react-bootstrap';
+import { Card, Image, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { Pencil, Trash } from 'react-bootstrap-icons';
 import { Sellers } from '../../api/item/Seller';
@@ -20,9 +20,14 @@ const AdminSellerCard = ({ seller }) => (
         </div>
       </Card.Header>
       <div className="text-black text-center">
-        <Card.Title>{seller.firstName} {seller.lastName}
+        <Card.Title className="text-center">{seller.firstName} {seller.lastName}
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <Link to={`/edit-profile/${seller._id}`} style={{ textDecoration: 'none' }}>
             {' '}<big><Pencil /></big>
+          </Link>
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+          <Link className="link-danger px-2" onClick={() => removeUser(seller._id)} style={{ textDecoration: 'none' }}>
+            {' '}<big><Trash /></big>
           </Link>
         </Card.Title>
         <Card.Subtitle>Email: {seller.email}</Card.Subtitle>
@@ -34,9 +39,6 @@ const AdminSellerCard = ({ seller }) => (
           {seller.reported ? ([
             <p style={{ color: 'red' }}>User has been reported!</p>,
           ]) : '' }
-          <Col className="text-center py-2">
-            <Button variant="outline-danger" onClick={() => removeUser(seller._id)}>Delete <Trash /></Button>
-          </Col>
         </Card.Body>
       </div>
     </Button>

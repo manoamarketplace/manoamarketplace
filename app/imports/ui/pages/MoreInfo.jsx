@@ -43,14 +43,11 @@ const MoreInfo = () => {
         <Row>
           <Col className="justify-content-start" xs={6}>
             <Image src={item.image} alt={item.name} className="more-info-img" />
-            <div className="py-5 justify-content-md-center">
-              <Button variant="warning" onClick={reportItem}>Report <Flag />
-              </Button>
-            </div>
           </Col>
           <Col>
             <h1>{item.name}</h1>
             <h4>${item.price}
+              <div className="py-3" />
               <Button variant="outline-warning" size="sm" onClick={reportItem}>Report <Flag />
               </Button>
             </h4>
