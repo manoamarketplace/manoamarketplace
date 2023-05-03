@@ -10,8 +10,6 @@ const createUser = (firstName, lastName, email, password, role) => {
     username: email,
     email: email,
     password: password,
-    firstName: firstName,
-    lastName: lastName,
   });
   if (role === 'admin') {
     Roles.createRole(role, { unlessExists: true });

@@ -6,6 +6,9 @@ import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
 import { Item } from '../../api/item/Item';
+import { Sellers } from '../../api/item/Seller';
+import { useTracker } from 'meteor/react-meteor-data';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
@@ -29,12 +32,26 @@ const bridge = new SimpleSchema2Bridge(formSchema);
 
 /* Renders the AddStuff page for adding a document. */
 const AddItem = () => {
+  const { ready, sellers } = useTracker(() => {
+    // Note that this subscription will get cleaned up
+    // when your component is unmounted or deps change.
+    // Get access to Sellers documents.
+    const subscription = Meteor.subscribe(Sellers.userPublicationName);
+    // Determine if the subscription is ready
+    const rdy = subscription.ready();
+    // Get the Seller documents
+    const sellerItems = (Sellers.collection.find({}).fetch())[0];
 
+    return {
+      sellers: sellerItems,
+      ready: rdy,
+    };
+  }, []);
   // On submit, insert the data.
   const submit = (data, formRef) => {
     const { name, category, image, price, condition, description } = data;
     const owner = Meteor.user().username;
-    const seller = Meteor.user().username;
+    const seller = `${sellers.firstName} ${sellers.lastName}`;
     const reported = false;
     Item.collection.insert(
       { name, category, image, price, condition, description, owner, seller, reported },
@@ -51,7 +68,7 @@ const AddItem = () => {
 
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   let fRef = null;
-  return (
+  return ( ready ? (
     <Container className="py-3" id="additem">
       <Row className="justify-content-center">
         <Col xs={9}>
@@ -79,7 +96,7 @@ const AddItem = () => {
         </Col>
       </Row>
     </Container>
-  );
+  ) : <LoadingSpinner />);
 };
 
 export default AddItem;
