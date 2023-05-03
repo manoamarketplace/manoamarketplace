@@ -29,7 +29,7 @@ const CardOffer = ({ itemId }) => {
     <ListGroup.Item>
       { offers.map((offer) => (
         <Col key={offer._id}>
-          <p>${offer.offer}</p>
+          <p>{offer.email}</p>
         </Col>
       )) }
     </ListGroup.Item>
