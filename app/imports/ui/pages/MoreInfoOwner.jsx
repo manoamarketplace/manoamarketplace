@@ -19,8 +19,8 @@ const MoreInfoOwner = () => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
     // Get access to Item documents.
-    const subscription = Meteor.subscribe(Item.buyerPublicationName);
-    const subscription2 = Meteor.subscribe(Offers.userPublicationName);
+    const subscription = Meteor.subscribe(Item.userPublicationName) && Meteor.subscribe(Item.adminPublicationName);
+    const subscription2 = Meteor.subscribe(Offers.userPublicationName) && Meteor.subscribe(Offers.adminPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready() && subscription2.ready();
     // Get the Item document

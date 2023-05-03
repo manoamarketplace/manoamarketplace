@@ -1,11 +1,10 @@
 /* Component for layout out a item Card. */
 import React from 'react';
-import { Card, Col, Container, Image } from 'react-bootstrap';
+import { Card, Col, Image } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Pencil, Trash } from 'react-bootstrap-icons';
 import swal from 'sweetalert';
-import CardOffer from './CardOffer';
 import { Item } from '../../api/item/Item';
 
 const removeItem = (docId) => {
@@ -34,17 +33,6 @@ const UserItemCard = ({ item }) => (
           <Card.Subtitle>Listed Price: ${item.price}
           </Card.Subtitle>
         </Card.Header>
-        <Container>
-          <Card.Body className="mx-auto">
-            <Card.Text>{item.seller}</Card.Text>
-            <Card.Text>Condition: {item.condition}</Card.Text>
-            <Card.Text>
-              {item.description}
-            </Card.Text>
-            <h5>Offers</h5>
-            <CardOffer itemId={item._id} />
-          </Card.Body>
-        </Container>
       </Link>
     </Card>
   </Col>
