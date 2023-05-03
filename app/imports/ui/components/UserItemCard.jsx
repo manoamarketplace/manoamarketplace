@@ -3,8 +3,15 @@ import React from 'react';
 import { Card, Col, Container, Image } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Pencil } from 'react-bootstrap-icons';
+import { Pencil, Trash } from 'react-bootstrap-icons';
+import swal from 'sweetalert';
 import CardOffer from './CardOffer';
+import { Item } from '../../api/item/Item';
+
+const removeItem = (docId) => {
+  swal('Item Deleted', 'Item deleted successfully', 'success');
+  Item.collection.remove(docId);
+};
 
 const UserItemCard = ({ item }) => (
   <Col className="mx-auto">
@@ -12,11 +19,19 @@ const UserItemCard = ({ item }) => (
       <Link to={`/more-info-owner/${item._id}`} style={{ color: 'black', textDecoration: 'none' }}>
         <Card.Header>
           <Image src={item.image} className="img" />
-          <Card.Title><h2>{item.name}</h2></Card.Title>
+          <Card.Title>
+            <h2>{item.name}
+              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+              <Link to={`/edit/${item._id}`} className="px-2" style={{ textDecoration: 'none' }}>
+                {' '}<small><small><Pencil id="edit" /></small></small>
+              </Link>
+              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+              <Link className="link-danger px-1" onClick={() => removeItem(item._id)} style={{ textDecoration: 'none' }}>
+                {' '}<small><small><Trash /></small></small>
+              </Link>
+            </h2>
+          </Card.Title>
           <Card.Subtitle>Listed Price: ${item.price}
-            <Link to={`/edit/${item._id}`}>
-              {' '}<big><Pencil id="edit" /></big>
-            </Link>
           </Card.Subtitle>
         </Card.Header>
         <Container>

@@ -102,14 +102,14 @@ const Profile = () => {
                       </div>
                     </Card>
                   </Card>
-                  { currentUser === Roles.userIsInRole(Meteor.userId(), 'admin') && currentUser !== _id.id ? (
+                  { currentUser !== _id.id && currentUser !== Roles.userIsInRole(Meteor.userId(), 'admin') && (
                     <Row className="py-4">
                       <Col>
                         <Button variant="warning" onClick={reportUser}>Report <Flag />
                         </Button>
                       </Col>
                     </Row>
-                  ) : ''}
+                  )}
                 </Col>
                 <Col className="text-end p-4">
                   <h2 style={{ marginRight: '250px' }} className="title">Current Listings</h2>
