@@ -1,11 +1,12 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Col, Container, Row, Image, Button } from 'react-bootstrap';
+import { Col, Container, Row, Image } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import { useParams } from 'react-router';
 import { _ } from 'meteor/underscore';
 import swal from 'sweetalert';
 import { Trash, Pencil } from 'react-bootstrap-icons';
+import { Link } from 'react-router-dom';
 import { Item } from '../../api/item/Item';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Offers } from '../../api/offer/Offers';
@@ -46,18 +47,11 @@ const MoreInfoOwner = () => {
         <Row>
           <Col className="justify-content-start" xs={6}>
             <Image src={item.image} alt={item.name} className="more-info-img" />
-            <Row className="py-4 text-center justify-content-center">
-              <Col>
-                <Button variant="outline-danger" onClick={() => removeItem(item._id)}>Delete <Trash /></Button>
-              </Col>
-              <Col>
-                <Button variant="outline-success" href={`/edit/${item._id}`}>{' '}Edit <Pencil /></Button>
-              </Col>
-            </Row>
           </Col>
           <Col xs={6}>
             <h1>{item.name}</h1>
-            <h4>${item.price}</h4>
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+            <h4>${item.price} <Link className="link-danger" onClick={() => removeItem(item._id)}><Trash /></Link> <Link to={`/edit/${item._id}`}><Pencil /></Link></h4>
             <br />
             <p>Condition: {item.condition}</p>
             <p>{item.description}</p>
