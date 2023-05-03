@@ -15,6 +15,7 @@ import { editprofilePage } from './editprofile.page';
 import { signupPage } from './signup.page';
 import { addProfilePage } from './addprofile.page';
 import { homePage } from './home.page';
+import { moreinfoownerpage } from './moreinfoowner.page';
 
 /* global fixture:false, test:false */
 
@@ -129,10 +130,19 @@ test('Test that add profile and signup page work', async (testController) => {
   await addProfilePage.add(testController, profile.firstName, profile.lastName, profile.email, profile.phone, profile.picture, profile.bio);
 });
 
-test.only('Test that user edit profile page work', async (testController) => {
+test('Test that user edit profile page work', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.gotoProfilePage(testController);
   await editprofilePage.gotoIndividualItem(testController);
   await editprofilePage.isDisplayed(testController);
+});
+
+test('Test owner more information page work', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoYourListingsPage(testController);
+  await yourlistingspage.isDisplayed(testController);
+  await moreinfoownerpage.gotoIndividualItem(testController);
+  await moreinfoownerpage.isDisplayed(testController);
 });

@@ -1,6 +1,6 @@
 /* Component for layout out a item Card. */
 import React from 'react';
-import { Card, Col, Image, Row } from 'react-bootstrap';
+import { Card, Col, Image, Row, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import swal from 'sweetalert';
 import PropTypes from 'prop-types';
@@ -43,9 +43,6 @@ const AdminItemCard = ({ item }) => (
               <p style={{ color: 'red' }}>Item has been reported!</p>,
             ]) : '' }
           </div>
-          <Col className="text-center py-2">
-            <Button variant="outline-danger" onClick={() => removeItem(item._id)}>Remove <Trash /></Button>
-          </Col>
         </Card.Body>
       </Link>
     </Card>
