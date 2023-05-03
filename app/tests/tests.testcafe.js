@@ -14,6 +14,7 @@ import { edititemPage } from './edititem.page';
 import { editprofilePage } from './editprofile.page';
 import { signupPage } from './signup.page';
 import { addProfilePage } from './addprofile.page';
+import { homePage } from './home.page';
 
 /* global fixture:false, test:false */
 
@@ -37,6 +38,12 @@ test('Test that signin and signout work', async (testController) => {
   await navBar.isLoggedIn(testController, credentials.username);
   await navBar.logout(testController);
   await signoutPage.isDisplayed(testController);
+});
+
+test('Test that home page work', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await homePage.isDisplayed(testController);
 });
 
 test('Test that your listings page work', async (testController) => {
@@ -106,7 +113,7 @@ test('Test that edit item page work', async (testController) => {
   await edititemPage.isDisplayed(testController);
 });
 
-test('Test that edit profile page work', async (testController) => {
+test('Test that admin edit profile page work', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, admin.username, admin.password);
   await navBar.gotoProfilePage(testController);
@@ -120,4 +127,12 @@ test('Test that add profile and signup page work', async (testController) => {
   await signupPage.signupUser(testController, profile.firstName, profile.lastName, profile.email, credentials.password);
   await addProfilePage.isDisplayed(testController);
   await addProfilePage.add(testController, profile.firstName, profile.lastName, profile.email, profile.phone, profile.picture, profile.bio);
+});
+
+test.only('Test that user edit profile page work', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoProfilePage(testController);
+  await editprofilePage.gotoIndividualItem(testController);
+  await editprofilePage.isDisplayed(testController);
 });
