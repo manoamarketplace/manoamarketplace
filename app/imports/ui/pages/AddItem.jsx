@@ -5,9 +5,9 @@ import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
+import { useTracker } from 'meteor/react-meteor-data';
 import { Item } from '../../api/item/Item';
 import { Sellers } from '../../api/item/Seller';
-import { useTracker } from 'meteor/react-meteor-data';
 import LoadingSpinner from '../components/LoadingSpinner';
 
 // Create a schema to specify the structure of the data to appear in the form.
@@ -68,7 +68,7 @@ const AddItem = () => {
 
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   let fRef = null;
-  return ( ready ? (
+  return (ready ? (
     <Container className="py-3" id="additem">
       <Row className="justify-content-center">
         <Col xs={9}>
