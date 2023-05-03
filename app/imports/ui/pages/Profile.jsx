@@ -75,9 +75,7 @@ const Profile = () => {
                             <Card.Footer>
                               <Row>
                                 <Col className="text-center">
-                                  <Button variant="outline-success" href={`/edit-profile/${seller[0]._id}`} style={{ textDecoration: 'none' }}>Edit
-                                    {' '}<big><Pencil /></big>
-                                  </Button>
+                                  <Button id="edit" variant="outline-success" href={`/edit-profile/${seller[0]._id}`} style={{ textDecoration: 'none' }}>Edit<big><Pencil /></big></Button>
                                 </Col>
                               </Row>
                             </Card.Footer>

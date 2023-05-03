@@ -1,10 +1,9 @@
 /* Component for layout out a item Card. */
 import React from 'react';
-import { Card, Col, Container, Image } from 'react-bootstrap';
+import { Card, Col, Image } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Pencil } from 'react-bootstrap-icons';
-import CardOffer from './CardOffer';
 
 const UserItemCard = ({ item }) => (
   <Col className="mx-auto">
@@ -19,12 +18,6 @@ const UserItemCard = ({ item }) => (
             </Link>
           </Card.Subtitle>
         </Card.Header>
-        <Container>
-          <Card.Body className="mx-auto">
-            <h5>Offers</h5>
-            <CardOffer itemId={item._id} />
-          </Card.Body>
-        </Container>
       </Link>
     </Card>
   </Col>
