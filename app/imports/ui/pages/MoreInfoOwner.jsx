@@ -49,9 +49,17 @@ const MoreInfoOwner = () => {
             <Image src={item.image} alt={item.name} className="more-info-img" />
           </Col>
           <Col xs={6}>
-            <h1>{item.name}</h1>
-            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-            <h4>${item.price} <Link className="link-danger" onClick={() => removeItem(item._id)}><Trash /></Link> <Link to={`/edit/${item._id}`}><Pencil /></Link></h4>
+            <h1>{item.name}
+              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+              <Link to={`/edit/${item._id}`} style={{ textDecoration: 'none' }}>
+                {' '}<small><small><Pencil /></small></small>
+              </Link>
+              {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+              <Link className="link-danger" onClick={() => removeItem(item._id)} style={{ textDecoration: 'none' }}>
+                {' '}<small><small><Trash /></small></small>
+              </Link>
+            </h1>
+            <h4>${item.price}</h4>
             <br />
             <p>Condition: {item.condition}</p>
             <p>{item.description}</p>

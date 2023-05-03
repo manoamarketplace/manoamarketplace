@@ -75,7 +75,9 @@ const Profile = () => {
                             <Card.Footer>
                               <Row>
                                 <Col className="text-center">
-                                  <Button variant="outline-success" href={`/edit-profile/${seller[0]._id}`} style={{ textDecoration: 'none' }}>Edit<big><Pencil /></big></Button>
+                                  <Button variant="outline-success" href={`/edit-profile/${seller[0]._id}`} style={{ textDecoration: 'none' }}>Edit
+                                    {' '}<big><Pencil /></big>
+                                  </Button>
                                 </Col>
                               </Row>
                             </Card.Footer>
@@ -84,10 +86,14 @@ const Profile = () => {
                             <Card.Footer>
                               <Row>
                                 <Col className="text-center">
-                                  <Button variant="outline-success" href={`/edit-profile/${seller[0]._id}`} style={{ textDecoration: 'none' }}>Edit<big><Pencil /></big></Button>
+                                  <Button variant="outline-success" href={`/edit-profile/${seller[0]._id}`} style={{ textDecoration: 'none' }}>Edit
+                                    {' '}<big><Pencil /></big>
+                                  </Button>
                                 </Col>
                                 <Col className="text-center">
-                                  <Button variant="outline-danger" onClick={() => removeUser(seller._id)} className="justify-content-center py-2">Delete <Trash /></Button>
+                                  <Button variant="outline-danger" onClick={() => removeUser(seller._id)} className="justify-content-center py-2">
+                                    {' '}Delete <Trash />
+                                  </Button>
                                 </Col>
                               </Row>
                             </Card.Footer>
@@ -96,7 +102,7 @@ const Profile = () => {
                       </div>
                     </Card>
                   </Card>
-                  { currentUser !== Roles.userIsInRole(Meteor.userId(), '') && currentUser !== _id.id ? (
+                  { currentUser === Roles.userIsInRole(Meteor.userId(), 'admin') && currentUser !== _id.id ? (
                     <Row className="py-4">
                       <Col>
                         <Button variant="warning" onClick={reportUser}>Report <Flag />
