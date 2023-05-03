@@ -43,9 +43,6 @@ const AdminItemCard = ({ item }) => (
               <p style={{ color: 'red' }}>Item has been reported!</p>,
             ]) : '' }
           </div>
-          <Col className="text-center py-2">
-            <Button variant="outline-danger" onClick={() => removeItem(item._id)}>Remove <Trash /></Button>
-          </Col>
         </Card.Body>
       </Link>
     </Card>

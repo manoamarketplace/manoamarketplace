@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import swal from 'sweetalert';
-import { Card, Image, Button } from 'react-bootstrap';
+import { Card, Image, Button, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { Pencil, Trash } from 'react-bootstrap-icons';
 import { Sellers } from '../../api/item/Seller';
