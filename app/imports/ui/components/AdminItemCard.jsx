@@ -1,6 +1,6 @@
 /* Component for layout out a item Card. */
 import React from 'react';
-import { Card, Col, Image, Row } from 'react-bootstrap';
+import { Card, Col, Image, Row, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import swal from 'sweetalert';
 import PropTypes from 'prop-types';

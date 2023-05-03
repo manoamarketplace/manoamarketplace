@@ -39,9 +39,6 @@ const AdminSellerCard = ({ seller }) => (
           {seller.reported ? ([
             <p style={{ color: 'red' }}>User has been reported!</p>,
           ]) : '' }
-          <Col className="text-center py-2">
-            <Button variant="outline-danger" onClick={() => removeUser(seller._id)}>Remove <Trash /></Button>
-          </Col>
         </Card.Body>
       </div>
     </Button>

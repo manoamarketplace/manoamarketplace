@@ -37,7 +37,7 @@ const YourListings = () => {
             </Col>
             <Row xs={1} md={2} lg={3} className="g-4 h-100 mx-auto py-2">
               {items.map((item) => (
-                <Col key={item._id}><UserItemCard item={item} collection={Item.collection} /></Col>
+                <Col key={item._id} id="itemowner"><UserItemCard item={item} collection={Item.collection} /></Col>
               ))}
             </Row>
           </Col>
