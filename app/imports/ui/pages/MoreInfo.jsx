@@ -50,8 +50,9 @@ const MoreInfo = () => {
           </Col>
           <Col>
             <h1>{item.name}</h1>
-            <h4>${item.price} <Button variant="outline-warning" size="sm" onClick={reportItem}>Report <Flag />
-            </Button>
+            <h4>${item.price}
+              <Button variant="outline-warning" size="sm" onClick={reportItem}>Report <Flag />
+              </Button>
             </h4>
             <br />
             <p>Condition: {item.condition}</p>
