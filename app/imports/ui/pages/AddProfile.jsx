@@ -37,8 +37,9 @@ const AddProfile = () => {
     const { picture, firstName, lastName, phone, year, major, bio } = data;
     const owner = Meteor.user().username;
     const email = Meteor.user().username;
+    const reported = false;
     Sellers.collection.insert(
-      { email, picture, firstName, lastName, phone, year, major, bio, owner },
+      { email, picture, firstName, lastName, phone, year, major, bio, owner, reported },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');

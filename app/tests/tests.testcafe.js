@@ -23,7 +23,7 @@ import { moreinfoownerpage } from './moreinfoowner.page';
 const credentials = { username: 'john@hawaii.edu', password: 'changeme' };
 const admin = { username: 'admin@hawaii.edu', password: 'changeme' };
 const item = { name: 'Fan', image: 'https://i.insider.com/62d6e475bc4c770018b76d6c?width=1200&format=jpeg', category: 'dorm', price: '20', condition: 'used', description: 'Used for two years, still works, perfect for the hot weather' };
-const profile = { firstName: 'Ren', lastName: 'Stockyer', email: 'renstto@hawaii.edu', phone: '808-333-8976',
+const profile = { firstName: 'Ren', lastName: 'Stockyer', email: 'reenstrito@hawaii.edu', phone: '808-333-8976',
   picture: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&w=1000&q=80', bio: 'I love surfing and paddling.' };
 
 fixture('manoa marketplace localhost test with default db')
@@ -122,12 +122,12 @@ test('Test that admin edit profile page work', async (testController) => {
   await editprofilePage.isDisplayed(testController);
 });
 
-test('Test that add profile and signup page work', async (testController) => {
+test.only('Test that add profile and signup page work', async (testController) => {
   await navBar.gotoSignUpPage(testController);
   await signupPage.isDisplayed(testController);
-  await signupPage.signupUser(testController, profile.firstName, profile.lastName, profile.email, credentials.password);
+  await signupPage.signupUser(testController, profile.email, credentials.password);
   await addProfilePage.isDisplayed(testController);
-  await addProfilePage.add(testController, profile.firstName, profile.lastName, profile.email, profile.phone, profile.picture, profile.bio);
+  await addProfilePage.add(testController, profile.firstName, profile.lastName, profile.phone, profile.picture, profile.bio);
 });
 
 test('Test that user edit profile page work', async (testController) => {

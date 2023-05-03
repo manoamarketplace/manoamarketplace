@@ -11,11 +11,10 @@ class AddProfilePage {
     await testController.expect(this.pageSelector.exists).ok();
   }
 
-  async add(testController, firstName, lastName, email, phone, picture, bio) {
+  async add(testController, firstName, lastName, phone, picture, bio) {
     await this.isDisplayed(testController);
     await testController.typeText('#add-profile-form-firstname', firstName);
     await testController.typeText('#add-profile-form-lastname', lastName);
-    await testController.typeText('#add-profile-form-email', email);
     await testController.typeText('#add-profile-form-phone', phone);
     await testController.typeText('#add-profile-form-picture', picture);
     await testController.typeText('#add-profile-form-bio', bio);
