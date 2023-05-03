@@ -27,7 +27,7 @@ const Landing = () => {
   });
 
   return (
-    <Container id="landing-page" className="py-3">
+    <Container id="home-page" className="py-3">
       <div className="p-5 rounded-3 home">
         <Container className="py-5">
           <Row>
