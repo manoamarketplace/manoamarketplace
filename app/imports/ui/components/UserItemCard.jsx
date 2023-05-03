@@ -34,6 +34,7 @@ const UserItemCard = ({ item }) => (
           <Card.Subtitle>Listed Price: ${item.price}</Card.Subtitle>
         </Card.Header>
         <Card.Body>
+          <Card.Text><h4>Offers</h4></Card.Text>
           <CardOffer itemId={item._id} />
         </Card.Body>
       </Link>
