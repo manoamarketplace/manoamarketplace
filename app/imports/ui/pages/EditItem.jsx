@@ -20,8 +20,9 @@ const EditItem = () => {
   const { doc, ready } = useTracker(() => {
     // Get access to Stuff documents.
     const subscription = Meteor.subscribe(Item.userPublicationName);
+    const subscription2 = Meteor.subscribe(Item.adminPublicationName);
     // Determine if the subscription is ready
-    const rdy = subscription.ready();
+    const rdy = subscription.ready() && subscription2.ready();
     // Get the document
     const document = Item.collection.findOne(owner);
     return {

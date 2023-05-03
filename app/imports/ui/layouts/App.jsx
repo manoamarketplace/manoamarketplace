@@ -21,7 +21,6 @@ import YourListings from '../pages/YourListings';
 import Home from '../pages/Home';
 import SellersPage from '../pages/ListSellers';
 import AdminListings from '../pages/AdminListings';
-// import AdminEditItem from '../pages/AdminEditItem';
 import AddProfile from '../pages/AddProfile';
 import Profile from '../pages/Profile';
 import EditProfile from '../pages/EditProfile';

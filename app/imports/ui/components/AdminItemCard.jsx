@@ -1,9 +1,16 @@
 /* Component for layout out a item Card. */
 import React from 'react';
-import { Card, Col, Image, Row } from 'react-bootstrap';
+import { Card, Col, Image, Row, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import swal from 'sweetalert';
 import PropTypes from 'prop-types';
-import { Pencil } from 'react-bootstrap-icons';
+import { Pencil, Trash } from 'react-bootstrap-icons';
+import { Item } from '../../api/item/Item';
+
+const removeItem = (docId) => {
+  swal('Item Deleted', 'Item deleted successfully', 'success');
+  Item.collection.remove(docId);
+};
 
 const AdminItemCard = ({ item }) => (
   <Col>
@@ -13,16 +20,27 @@ const AdminItemCard = ({ item }) => (
           <Image src={item.image} className="img" />
           <Row>
             <Col>
-              <Card.Title><h2>{item.name}</h2></Card.Title>
-              <Card.Subtitle>${item.price} <Link to={`/edit/${item._id}`}><Pencil /></Link></Card.Subtitle>
+              <Card.Title>
+                <h2>{item.name}
+                  <Link to={`/edit/${item._id}`} style={{ textDecoration: 'none' }}>
+                    {' '}<small><small><Pencil /></small></small>
+                  </Link>
+                </h2>
+              </Card.Title>
+              <Card.Subtitle>${item.price}</Card.Subtitle>
             </Col>
           </Row>
         </Card.Header>
         <Card.Body>
-          <Card.Text>Seller: {item.seller}</Card.Text>
-          {item.reported ? ([
-            <p style={{ color: 'red' }}>Item has been reported!</p>,
-          ]) : '' }
+          <Card.Text className="text-center">Seller: {item.seller}</Card.Text>
+          <div className="text-center">
+            {item.reported ? ([
+              <p style={{ color: 'red' }}>Item has been reported!</p>,
+            ]) : '' }
+          </div>
+          <Col className="text-center py-2">
+            <Button variant="outline-danger" onClick={() => removeItem(item._id)}>Delete <Trash /></Button>
+          </Col>
         </Card.Body>
       </Link>
     </Card>

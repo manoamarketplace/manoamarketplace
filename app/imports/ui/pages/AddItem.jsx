@@ -30,7 +30,7 @@ const formSchema = new SimpleSchema({
 
 const bridge = new SimpleSchema2Bridge(formSchema);
 
-/* Renders the AddStuff page for adding a document. */
+/* Renders the AddItem page for adding a document. */
 const AddItem = () => {
   const { ready, sellers } = useTracker(() => {
     // Note that this subscription will get cleaned up
