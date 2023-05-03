@@ -89,7 +89,7 @@ test('Test that profile page work', async (testController) => {
   await profilePage.isDisplayed(testController);
 });
 
-test('Test that more information page work', async (testController) => {
+test('Test that item listings and more information page work', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.gotoCategoriesPage(testController);

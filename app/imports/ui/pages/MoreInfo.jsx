@@ -44,21 +44,17 @@ const MoreInfo = () => {
           <Col className="justify-content-start" xs={6}>
             <Image src={item.image} alt={item.name} className="more-info-img" />
           </Col>
-          <Col xs={6}>
+          <Col>
             <h1>{item.name}</h1>
-            <h4>${item.price}</h4>
+            <h4>${item.price} <Button variant="outline-warning" size="sm" onClick={reportItem}>Report <Flag />
+            </Button>
+            </h4>
             <br />
             <p>Condition: {item.condition}</p>
             <p>{item.description}</p>
             {/* eslint-disable-next-line react/no-unescaped-entities */}
             <MakeOffer owner={item.owner} itemId={item._id} />
             <br />
-            <Row>
-              <Col>
-                <Button variant="warning" onClick={reportItem}>Report <Flag />
-                </Button>
-              </Col>
-            </Row>
           </Col>
         </Row>
       </Container>

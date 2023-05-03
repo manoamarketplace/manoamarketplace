@@ -46,7 +46,7 @@ const MoreInfoOwner = () => {
         <Row>
           <Col className="justify-content-start" xs={6}>
             <Image src={item.image} alt={item.name} className="more-info-img" />
-            <Row className="py-4 justify-content-center text-center">
+            <Row className="py-4 text-center justify-content-center">
               <Col>
                 <Button variant="outline-danger" onClick={() => removeItem(item._id)}>Delete <Trash /></Button>
               </Col>
