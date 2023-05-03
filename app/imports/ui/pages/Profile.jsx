@@ -51,7 +51,7 @@ const Profile = () => {
                         <div className="flex-grow-1 ms-3">
                           <div className="text-center py-2">
                             <Card.Title>{seller[0].firstName} {seller[0].lastName} { currentUser === id.id && (
-                              <Link to={`/edit-profile/${seller[0]._id}`} style={{ color: 'forestgreen', textDecoration: 'none' }}><Pencil id="edit"/></Link>
+                              <Link to={`/edit-profile/${seller[0]._id}`}><Pencil id="edit" /></Link>
                             ) }
                             </Card.Title>
                             <Card.Subtitle>Email: {seller[0].email}</Card.Subtitle>
