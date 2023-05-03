@@ -116,11 +116,6 @@ const Profile = () => {
                       {items.map((item) => (<Col key={items._id}><POwnerItemCard item={item} collection={Item.collection} /></Col>))}
                     </Row>
                   ) }
-                  {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-                    <Row xs={1} md={2} lg={3} className="g-4 py-4">
-                      {items.map((item) => (<Col key={items._id}><POwnerItemCard item={item} collection={Item.collection} /></Col>))}
-                    </Row>
-                  ) : ''}
                   { currentUser !== _id.id && (
                     <Row xs={1} md={2} lg={3} className="g-4 py-4">
                       {items.map((item) => (<Col key={items._id}><PItemCard item={item} collection={Item.collection} /></Col>))}
