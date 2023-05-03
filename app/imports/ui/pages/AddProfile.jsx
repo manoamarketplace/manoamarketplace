@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, Col, Container, Row } from 'react-bootstrap';
+import { Card, Col, Container, Form, Row } from 'react-bootstrap';
 import { AutoForm, ErrorsField, LongTextField, SubmitField, TextField, SelectField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
@@ -9,7 +9,6 @@ import { Navigate } from 'react-router-dom';
 import { Sellers } from '../../api/item/Seller';
 
 const formSchema = new SimpleSchema({
-  email: String,
   firstName: String,
   lastName: String,
   picture: String,
@@ -35,8 +34,9 @@ const bridge = new SimpleSchema2Bridge(formSchema);
 const AddProfile = () => {
   const [redirectToReferer, setRedirectToRef] = useState(false);
   const submit = (data, formRef) => {
-    const { email, picture, firstName, lastName, phone, year, major, bio } = data;
+    const { picture, firstName, lastName, phone, year, major, bio } = data;
     const owner = Meteor.user().username;
+    const email = Meteor.user().username;
     Sellers.collection.insert(
       { email, picture, firstName, lastName, phone, year, major, bio, owner },
       (error) => {
@@ -67,7 +67,7 @@ const AddProfile = () => {
                   <Col><TextField name="lastName" label="Last Name" id="add-profile-form-lastname" /></Col>
                 </Row>
                 <Row>
-                  <Col><TextField name="email" id="add-profile-form-email" /></Col>
+                  <Col>Email<Form.Control type="text" placeholder={Meteor.user().username} aria-label="Disabled input example" disabled readOnly /></Col>
                   <Col><TextField name="phone" id="add-profile-form-phone" /></Col>
                   <Col><TextField name="picture" label="Profile Picture" id="add-profile-form-picture" /></Col>
                 </Row>

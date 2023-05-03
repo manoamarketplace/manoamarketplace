@@ -17,8 +17,6 @@ const SignUp = ({ location }) => {
   const schema = new SimpleSchema({
     email: String,
     password: String,
-    firstName: String,
-    lastName: String,
   });
   const bridge = new SimpleSchema2Bridge(schema);
 
@@ -48,17 +46,13 @@ const SignUp = ({ location }) => {
   return (
     <Container id="signup-page" className="py-3">
       <Row className="justify-content-center">
-        <Col xs={7}>
+        <Col xs={5}>
           <Col className="text-center">
             <h2 className="title">Register your account</h2>
           </Col>
           <AutoForm schema={bridge} onSubmit={data => submit(data)}>
             <Card>
               <Card.Body>
-                <Row>
-                  <Col><TextField id="firstname" name="firstName" placeholder="First name" /></Col>
-                  <Col><TextField id="lastname" name="lastName" placeholder="Last name" /></Col>
-                </Row>
                 <TextField id="email" name="email" placeholder="E-mail address" />
                 <p>Note: E-mail address must end in @hawaii.edu</p>
                 <TextField id="password" name="password" placeholder="Password" type="password" />
