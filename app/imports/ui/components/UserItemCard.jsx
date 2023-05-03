@@ -15,7 +15,7 @@ const UserItemCard = ({ item }) => (
           <Card.Title><h2>{item.name}</h2></Card.Title>
           <Card.Subtitle>Listed Price: ${item.price}
             <Link to={`/edit/${item._id}`}>
-              {' '}<big><Pencil /></big>
+              {' '}<big><Pencil id="edit" /></big>
             </Link>
           </Card.Subtitle>
         </Card.Header>

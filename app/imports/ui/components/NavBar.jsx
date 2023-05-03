@@ -61,7 +61,7 @@ const NavBar = () => {
                   <PlusCircle />
                   {' '}
                   Add
-                  item
+                  Listing
                 </NavDropdown.Item>
                 <NavDropdown.Item id="your-listings-nav" as={NavLink} to="/listings" key="listings">
                   <Database />

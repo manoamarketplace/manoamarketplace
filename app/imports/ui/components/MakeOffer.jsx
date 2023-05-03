@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, Col, Container, Row } from 'react-bootstrap';
+import { Card, Col, Row } from 'react-bootstrap';
 import { AutoForm, ErrorsField, TextField, SubmitField, HiddenField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
 import SimpleSchema from 'simpl-schema';
@@ -39,26 +39,21 @@ const MakeOffer = ({ owner, itemId }) => {
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   let fRef = null;
   return (
-    <Container className="py-3">
-      <Row>
-        <Col xs={7}>
-          <Col className="text-start"><h2>Interested?</h2></Col>
-          <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
-            <Card>
-              <Card.Title className="pt-2 ps-2"><h5>Enter your email address below</h5></Card.Title>
-              <Card.Body>
-                <TextField name="email" />
-                <SubmitField value="Submit" />
-                <ErrorsField />
-                <HiddenField name="owner" value={owner} />
-                <HiddenField name="itemId" value={itemId} />
-                <HiddenField name="createdAt" value={new Date()} />
-              </Card.Body>
-            </Card>
-          </AutoForm>
-        </Col>
-      </Row>
-    </Container>
+    <Row>
+      <Col className="text-start"><h5>Interested? Enter your email address</h5></Col>
+      <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
+        <Card>
+          <Card.Body>
+            <TextField name="email" />
+            <SubmitField value="Submit" />
+            <ErrorsField />
+            <HiddenField name="owner" value={owner} />
+            <HiddenField name="itemId" value={itemId} />
+            <HiddenField name="createdAt" value={new Date()} />
+          </Card.Body>
+        </Card>
+      </AutoForm>
+    </Row>
   );
 };
 

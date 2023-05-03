@@ -39,7 +39,7 @@ const MoreInfo = () => {
   // eslint-disable-next-line no-nested-ternary
   return (ready ? (
     (!_.isEmpty(item) ? (
-      <Container className="py-3">
+      <Container className="py-3" id="moreinfo">
         <Row>
           <Col className="justify-content-start" xs={6}>
             <Image src={item.image} alt={item.name} className="more-info-img" />
@@ -48,9 +48,11 @@ const MoreInfo = () => {
               </Button>
             </div>
           </Col>
-          <Col xs={6}>
+          <Col>
             <h1>{item.name}</h1>
-            <h4>${item.price}</h4>
+            <h4>${item.price} <Button variant="outline-warning" size="sm" onClick={reportItem}>Report <Flag />
+            </Button>
+            </h4>
             <br />
             <p>Condition: {item.condition}</p>
             <p>{item.description}</p>
