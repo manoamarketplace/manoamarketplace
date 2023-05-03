@@ -40,11 +40,11 @@ const MakeOffer = ({ owner, itemId }) => {
   let fRef = null;
   return (
     <Row>
-      <Col className="text-start"><h5>Interested? Enter your email address</h5></Col>
+      <Col className="text-start py-3"><h5>Interested? Enter your email address</h5></Col>
       <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
-        <Card>
+        <Card style={{ marginRight: '100px' }}>
           <Card.Body>
-            <TextField name="email" />
+            <TextField style={{ marginRight: '100px' }} name="email" />
             <SubmitField value="Submit" />
             <ErrorsField />
             <HiddenField name="owner" value={owner} />
