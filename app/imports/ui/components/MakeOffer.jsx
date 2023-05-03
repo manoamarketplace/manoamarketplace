@@ -40,7 +40,7 @@ const MakeOffer = ({ owner, itemId }) => {
   let fRef = null;
   return (
     <Container className="py-3">
-      <Row className="justify-content-center">
+      <Row>
         <Col xs={7}>
           <Col className="text-start"><h2>Interested?</h2></Col>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>

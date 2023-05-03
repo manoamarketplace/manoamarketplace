@@ -43,6 +43,10 @@ const MoreInfo = () => {
         <Row>
           <Col className="justify-content-start" xs={6}>
             <Image src={item.image} alt={item.name} className="more-info-img" />
+            <div className="py-5 justify-content-md-center">
+              <Button variant="warning" onClick={reportItem}>Report <Flag />
+              </Button>
+            </div>
           </Col>
           <Col xs={6}>
             <h1>{item.name}</h1>
@@ -50,15 +54,11 @@ const MoreInfo = () => {
             <br />
             <p>Condition: {item.condition}</p>
             <p>{item.description}</p>
-            {/* eslint-disable-next-line react/no-unescaped-entities */}
-            <MakeOffer owner={item.owner} itemId={item._id} />
+            <div className="justify-content-center">
+              {/* eslint-disable-next-line react/no-unescaped-entities */}
+              <MakeOffer owner={item.owner} itemId={item._id} />
+            </div>
             <br />
-            <Row>
-              <Col>
-                <Button variant="warning" onClick={reportItem}>Report <Flag />
-                </Button>
-              </Col>
-            </Row>
           </Col>
         </Row>
       </Container>

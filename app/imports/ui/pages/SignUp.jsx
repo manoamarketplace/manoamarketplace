@@ -17,18 +17,16 @@ const SignUp = ({ location }) => {
   const schema = new SimpleSchema({
     email: String,
     password: String,
-    firstName: String,
-    lastName: String,
   });
   const bridge = new SimpleSchema2Bridge(schema);
 
   /* Handle SignUp submission. Create user account and a profile entry, then redirect to the home page. */
   const submit = (doc) => {
-    const { firstName, lastName, email, password } = doc;
+    const { email, password } = doc;
     if (email.indexOf('@hawaii.edu') === -1) {
       setError('Not a UH email!');
     } else {
-      Accounts.createUser({ email, username: email, password, firstName, lastName }, (err) => {
+      Accounts.createUser({ email, username: email, password }, (err) => {
         if (err) {
           setError(err.reason);
         } else {
@@ -55,10 +53,6 @@ const SignUp = ({ location }) => {
           <AutoForm schema={bridge} onSubmit={data => submit(data)}>
             <Card>
               <Card.Body>
-                <Row>
-                  <Col><TextField name="firstName" placeholder="First name" /></Col>
-                  <Col><TextField name="lastName" placeholder="Last name" /></Col>
-                </Row>
                 <TextField name="email" placeholder="E-mail address" />
                 <p>Note: E-mail address must end in @hawaii.edu</p>
                 <TextField name="password" placeholder="Password" type="password" />

@@ -15,7 +15,8 @@ const EditProfile = () => {
   const { _id } = useParams();
   const { doc, ready } = useTracker(() => {
     const subscription = Meteor.subscribe(Sellers.userPublicationName);
-    const rdy = subscription.ready();
+    const subscription2 = Meteor.subscribe(Sellers.adminPublicationName);
+    const rdy = subscription.ready() && subscription2.ready();
     const document = Sellers.collection.findOne(_id);
     return {
       doc: document,

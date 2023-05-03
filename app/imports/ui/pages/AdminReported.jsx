@@ -38,15 +38,17 @@ const AdminReported = () => {
       <Row className="justify-content-center">
         <Col>
           <Col className="text-center">
-            <h2 className="title">Reported Items/Users</h2>
+            <h2 className="title">Reported Listings/Users</h2>
           </Col>
           <Row>
-            <Row xs={1} md={2} lg={3} className="g-4">
+            <h4 className="text-center py-4">Reported Listings</h4>
+            <Row xs={1} md={2} lg={3}>
               {items.map((item) => (<Col key={item._id}><AdminItemCard item={item} collection={Item.collection} /></Col>))}
             </Row>
           </Row>
           <Row>
-            <Row xs={1} md={2} lg={3} className="g-4">
+            <h4 className="text-center py-5">Reported Users</h4>
+            <Row xs={1} md={2} lg={3}>
               {sellers.map((seller) => (<Col key={seller._id}><AdminSellerCard seller={seller} collection={Sellers.collection} /></Col>))}
             </Row>
           </Row>
